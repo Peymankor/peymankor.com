@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "What’s new in terrainr 0.4.0?\n\n\n\n\n\nThe new CRAN release of terrainr improves consistency, CRS logic, and fixes some bugs.\n\n\n\n\n\n\nApr 22, 2021\n\n\nMike Mahoney\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2023-06-12-Test/index.html",
+    "href": "posts/2023-06-12-Test/index.html",
+    "title": "What’s new in terrainr 0.4.0?",
+    "section": "",
+    "text": "terrainr version 0.4.0 is now on CRAN! This version is a relatively minor update that shouldn’t impact most workflows, but makes some changes to improve the logic and consistency of the package. The rest of this post runs through the changes you can expect if you update.packages() any time soon!"
+  },
+  {
+    "objectID": "posts/2023-06-12-Test/index.html#whats-a-terrainr",
+    "href": "posts/2023-06-12-Test/index.html#whats-a-terrainr",
+    "title": "What’s new in terrainr 0.4.0?",
+    "section": "What’s a terrainr?",
+    "text": "What’s a terrainr?\nterrainr is an R package for the retrieval and visualization of spatial data. It provides functions to download elevation data and basemap tiles for points within the United States (using public domain data from the USGS National Map), visualize them in R via ggplot2, and process them for 3D visualization using the Unity 3D engine. You can see the GitHub repo here!"
+  },
+  {
+    "objectID": "posts/2023-06-12-Test/index.html#merge_rasters-can-handle-tiles-with-different-numbers-of-bands",
+    "href": "posts/2023-06-12-Test/index.html#merge_rasters-can-handle-tiles-with-different-numbers-of-bands",
+    "title": "What’s new in terrainr 0.4.0?",
+    "section": "merge_rasters can handle tiles with different numbers of bands",
+    "text": "merge_rasters can handle tiles with different numbers of bands\nThe old implementation of merge_rasters was very bulky, read all your map tiles into memory at once, and was a bit of a mess to maintain thanks to the large number of paths you could theoretically take through the code. The commit (suggested via rOpenSci review!) replacing it with gdalwarp via sf is probably the single best code improvement I’ve made to this repo. Unfortunately, the old method could also handle merging rasters with differing numbers of bands, while the simple gdalwarp fix couldn’t.\nSo the old implementation is back as an internal method while I look for a better solution to this problem. merge_rasters will now attempt to use gdalwarp to merge your input files and then fall back to (a massively simplified version of) the older version if gdalwarp fails.\nAs for why you’d want to automatically merge rasters with different numbers of bands, well…"
+  },
+  {
+    "objectID": "posts/2023-06-12-Test/index.html#get_tiles-doesnt-auto-download-transparency-values-for-naip",
+    "href": "posts/2023-06-12-Test/index.html#get_tiles-doesnt-auto-download-transparency-values-for-naip",
+    "title": "What’s new in terrainr 0.4.0?",
+    "section": "get_tiles doesn’t auto-download transparency values for NAIP",
+    "text": "get_tiles doesn’t auto-download transparency values for NAIP\nNAIP orthophotography provides fantastic continuous 1-meter images for the continental United States. When downloading these photos with the argument transparency = true, which used to be the default, most photos don’t have any transparent pixels to talk about and as such are returned and saved as 3 band rasters (RGB images). Some photos, however, do have such pixels and are returned with a 4th alpha band. This causes problems with gdalwarp as well as image editing software, and the majority of the time users are not better served by these pixels being transparent.\nAs a result, this version changes the default transparency argument for get_tiles and hit_national_map_api to false when downloading NAIP images (no other data source is impacted). This is one of the reasons this version gets a 0.x.0 number – while it should be a small change, the same inputs to functions no longer returns the same outputs (though I doubt people would notice), so I’m counting this as a breaking change.\nThere’s a slightly more impactful breaking change worth noting though:"
+  },
+  {
+    "objectID": "posts/2023-06-12-Test/index.html#functions-pay-attention-to-the-provided-crs",
+    "href": "posts/2023-06-12-Test/index.html#functions-pay-attention-to-the-provided-crs",
+    "title": "What’s new in terrainr 0.4.0?",
+    "section": "Functions pay attention to the provided CRS",
+    "text": "Functions pay attention to the provided CRS\nThis header is actually about two distinct changes.\nFirst, another new behavior with get_tiles is that rather than assuming the provided data and downloaded image should both be using the WGS84 CRS (EPSG 4326), get_tiles will now infer the EPSG CRS from any provided sf or Raster object. If the numeric code is missing, this function will still assume 4326.\nSimilarly, rather than specifying target_crs in vector_to_overlay, this function will now return an overlay projected to match reference_raster’s CRS. Missing CRS are handled slightly differently here – if the error_crs argument is NULL, this function will warn; if FALSE it will assume 4326, and if TRUE it will interrupt the function with an error.\nThose are the major changes to this iteration! On top of these there are some minor changes to the package internals, slowly removing dead code paths and simplifying things behind the scenes. If you have any problems (bugs or missing features) with the package, feel free to open an issue!"
+  },
+  {
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "Presentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nMapping shrublands across New York State: Targeted ML for informing management decisions.\n\n\nInvited talk, Federation of Earth Science Information Partners (ESIP) July Meeting, Burlington, VT, July 18 2023.\n\n\nSlides available at https://mm218.dev/esip2023/Biweekly.pdf\n\n\n\n2022\n\n\n\nVirtual Environments for Communicating Changing Forests.\n\n\nWith Colin M. Beier and Aidan C. Ackerman\n\n\nRegular talk, Forest Ecosystem Monitoring Cooperative Conference, Burlington, VT, December 15 2022.\n\n\nSlides available at https://mm218.dev/femc2022"
+  },
+  {
+    "objectID": "presentations/esip2023poster/index.html#spatialsample",
+    "href": "presentations/esip2023poster/index.html#spatialsample",
+    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
+    "section": "spatialsample",
+    "text": "spatialsample\nThe spatialsample package provides methods for spatial cross-validation. These methods provide more accurate estimates of model performance when extrapolating into new areas, and are particularly useful when there is no independent probability sample available for assessing predictions.\nFunctions in spatialsample provide a standardized interface to several of the most popular spatial CV approaches, and return objects which extend classes from the rsample package. As a result, these objects can seamlessly be used with any functions within the tidymodels modeling framework.\n\nRead the paper\nRead the docs\nGet the package"
+  },
+  {
+    "objectID": "presentations/esip2023poster/index.html#waywiser",
+    "href": "presentations/esip2023poster/index.html#waywiser",
+    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
+    "section": "waywiser",
+    "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
+  },
+  {
+    "objectID": "presentations/esip2023talk/index.html",
+    "href": "presentations/esip2023talk/index.html",
+    "title": "Mapping shrublands across New York State.",
+    "section": "",
+    "text": "Read the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "Hello, and Welcome to my website 🤗. My name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources. I am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the guidance of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy current research focus on:\nDecision Analysis\n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization.\n\nOn this site I keep a list of my publications, presentations, and my CV, as well as a technical blog.\n\n\n\n\n\n\nPhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]

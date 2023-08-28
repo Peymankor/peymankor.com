@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 5e66e4e0-28ab-4e07-bd8c-bafa3eb7ba8f
+      url: 'https://peymankor.com'

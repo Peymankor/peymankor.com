@@ -1,0 +1,65 @@
+---
+title: "Peyman Kor"
+image: profile.jpg
+about:
+  template: trestles
+  links:
+    - text: LinkedIn
+      url: "https://www.linkedin.com/in/peyman-kor/"
+    - text: Twitter
+      icon: twitter
+      url: "https://twitter.com/peyman_kor"
+    - text: Medium
+      icon: medium
+      url: "https://medium.com/@peymankor"
+    - text: Email
+      url: "kor.peyman@gmail.com"
+    - text: Blog
+      url: "blog.html"
+    - text: CV
+      url: "cv.pdf"
+comments: false
+---
+::: {.column-page}
+
+## Short Bio
+
+Hello, and Welcome to my website 🤗. My name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources. I am a member of the [Decision and Data Analytics research group](https://bratvoldlab.github.io/website/) at the University of Stavanger. I consider myself fortunate to be under the guidance of [Prof. Reidar Brumer Bratvold](https://www.reidar-bratvold.com/) and Dr. Aojie Hong.
+
+My current research focus on:
+
+<span style="color: blue;">**Decision Analysis**</span>
+
+
+- Decision Quality
+- Sequential Decision Making/Analytics
+- Behavioral Challenges in Decision Making
+
+<span style="color: blue;">**Reinforcement Learnings**</span>
+
+- Dynamic Programming/Approximate Dynamic Programming and Reinforcement Learning
+- Q-Learning for finding the Optimal Policy in the American Option Pricing Problem.
+
+<span style="color: blue;">**Bayesian Optimization**</span>
+
+- Stochastic Optimization using Bayesian Optimization.  
+
+
+
+
+On this site I keep a list of [my publications](papers), [presentations](talks), 
+and [my CV](cv.pdf), as well as a [technical blog](blog.html).
+
+<p></p>
+
+## Education
+
+- PhD Fellow in Computational Engineering, [University of Stavanger](https://www.uis.no/en), 2021 - Present
+- MSc in Computational Modeling and Applied Mathematics (non-degree), [Technical University of Denmark](https://www.dtu.dk/english/), 2019-2020
+- MSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019
+- BSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016
+
+
+:::
+
+<link rel="me" href="https://fosstodon.org/@MikeMahoney218">

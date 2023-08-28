@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Peyman Kor"
+  navbar:
+    right:
+      - text: "Home"
+        href: index.html
+      - text: "Papers"
+        href: papers
+      - text: "Presentations"
+        href: presentations
+      - text: "Blog"
+        href: blog.html
+
+  twitter-card:
+    creator: "@peyman_kor"
+format:
+  html:
+    theme: [sandstone, _variables.scss]
+    css: styles.css
+    toc: true
+
+
+

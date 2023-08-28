@@ -1,0 +1,21 @@
+<html>
+<head><title>Presentations</title></head>
+<body>
+    <h2>Presentations</h2>
+    As lead/presenting author:
+    <h3>2023</h3>
+    <p>
+        <div><strong>Mapping shrublands across New York State: Targeted ML for informing management decisions.</strong></div>
+        <div>Invited talk, Federation of Earth Science Information Partners (ESIP) July Meeting, Burlington, VT, July 18 2023.</div>
+        <div>Slides available at <a href="https://mm218.dev/esip2023/Biweekly.pdf">https://mm218.dev/esip2023/Biweekly.pdf</a></div>
+    </p>
+    <h3>2022</h3>
+    <p>
+        <div><strong>Virtual Environments for Communicating Changing Forests.</strong></div>
+        <div>With <a href = 'https://www.esf.edu/faculty/beier/'>Colin M. Beier</a> and <a href = 'https://aidanackerman.com/'>Aidan C. Ackerman</a></div>
+        <div>Regular talk, Forest Ecosystem Monitoring Cooperative Conference, Burlington, VT, December 15 2022.</div>
+        <div>Slides available at <a href="https://mm218.dev/femc2022">https://mm218.dev/femc2022</a></div>
+    </p>
+    <hr>
+</body>
+</html>
