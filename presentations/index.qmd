@@ -5,22 +5,40 @@
     As lead/presenting author:
     <h3>2023</h3>
     <p>
-        <div><strong>Mapping shrublands across New York State: Targeted ML for informing management decisions.</strong></div>
-        <div>Invited talk, Federation of Earth Science Information Partners (ESIP) July Meeting, Burlington, VT, July 18 2023.</div>
+        <div><strong>Presentation to New MSc Students at Department of Energy - UiS</strong></div>
+        <div> Aug, 2023</div>
+        
+        <a href="https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing" target="_blank">
+        Link to Slides
+        </a>
+        
+        <div><strong>Presentation at D&DA Group Meeting on DP/ADP/RL - UiS</strong></div>
+        <div> Aug, 2023</div>
+        
+        <a href="https://docs.google.com/presentation/d/18iGfVxM4LrFgrQL28an6LELgmU3wG1HZZv2gfZqDovI/edit?usp=sharing" target="_blank">
+        Link to Slides
+        </a>
 
-        [Test](https://github.com/Peymankor/peymankor.com/blob/master/presentations/2023/Biweekly.pdf">https://mm218.dev/esip2023/Biweekly.pdf)
 
-        <div>Slides available at <a href="https://github.com/Peymankor/peymankor.com/blob/master/presentations/2023/Biweekly.pdf">https://mm218.dev/esip2023/Biweekly.pdf</a></div>
+        <div><strong>Presentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - UiS</strong></div>
+        <div> Aug, 2023</div>
+        
+        <a href="https://docs.google.com/presentation/d/1f_ETuUGysoU-TnCTnEP467eG-fA_anVUMC_clgW-URE/edit?usp=sharing" target="_blank">
+        Link to Slides
+        </a>
     </p>
     <h3>2022</h3>
     <p>
         <div><strong>Virtual Environments for Communicating Changing Forests.</strong></div>
         <div>With <a href = 'https://www.esf.edu/faculty/beier/'>Colin M. Beier</a> and <a href = 'https://aidanackerman.com/'>Aidan C. Ackerman</a></div>
         <div>Regular talk, Forest Ecosystem Monitoring Cooperative Conference, Burlington, VT, December 15 2022.</div>
-        <div>Slides available at <a href="https://mm218.dev/femc2022">https://mm218.dev/femc2022</a></div>
+        <div>Slides available at <a href="https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing"</a></div>
 
         <a href="2023/Biweekly.pdf">Sales Figures</a>
+        <a href="[2023/Biweekly.pdf](https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing)">Sales Figures</a>
 
+        [about](2021/SPE_pre_Oct_2021/index.html)
+        [about](2021/DDA_presentation_Sep_2021/test.html)
 
     </p>
     <hr>

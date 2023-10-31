@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>How to Optimize Black-box Functions using Machine Learning: An Introduction to Bayesian Optimization</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Peyman Kor" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="index_files/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# How to Optimize Black-box Functions using Machine Learning: An Introduction to Bayesian Optimization
+]
+.subtitle[
+## IER Biweekly science lecture, UiS
+]
+.author[
+### Peyman Kor
+]
+.date[
+### 2023/10/19
+]
+
+---
+
+
+
+
+
+
+
+
+
+---
+class: center, middle
+
+# Who is this guy?
+---
+
+name: bsc
+class: top, top
+
+## Introduction: Peyman Kor
+.left-column[
+
+&lt;img src="img/profile.jpg" width="600px" height="400px" style="display: block; margin: auto;" /&gt;
+
+]
+--
+.right-column[
+
+ #### 🇮🇷 B.Sc in Petroleum Engineering , Petroleum University of Technology (2011-2016)
+
+  &lt;!-- - B.Sc Thesis: Asphaletene Deposition Modeling along Wellbore --&gt;
+
+{{content}}
+]
+--
+ #### 🇳🇴 M.Sc in Reservoir Engineering, University of Stavanger (2017-2019)
+ 
+&lt;img src="img/mscthesis2png.png" width="400px" height="200px" style="display: block; margin: auto;" /&gt;
+
+ 
+ &lt;!-- - Bayesian Neural Network for Probabilistic Forecasting --&gt;
+
+{{content}}
+--
+
+#### 🇩🇰 M.Sc in Applied Mathematics and Computation, Technical University of Denmark (2019 - 2020)
+
+
+---
+name: msc
+class: top, top
+exclude: true
+count: false
+
+## Introduction: Peyman Kor
+.left-column[
+
+&lt;img src="img/profile.jpg" width="600px" height="400px" style="display: block; margin: auto;" /&gt;
+
+]
+--
+.right-column[
+ * 🇳🇴 M.Sc in Reservoir Engineering, University of Stavanger (2017-2019)
+
+&lt;img src="img/mscthesis2png.png" width="400px" height="200px" style="display: block; margin: auto;" /&gt;
+
+
+{{content}}
+]
+--
+
+ * 🇩🇰 M.Sc in Applied Mathematics and Computation, Technical University of Denmark (2019 - 2020)
+
+&lt;img src="img/dtucompute.jpg" width="400px" height="150px" style="display: block; margin: auto;" /&gt;
+
+{{content}}
+--
+
+---
+name: phd
+class: top, top
+
+## Introduction: Peyman Kor
+.left-column[
+
+&lt;img src="img/profile.jpg" width="600px" height="400px" style="display: block; margin: auto;" /&gt;
+
+]
+--
+.right-column[
+
+ #### 🇳🇴 Ph.D. Student in Computational Engineering, University of Stavanger, Dec 2020 - Ongoing
+
+  - Decision Analysis, Optimization, and Reinforcement Learning.
+  - Supervisors: Reidar B. Bratvold and Aojie Hong
+
+{{content}}
+]
+--
+
+- Decision and Data Analytics (DDA) Research Group at the University of Stavanger
+
+&lt;img src="img/ddaweb.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+{{content}}
+--
+
+---
+
+class: center, middle
+
+# Black-Box Function Optimization?
+
+---
+
+## What is Black-box Function?
+
+--
+
+.pull-left[
+
+### White-box function
+
+&lt;img src="img/white_box.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+--
+.pull-right[
+
+### Black-box function
+
+&lt;img src="img/blackbox_single.jpg" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+
+]
+---
+class: Left
+## Black-box Function Optimization
+
+--
+
+&lt;img src="img/blackbox_edit.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+
+
+---
+## Black-box Function Optimization
+
+--
+.pull-left[
+
+&lt;img src="img/blackbox_example.jpg" width="80%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+]
+--
+
+.pull-right[
+
+### Output of Reservoir Simulation 
+
+&lt;img src="img/egg.gif" width="900px" height="400px" style="display: block; margin: auto;" /&gt;
+
+]
+---
+
+class: center, middle
+
+# Why Black-box Function Optimization is difficult?
+
+--
+
+## Three main reasons: A, B, C
+
+---
+
+class: Left
+## Why Black-box Function Optimization is difficult? (A)
+
+--
+.pull-left[
+
+&lt;img src="img/blackbox_edit.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+--
+.pull-right[
+### A) No grdaient information! 
+
+&lt;img src="img/derivative.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: Left
+## Why Black-box Function Optimization is difficult? (B)
+
+--
+.pull-left[
+
+&lt;img src="img/blackbox_edit.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+--
+.pull-right[
+### B) `\(f(x)\)` is multi-peak! 
+
+&lt;img src="img/local_global.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## Why Black-box Function Optimization is difficult? (C)
+
+--
+.pull-left[
+
+&lt;img src="img/blackbox_edit.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+--
+.pull-right[
+
+### B) forward evaluation of `\(f(x)\)` is time-consuming! 
+
+&lt;img src="img/vaccine_process.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: Left
+## Why Black-box Function Optimization is difficult? (C)
+
+.pull-left[
+
+- Each forward evaluation of the experiments takes around `\(\sim 1 \text{month}\)`
+
+&lt;img src="img/vaccine_process.png" width="400px" height="300px" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+.pull-right[
+
+ - Say the biochemical engineering team of company has identified 4 main process parameters.
+ 
+ - 1)Temperature, 2)pH, 3)Co2 Concentration, 4)Harvest Time
+
+
+{{content}}
+]
+--
+
+- According to them, each of the process parameters can take 5 different value.
+
+- Then total possible combinations are `\(5^4=625\)`
+
+{{content}}
+
+--
+- Then total time to evaluate all possible combination of solution is `$$5^4\times \text{month}=625\times \text{month}\sim \color{red}{52 \: \text{years}!}$$`
+
+{{content}}
+
+
+--
+---
+
+class: center, middle
+
+### We need an optimization method that can handle all three difficulties! 
+
+--
+
+## Bayesian Optimization
+
+--
+
+### Well-suited method for global optimization of black-box functions.
+
+---
+## Example of Bayesian Optimization:
+
+--
+
+&lt;img src="img/black_box_case.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+--
+
+### Question: What is the input that maximizes the output? 
+
+---
+## Example of Bayesian Optimization:
+
+--
+
+### Step I) Initialization:
+
+--
+
+&lt;img src="img/black_box_x_y.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Example of Bayesian Optimization:
+
+### Step I) Plot of Initialization:
+
+--
+
+
+
+
+
+
+
+
+&lt;img src="index_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example of Bayesian Optimization:
+
+### Step II) Build a probabilistic machine learning model
+
+--
+
+`$$X = \begin{bmatrix}
+0.05 \\
+0.2 \\
+0.5 \\
+0.6 \\
+0.95
+\end{bmatrix}, Y = \begin{bmatrix}
+0.38 \\
+0.37 \\
+0.77 \\
+0.44 \\
+0.16 \\
+\end{bmatrix}$$`
+
+--
+
+- We use **Gaussian Process Regression** as a Machine Learning model.
+
+--
+
+- Gaussian Process Regression : Gives the **Mean** of this probability distribution at each test data `\(x^*\)`.  
+
+- Furthermore, Gaussian Process Regression gives the **Confidence Interval (CI)** at each test data `\(x^*\)`.
+
+
+---
+
+## Example of Bayesian Optimization:
+
+### Step II) Build a probabilistic machine learning model.
+
+--
+
+&lt;img src="index_files/figure-html/exampleshow-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example of Bayesian Optimization:
+
+### Step III) How to find the next `\(x^{next}\)` from the expensive function?
+--
+
+
+
+&lt;img src="index_files/figure-html/exampleshow1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example of Bayesian Optimization:
+### Step III) How to find the `\(x^{next}\)` from the expensive function?
+
+&lt;img src="index_files/figure-html/unnamed-chunk-25-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Example of Bayesian Optimization: (Three Iterations)
+
+
+--
+&lt;img src="index_files/figure-html/allinone-1.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+---
+
+## Final Solution of Bayesian Optimization (I): 
+
+--
+
+- The **True function** was: 
+
+--
+
+- `\(y=1-\frac{1}{2} \left(\frac{\sin (12\mathbf{x})}{1+\mathbf{x}} + 2\cos(7\mathbf{x})\mathbf{x}^5 + 0.7 \right)\)`
+
+--
+
+- The global optima of the function is `\(x_M=0.39\)`
+
+--
+
+- After just two iterations, Bayesian Optimization solution is: `\(0.385\)` 
+
+--
+
+- Therefore, after two iteration, we are around `\(\frac{0.385}{0.390}=98\%\)`
+
+--
+
+- Total number of function function has been evaluated is `\(size(D) + size(total iteration) = 5 + 2 = 7\)`.
+---
+
+## Final Solution of Bayesian Optimization (II)
+
+&lt;img src="index_files/figure-html/single_with_true-1.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+
+---
+class: center, middle
+
+# Application of Bayesian Optimization for Management of Water flooding in Reservoir
+
+
+---
+class: Left
+
+## Problem Definition:
+### What are optimum wtaer injection rate for eight injection wells?
+
+--
+.pull-left[
+
+&lt;img src="img/egg_base.jpg" width="800px" style="display: block; margin: auto;" /&gt;
+
+]
+--
+.pull-right[
+
+&lt;img src="img/egg.gif" width="900px" height="400px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Improvemnet in profit compared to Base-case?  
+
+--
+
+.pull-left[
+
+- #### Base Case:
+
+
+&lt;img src="index_files/figure-html/basecase-inj-1.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+- Objective Function: Net Present Value (NPV)=
+ `$$\color{blue}{\sim 34.5 \: \text{MM USD}}$$` 
+]
+
+--
+
+.pull-right[
+
+- #### Optimum Case:
+
+&lt;img src="index_files/figure-html/opt-inj-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+- Objective Function: Net Present Value (NPV)=
+ `$$\color{red}{\sim 36.8 \: \text{MM USD}}$$`
+]
+---
+class: center, middle
+
+# Big Tech Company working on Bayesian Optimization?
+
+---
+## Facebook:
+
+--
+&lt;img src="img/fb_logo.png" width="100px" style="display: block; margin: auto auto auto 0;" /&gt;
+
+--
+.pull-left[
+
+#### Python Package:
+&lt;img src="img/botorch.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+]
+
+--
+
+.pull-right[
+#### Research Team:
+&lt;img src="img/fb.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## More detail about Bayesian Optimization:
+
+&lt;img src="img/paper.png" width="600px" height="500px" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: center, middle
+
+### Thank you for your time and
+
+--
+
+### Thanks to SPE Stavanger Student Chapter, for Invitation!
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current% / %total%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+(function(time) {
+  var d2 = function(number) {
+    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
+  },
+
+  time_format = function(total) {
+    var secs = Math.abs(total) / 1000;
+    var h = Math.floor(secs / 3600);
+    var m = Math.floor(secs % 3600 / 60);
+    var s = Math.round(secs % 60);
+    var res = d2(m) + ':' + d2(s);
+    if (h > 0) res = h + ':' + res;
+    return res;  // [hh:]mm:ss
+  },
+
+  slide_number_div = function(i) {
+    return document.getElementsByClassName('remark-slide-number').item(i);
+  },
+
+  current_page_number = function(i) {
+    return slide_number_div(i).firstChild.textContent;  // text "i / N"
+  };
+
+  var timer = document.createElement('span'); timer.id = 'slide-time-left';
+  var time_left = time, k = slideshow.getCurrentSlideIndex(),
+      last_page_number = current_page_number(k);
+
+  setInterval(function() {
+    time_left = time_left - 1000;
+    timer.innerHTML = ' ' + time_format(time_left);
+    if (time_left < 0) timer.style.color = 'red';
+  }, 1000);
+
+  slide_number_div(k).appendChild(timer);
+
+  slideshow.on('showSlide', function(slide) {
+    var i = slide.getSlideIndex(), n = current_page_number(i);
+    // reset timer when a new slide is shown and the page number is changed
+    if (last_page_number !== n) {
+      time_left = time; last_page_number = n;
+      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
+    }
+    slide_number_div(i).appendChild(timer);
+  });
+})(60000);
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

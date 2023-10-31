@@ -46,7 +46,7 @@
     "href": "presentations/index.html",
     "title": "Peyman Kor",
     "section": "",
-    "text": "Presentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nMapping shrublands across New York State: Targeted ML for informing management decisions.\n\n\nInvited talk, Federation of Earth Science Information Partners (ESIP) July Meeting, Burlington, VT, July 18 2023.\n\nTest\n\nSlides available at https://mm218.dev/esip2023/Biweekly.pdf\n\n\n\n2022\n\n\n\nVirtual Environments for Communicating Changing Forests.\n\n\nWith Colin M. Beier and Aidan C. Ackerman\n\n\nRegular talk, Forest Ecosystem Monitoring Cooperative Conference, Burlington, VT, December 15 2022.\n\n\nSlides available at https://mm218.dev/femc2022\n\nSales Figures"
+    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation to New MSc Students at Department of Energy - UiS\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - UiS\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - UiS\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nVirtual Environments for Communicating Changing Forests.\n\n\nWith Colin M. Beier and Aidan C. Ackerman\n\n\nRegular talk, Forest Ecosystem Monitoring Cooperative Conference, Burlington, VT, December 15 2022.\n\n\nSlides available at &lt;a href=“https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing”\n\nSales Figures Sales Figures\nabout about"
   },
   {
     "objectID": "presentations/esip2023poster/index.html#spatialsample",
@@ -82,5 +82,19 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html#short-bio",
+    "href": "index.html#short-bio",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "Hello, and Welcome to my website 🤗. My name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources. I am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the guidance of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy current research focus on:\nDecision Analysis\n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization.\n\nOn this site I keep a list of my publications, presentations, and my CV, as well as a technical blog."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "PhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
   }
 ]
