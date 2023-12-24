@@ -14,8 +14,8 @@ website:
         href: presentations
       - text: "Blog"
         href: https://medium.com/@peymankor
-      - text: "Blogs"
-        href: blog.qmd
+#      - text: "About Me"
+#        href: about.qmd
 
   twitter-card:
     creator: "@peyman_kor"

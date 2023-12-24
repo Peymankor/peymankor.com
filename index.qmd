@@ -6,6 +6,7 @@ about:
   links:
     - text: LinkedIn
       url: "https://www.linkedin.com/in/peyman-kor/"
+      icon: linkedin
     - text: Twitter
       icon: twitter
       url: "https://twitter.com/peyman_kor"
@@ -14,21 +15,25 @@ about:
       url: "https://medium.com/@peymankor"
     - text: Email
       url: "kor.peyman@gmail.com"
-    - text: Blog
-      url: "blog.html"
-    - text: CV
-      url: "cv.pdf"
+#    - text: Blog
+#      url: "blog.html"
+#    - text: CV
+#      url: "cv.pdf"
 comments: false
 ---
 ::: {.column-page}
 
 ## Short Bio
 
-Hello, and Welcome to my website 🤗. My name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources. I am a member of the [Decision and Data Analytics research group](https://bratvoldlab.github.io/website/) at the University of Stavanger. I consider myself fortunate to be under the guidance of [Prof. Reidar Brumer Bratvold](https://www.reidar-bratvold.com/) and Dr. Aojie Hong.
+Hello 🤗. 
 
-My current research focus on:
+My name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources. 
 
-<span style="color: blue;">**Decision Analysis**</span>
+I am a member of the [Decision and Data Analytics research group](https://bratvoldlab.github.io/website/) at the University of Stavanger. I consider myself fortunate to be under the guidance of [Prof. Reidar Brumer Bratvold](https://www.reidar-bratvold.com/) and Dr. Aojie Hong.
+
+**My main research focus centers around:**
+
+<span style="color: blue;">**Decision Analysis (How to Make Good Decisions) **</span>
 
 
 - Decision Quality
@@ -44,11 +49,8 @@ My current research focus on:
 
 - Stochastic Optimization using Bayesian Optimization.  
 
-
-
-
-On this site I keep a list of [my publications](papers), [presentations](talks), 
-and [my CV](cv.pdf), as well as a [technical blog](blog.html).
+<!-- On this site I keep a list of [my publications](papers), [presentations](talks), 
+and [my CV](cv.pdf), as well as a [technical blog](blog.html). -->
 
 <p></p>
 

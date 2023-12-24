@@ -4,15 +4,22 @@
     <h2>Presentations</h2>
     As lead/presenting author:
     <h3>2023</h3>
-    <p>
-        <div><strong>Presentation to New MSc Students at Department of Energy - UiS</strong></div>
+    <p> 
+        <div><strong>Presentation at D&DA Group Meeting on "from Dynamic Programming to Reinforcement Learning" - University of Stavanger</strong></div>
+        <div> Dec, 2023</div>
+        
+        <a href="https://docs.google.com/presentation/d/1xr6OhBiYFszzS-_2jcaxwmFGefgDjM81NXsT0r2ODC8/edit?usp=sharing" target="_blank">
+        Link to Slides
+        </a>
+        
+        <div><strong>Presentation to New MSc Students at Department of Energy - University of Stavanger</strong></div>
         <div> Aug, 2023</div>
         
         <a href="https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing" target="_blank">
         Link to Slides
         </a>
         
-        <div><strong>Presentation at D&DA Group Meeting on DP/ADP/RL - UiS</strong></div>
+        <div><strong>Presentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger</strong></div>
         <div> Aug, 2023</div>
         
         <a href="https://docs.google.com/presentation/d/18iGfVxM4LrFgrQL28an6LELgmU3wG1HZZv2gfZqDovI/edit?usp=sharing" target="_blank">
@@ -20,7 +27,7 @@
         </a>
 
 
-        <div><strong>Presentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - UiS</strong></div>
+        <div><strong>Presentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger</strong></div>
         <div> Aug, 2023</div>
         
         <a href="https://docs.google.com/presentation/d/1f_ETuUGysoU-TnCTnEP467eG-fA_anVUMC_clgW-URE/edit?usp=sharing" target="_blank">
@@ -29,17 +36,11 @@
     </p>
     <h3>2022</h3>
     <p>
-        <div><strong>Virtual Environments for Communicating Changing Forests.</strong></div>
-        <div>With <a href = 'https://www.esf.edu/faculty/beier/'>Colin M. Beier</a> and <a href = 'https://aidanackerman.com/'>Aidan C. Ackerman</a></div>
-        <div>Regular talk, Forest Ecosystem Monitoring Cooperative Conference, Burlington, VT, December 15 2022.</div>
-        <div>Slides available at <a href="https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing"</a></div>
-
-        <a href="2023/Biweekly.pdf">Sales Figures</a>
-        <a href="[2023/Biweekly.pdf](https://docs.google.com/presentation/d/11UhqvGN7uhoan_K9lDTWjM7Oi5oYEpz7qS7t3SpBGC8/edit?usp=sharing)">Sales Figures</a>
-
-        [about](2021/SPE_pre_Oct_2021/index.html)
-        [about](2021/DDA_presentation_Sep_2021/test.html)
-
+        <div><strong>Presentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger</strong></div>
+        <div> Aug, 2023</div>
+        
+        <a href="https://docs.google.com/presentation/d/1f_ETuUGysoU-TnCTnEP467eG-fA_anVUMC_clgW-URE/edit?usp=sharing" target="_blank">
+        Link to Slides
     </p>
     <hr>
 </body>
