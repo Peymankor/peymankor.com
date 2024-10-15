@@ -1,10 +1,45 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
+    "objectID": "about.html",
+    "href": "about.html",
     "title": "About - Peyman Kor",
     "section": "",
     "text": "I come from Iran, specifically the northern part of Iran, Golestan province. My place of birth is the city of Bandar Torkaman), known for its predominantly Turkmen population.\n\n\n\n\n\nI grew up in a family where both of my parents were teachers. My cultural heritage is Turkmen, and I completed all my pre-university schooling right there in my hometown.\n\n\n\n\n\nBandare Torkman is famous for two remarkable attributes. Firstly, it hosts an annual horse racing competition, an event I eagerly attended year after year.\n\n\n\n\n\nAdditionally, my hometown is celebrated for producing some of the finest handmade carpets globally, recognized as Turkmen carpets."
+  },
+  {
+    "objectID": "about.html#b.sc-in-engineering-2011-2016---ahwaz-iran",
+    "href": "about.html#b.sc-in-engineering-2011-2016---ahwaz-iran",
+    "title": "About - Peyman Kor",
+    "section": "B.Sc in Engineering (2011-2016) - Ahwaz, Iran",
+    "text": "B.Sc in Engineering (2011-2016) - Ahwaz, Iran\nComing from north of Iran, I flew to the south of Iran to do my B.Sc studey in Petroleum Enginnering at Petroluem University of Technology.\nI spend 4 years in beatiful city of Ahvaz.\n\n\n\n\nAhvaz City - Photo by Ashkan Forouzani on Unsplash"
+  },
+  {
+    "objectID": "about.html#m.sc-in-engineering-2017-2019---stavanger-norway",
+    "href": "about.html#m.sc-in-engineering-2017-2019---stavanger-norway",
+    "title": "About - Peyman Kor",
+    "section": "M.Sc in Engineering (2017-2019) - Stavanger, Norway",
+    "text": "M.Sc in Engineering (2017-2019) - Stavanger, Norway\nThen, I decided to do my M.Sc in outside of my conuty. I apllied for M.Sc program for couples of places in the world (USA, UK, Italy,…) and Norway and I had admission from couples of difrenet university.\nI picked Norway and Stavanger as I heared it is oil city nd country and that fits very well to my B.Sc Education.\n\n\n\n\nStavanger City - Photo by Oleksii T on Unsplash\n\n\n\nI enjoued my M.Sc study at Stavanger, and it was combination a lot of fresh experincin of living new country as well professional developmne for myself.\n\n\n\n\nA few snapshots from my days during my MSc program in Stavanger"
+  },
+  {
+    "objectID": "about.html#m.sc-study-in-applied-math-2017-2019---copenhagen-denmark",
+    "href": "about.html#m.sc-study-in-applied-math-2017-2019---copenhagen-denmark",
+    "title": "About - Peyman Kor",
+    "section": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark",
+    "text": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark"
+  },
+  {
+    "objectID": "presentations/esip2023talk/index.html",
+    "href": "presentations/esip2023talk/index.html",
+    "title": "Mapping shrublands across New York State.",
+    "section": "",
+    "text": "See the slides!\n\n\nRead the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
+  },
+  {
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
   },
   {
     "objectID": "posts/2023-06-12-Test/index.html",
@@ -42,13 +77,6 @@
     "text": "Functions pay attention to the provided CRS\nThis header is actually about two distinct changes.\nFirst, another new behavior with get_tiles is that rather than assuming the provided data and downloaded image should both be using the WGS84 CRS (EPSG 4326), get_tiles will now infer the EPSG CRS from any provided sf or Raster object. If the numeric code is missing, this function will still assume 4326.\nSimilarly, rather than specifying target_crs in vector_to_overlay, this function will now return an overlay projected to match reference_raster’s CRS. Missing CRS are handled slightly differently here – if the error_crs argument is NULL, this function will warn; if FALSE it will assume 4326, and if TRUE it will interrupt the function with an error.\nThose are the major changes to this iteration! On top of these there are some minor changes to the package internals, slowly removing dead code paths and simplifying things behind the scenes. If you have any problems (bugs or missing features) with the package, feel free to open an issue!"
   },
   {
-    "objectID": "presentations/index.html",
-    "href": "presentations/index.html",
-    "title": "Peyman Kor",
-    "section": "",
-    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
-  },
-  {
     "objectID": "presentations/esip2023poster/index.html#spatialsample",
     "href": "presentations/esip2023poster/index.html#spatialsample",
     "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
@@ -63,32 +91,18 @@
     "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
   },
   {
-    "objectID": "presentations/esip2023talk/index.html",
-    "href": "presentations/esip2023talk/index.html",
-    "title": "Mapping shrublands across New York State.",
-    "section": "",
-    "text": "Read the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Peyman Kor",
     "section": "",
-    "text": "Hello 🤗.\nMy name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources.\nI am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the guidance of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy main research focus centers around:\nDecision Analysis (How to Make Good Decisions) \n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization.\n\n\n\n\n\n\n\n\nPhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About - Peyman Kor",
-    "section": "",
-    "text": "I come from Iran, specifically the northern part of Iran, Golestan province. My place of birth is the city of Bandar Torkaman), known for its predominantly Turkmen population.\n\n\n\n\n\nI grew up in a family where both of my parents were teachers. My cultural heritage is Turkmen, and I completed all my pre-university schooling right there in my hometown.\n\n\n\n\n\nBandare Torkman is famous for two remarkable attributes. Firstly, it hosts an annual horse racing competition, an event I eagerly attended year after year.\n\n\n\n\n\nAdditionally, my hometown is celebrated for producing some of the finest handmade carpets globally, recognized as Turkmen carpets."
+    "text": "Hello 🤗.\nMy name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources.\nI am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the supervision of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy main research focus centers around:\nDecision Analysis (How to Make Good Decisions) \n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization.\n\n\n\n\n\n\n\n\nPhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
   },
   {
     "objectID": "index.html#short-bio",
     "href": "index.html#short-bio",
     "title": "Peyman Kor",
     "section": "",
-    "text": "Hello 🤗.\nMy name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources.\nI am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the guidance of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy main research focus centers around:\nDecision Analysis (How to Make Good Decisions) \n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization."
+    "text": "Hello 🤗.\nMy name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources.\nI am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the supervision of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy main research focus centers around:\nDecision Analysis (How to Make Good Decisions) \n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization."
   },
   {
     "objectID": "index.html#education",
@@ -96,75 +110,5 @@
     "title": "Peyman Kor",
     "section": "",
     "text": "PhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
-  },
-  {
-    "objectID": "blog.html#education",
-    "href": "blog.html#education",
-    "title": "About - Peyman Kor",
-    "section": "Education",
-    "text": "Education\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011"
-  },
-  {
-    "objectID": "blog.html#experience",
-    "href": "blog.html#experience",
-    "title": "About - Peyman Kor",
-    "section": "Experience",
-    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Spet 2012 - April 2018"
-  },
-  {
-    "objectID": "blog.html#hometown-and-family",
-    "href": "blog.html#hometown-and-family",
-    "title": "About - Peyman Kor",
-    "section": "",
-    "text": "I come from Iran, specifically the northern part of Iran, Golestan province. My place of birth is the city of Bandar Torkaman), known for its predominantly Turkmen population.\n\n\n\n\n\nI grew up in a family where both of my parents were teachers. My cultural heritage is Turkmen, and I completed all my pre-university schooling right there in my hometown.\n\n\n\n\n\nBandare Torkman is famous for two remarkable attributes. Firstly, it hosts an annual horse racing competition, an event I eagerly attended year after year.\n\n\n\n\n\nAdditionally, my hometown is celebrated for producing some of the finest handmade carpets globally, recognized as Turkmen carpets."
-  },
-  {
-    "objectID": "blog.html#b.sc-in-engineering-2011-2016",
-    "href": "blog.html#b.sc-in-engineering-2011-2016",
-    "title": "About - Peyman Kor",
-    "section": "B.Sc in Engineering (2011-2016)",
-    "text": "B.Sc in Engineering (2011-2016)\nComing from north of Iran, I flew to the south of Iran to do my B.Sc studey in Petroleum Enginnering at Petroluem University of Technology.\nI spend 4 years in beatiful city of Ahavaz.\n\n\n\n\nAhvaz City - Photo by Ashkan Forouzani on Unsplash"
-  },
-  {
-    "objectID": "blog.html#b.sc-in-engineering-2011-2016---ahwaz-iran",
-    "href": "blog.html#b.sc-in-engineering-2011-2016---ahwaz-iran",
-    "title": "About - Peyman Kor",
-    "section": "B.Sc in Engineering (2011-2016) - Ahwaz, Iran",
-    "text": "B.Sc in Engineering (2011-2016) - Ahwaz, Iran\nComing from north of Iran, I flew to the south of Iran to do my B.Sc studey in Petroleum Enginnering at Petroluem University of Technology.\nI spend 4 years in beatiful city of Ahvaz.\n\n\n\n\nAhvaz City - Photo by Ashkan Forouzani on Unsplash"
-  },
-  {
-    "objectID": "blog.html#m.sc-in-engineering-2017-2019---stavanger-norway",
-    "href": "blog.html#m.sc-in-engineering-2017-2019---stavanger-norway",
-    "title": "About - Peyman Kor",
-    "section": "M.Sc in Engineering (2017-2019) - Stavanger, Norway",
-    "text": "M.Sc in Engineering (2017-2019) - Stavanger, Norway\nThen, I decided to do my M.Sc in outside of my conuty. I apllied for M.Sc program for couples of places in the world (USA, UK, Italy,…) and Norway and I had admission from couples of difrenet university.\nI picked Norway and Stavanger as I heared it is oil city nd country and that fits very well to my B.Sc Education.\n\n\n\n\nStavanger City - Photo by Oleksii T on Unsplash\n\n\n\nI enjoued my M.Sc study at Stavanger, and it was combination a lot of fresh experincin of living new country as well professional developmne for myself.\n\n\n\n\nA few snapshots from my days during my MSc program in Stavanger"
-  },
-  {
-    "objectID": "blog.html#m.sc-study-in-applied-math-2017-2019---copenhagen-denmark",
-    "href": "blog.html#m.sc-study-in-applied-math-2017-2019---copenhagen-denmark",
-    "title": "About - Peyman Kor",
-    "section": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark",
-    "text": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark"
-  },
-  {
-    "objectID": "about.html#b.sc-in-engineering-2011-2016---ahwaz-iran",
-    "href": "about.html#b.sc-in-engineering-2011-2016---ahwaz-iran",
-    "title": "About - Peyman Kor",
-    "section": "B.Sc in Engineering (2011-2016) - Ahwaz, Iran",
-    "text": "B.Sc in Engineering (2011-2016) - Ahwaz, Iran\nComing from north of Iran, I flew to the south of Iran to do my B.Sc studey in Petroleum Enginnering at Petroluem University of Technology.\nI spend 4 years in beatiful city of Ahvaz.\n\n\n\n\nAhvaz City - Photo by Ashkan Forouzani on Unsplash"
-  },
-  {
-    "objectID": "about.html#m.sc-in-engineering-2017-2019---stavanger-norway",
-    "href": "about.html#m.sc-in-engineering-2017-2019---stavanger-norway",
-    "title": "About - Peyman Kor",
-    "section": "M.Sc in Engineering (2017-2019) - Stavanger, Norway",
-    "text": "M.Sc in Engineering (2017-2019) - Stavanger, Norway\nThen, I decided to do my M.Sc in outside of my conuty. I apllied for M.Sc program for couples of places in the world (USA, UK, Italy,…) and Norway and I had admission from couples of difrenet university.\nI picked Norway and Stavanger as I heared it is oil city nd country and that fits very well to my B.Sc Education.\n\n\n\n\nStavanger City - Photo by Oleksii T on Unsplash\n\n\n\nI enjoued my M.Sc study at Stavanger, and it was combination a lot of fresh experincin of living new country as well professional developmne for myself.\n\n\n\n\nA few snapshots from my days during my MSc program in Stavanger"
-  },
-  {
-    "objectID": "about.html#m.sc-study-in-applied-math-2017-2019---copenhagen-denmark",
-    "href": "about.html#m.sc-study-in-applied-math-2017-2019---copenhagen-denmark",
-    "title": "About - Peyman Kor",
-    "section": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark",
-    "text": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark"
   }
 ]
