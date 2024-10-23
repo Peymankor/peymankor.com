@@ -10,12 +10,15 @@ website:
         href: index.html
       - text: "Papers"
         href: https://scholar.google.com/citations?user=di4h5_4AAAAJ&hl=en
+        target: "_blank"
       - text: "Presentations"
         href: presentations
       - text: "Blog"
         href: https://medium.com/@peymankor
-#      - text: "About Me"
-#        href: about.qmd
+        target: "_blank"
+      - text: "CV"
+        href: cv.qmd
+        target: "_blank"
 
   twitter-card:
     creator: "@peyman_kor"

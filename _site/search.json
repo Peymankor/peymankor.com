@@ -28,18 +28,39 @@
     "text": "M.Sc Study in Applied Math (2017-2019) - Copenhagen, Denmark"
   },
   {
-    "objectID": "presentations/esip2023talk/index.html",
-    "href": "presentations/esip2023talk/index.html",
-    "title": "Mapping shrublands across New York State.",
-    "section": "",
-    "text": "See the slides!\n\n\nRead the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
-  },
-  {
-    "objectID": "presentations/index.html",
-    "href": "presentations/index.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Peyman Kor",
     "section": "",
-    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
+    "text": "Hello! 🤗\nI’m Peyman Kor, a Data Scientist with a Ph.D. in Machine Learning from the University of Stavanger. I specialize in applying advanced data science techniques and machine learning algorithms to solve real-world problems.\nI have over three years of experience developing machine learning models for optimization, decision-making, and driving impactful results across industries such as energy and finance.\n\n\n\n\nDecision Analysis and Optimization:\n\nExpertise in applying sequential decision-making frameworks, dynamic programming, and reinforcement learning techniques.\n\nMachine Learning for Financial Engineering:\n\nDeveloped Q-learning algorithms to optimize policies for American options pricing, showing the power of reinforcement learning in financial modeling.\n\nBayesian Optimization and Stochastic Processes:\n\nI applied Bayesian methods to optimize complex processes, such as well control in oil production, achieving superior results compared to traditional algorithms.\n\n\n\n\n\n\n\nProgramming:\n\nProficient in Python, R, and SQL, with a strong background in libraries such as Pandas, Scikit-learn, PyTorch, and XGBoost.\n\nBig Data:\n\nExperienced in PySpark for handling large-scale datasets.\n\nCloud/DevOps:\n\nFamiliar with cloud services like Microsoft Azure and AWS, and containerization tools like Docker.\n\nVersion Control and Collaboration:\n\nSkilled in using Git and GitHub for version control and team collaboration.\n\n\nI aim to leverage my academic expertise and hands-on project experience to solve industry challenges in Data Science, Machine Learning, and AI, driving innovation and delivering data-driven solutions.\n\n\n\n\n\n\nPh.D. in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
+  },
+  {
+    "objectID": "index.html#short-bio",
+    "href": "index.html#short-bio",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "Hello! 🤗\nI’m Peyman Kor, a Data Scientist with a Ph.D. in Machine Learning from the University of Stavanger. I specialize in applying advanced data science techniques and machine learning algorithms to solve real-world problems.\nI have over three years of experience developing machine learning models for optimization, decision-making, and driving impactful results across industries such as energy and finance.\n\n\n\n\nDecision Analysis and Optimization:\n\nExpertise in applying sequential decision-making frameworks, dynamic programming, and reinforcement learning techniques.\n\nMachine Learning for Financial Engineering:\n\nDeveloped Q-learning algorithms to optimize policies for American options pricing, showing the power of reinforcement learning in financial modeling.\n\nBayesian Optimization and Stochastic Processes:\n\nI applied Bayesian methods to optimize complex processes, such as well control in oil production, achieving superior results compared to traditional algorithms.\n\n\n\n\n\n\n\nProgramming:\n\nProficient in Python, R, and SQL, with a strong background in libraries such as Pandas, Scikit-learn, PyTorch, and XGBoost.\n\nBig Data:\n\nExperienced in PySpark for handling large-scale datasets.\n\nCloud/DevOps:\n\nFamiliar with cloud services like Microsoft Azure and AWS, and containerization tools like Docker.\n\nVersion Control and Collaboration:\n\nSkilled in using Git and GitHub for version control and team collaboration.\n\n\nI aim to leverage my academic expertise and hands-on project experience to solve industry challenges in Data Science, Machine Learning, and AI, driving innovation and delivering data-driven solutions."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Peyman Kor",
+    "section": "",
+    "text": "Ph.D. in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
+  },
+  {
+    "objectID": "presentations/esip2023poster/index.html#spatialsample",
+    "href": "presentations/esip2023poster/index.html#spatialsample",
+    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
+    "section": "spatialsample",
+    "text": "spatialsample\nThe spatialsample package provides methods for spatial cross-validation. These methods provide more accurate estimates of model performance when extrapolating into new areas, and are particularly useful when there is no independent probability sample available for assessing predictions.\nFunctions in spatialsample provide a standardized interface to several of the most popular spatial CV approaches, and return objects which extend classes from the rsample package. As a result, these objects can seamlessly be used with any functions within the tidymodels modeling framework.\n\nRead the paper\nRead the docs\nGet the package"
+  },
+  {
+    "objectID": "presentations/esip2023poster/index.html#waywiser",
+    "href": "presentations/esip2023poster/index.html#waywiser",
+    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
+    "section": "waywiser",
+    "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
   },
   {
     "objectID": "posts/2023-06-12-Test/index.html",
@@ -77,38 +98,24 @@
     "text": "Functions pay attention to the provided CRS\nThis header is actually about two distinct changes.\nFirst, another new behavior with get_tiles is that rather than assuming the provided data and downloaded image should both be using the WGS84 CRS (EPSG 4326), get_tiles will now infer the EPSG CRS from any provided sf or Raster object. If the numeric code is missing, this function will still assume 4326.\nSimilarly, rather than specifying target_crs in vector_to_overlay, this function will now return an overlay projected to match reference_raster’s CRS. Missing CRS are handled slightly differently here – if the error_crs argument is NULL, this function will warn; if FALSE it will assume 4326, and if TRUE it will interrupt the function with an error.\nThose are the major changes to this iteration! On top of these there are some minor changes to the package internals, slowly removing dead code paths and simplifying things behind the scenes. If you have any problems (bugs or missing features) with the package, feel free to open an issue!"
   },
   {
-    "objectID": "presentations/esip2023poster/index.html#spatialsample",
-    "href": "presentations/esip2023poster/index.html#spatialsample",
-    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
-    "section": "spatialsample",
-    "text": "spatialsample\nThe spatialsample package provides methods for spatial cross-validation. These methods provide more accurate estimates of model performance when extrapolating into new areas, and are particularly useful when there is no independent probability sample available for assessing predictions.\nFunctions in spatialsample provide a standardized interface to several of the most popular spatial CV approaches, and return objects which extend classes from the rsample package. As a result, these objects can seamlessly be used with any functions within the tidymodels modeling framework.\n\nRead the paper\nRead the docs\nGet the package"
-  },
-  {
-    "objectID": "presentations/esip2023poster/index.html#waywiser",
-    "href": "presentations/esip2023poster/index.html#waywiser",
-    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
-    "section": "waywiser",
-    "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
     "title": "Peyman Kor",
     "section": "",
-    "text": "Hello 🤗.\nMy name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources.\nI am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the supervision of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy main research focus centers around:\nDecision Analysis (How to Make Good Decisions) \n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization.\n\n\n\n\n\n\n\n\nPhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
+    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
   },
   {
-    "objectID": "index.html#short-bio",
-    "href": "index.html#short-bio",
-    "title": "Peyman Kor",
+    "objectID": "presentations/esip2023talk/index.html",
+    "href": "presentations/esip2023talk/index.html",
+    "title": "Mapping shrublands across New York State.",
     "section": "",
-    "text": "Hello 🤗.\nMy name is Peyman, a Ph.D. Fellow in Computational Engineering at the University of Stavanger within the Department of Energy Resources.\nI am a member of the Decision and Data Analytics research group at the University of Stavanger. I consider myself fortunate to be under the supervision of Prof. Reidar Brumer Bratvold and Dr. Aojie Hong.\nMy main research focus centers around:\nDecision Analysis (How to Make Good Decisions) \n\nDecision Quality\nSequential Decision Making/Analytics\nBehavioral Challenges in Decision Making\n\nReinforcement Learnings\n\nDynamic Programming/Approximate Dynamic Programming and Reinforcement Learning\nQ-Learning for finding the Optimal Policy in the American Option Pricing Problem.\n\nBayesian Optimization\n\nStochastic Optimization using Bayesian Optimization."
+    "text": "See the slides!\n\n\nRead the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Peyman Kor",
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
     "section": "",
-    "text": "PhD Fellow in Computational Engineering, University of Stavanger, 2021 - Present\nMSc in Computational Modeling and Applied Mathematics (non-degree), Technical University of Denmark, 2019-2020\nMSc in Reservoir Engineering, University of Stavanger, Norway, 2017-2019\nBSc in Reservoir Engineering, Petroleum University of Technology, Iran, 2011-2016"
+    "text": "Your browser does not support iframes."
   }
 ]
