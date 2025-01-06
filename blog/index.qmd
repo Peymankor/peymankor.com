@@ -1,0 +1,11 @@
+---
+title: "Insights and Stories"
+description: "Explore compelling content on technology, learning, and personal growth."
+listing:
+  contents: "*/index.*"
+  sort: "date desc"
+  categories: true
+  type: default
+  fields: [image, date, title, author, reading-time]
+page-layout: full
+---

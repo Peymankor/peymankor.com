@@ -1,0 +1,12 @@
+---
+title: "My First Blog Post1"
+author: "Peyman Kor"
+date: 2025-01-03
+categories: [Python, Data Science]
+listing: 
+    fields: [image, date, title, author, reading-time]
+---
+
+
+
+This is the content of my first blog post written in Quarto!

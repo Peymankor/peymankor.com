@@ -1,0 +1,13 @@
+[
+  {
+    "listing": "/blog/post1/index.html",
+    "items": []
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/anthropic_effective_agent/index.html",
+      "/blog/post1/index.html"
+    ]
+  }
+]

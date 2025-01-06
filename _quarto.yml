@@ -14,8 +14,8 @@ website:
       - text: "Presentations"
         href: presentations
       - text: "Blog"
-        href: https://medium.com/@peymankor
-        target: "_blank"
+        href: blog/index.html
+#        target: "_blank"
       - text: "CV"
         href: cv.qmd
         target: "_blank"
@@ -28,5 +28,13 @@ format:
     css: styles.css
     toc: true
 
+collections:
+  blog:
+    folder: blog
+    sort: date asc
+    categories: true
+    format:
+      html:
+        page-layout: full
 
 
