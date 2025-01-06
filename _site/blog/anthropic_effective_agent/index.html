@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Peyman Kor">
-<meta name="dcterms.date" content="2025-01-03">
+<meta name="dcterms.date" content="2025-01-06">
 <meta name="description" content="A short hands-on tutorial on building effective agents following the Anthropic report">
 
 <title>Peyman Kor - Building Effective Agents: A Short Hands-On Tutorial</title>
@@ -4589,7 +4589,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 3, 2025</p>
+      <p class="date">January 6, 2025</p>
     </div>
   </div>
   
@@ -4618,24 +4618,23 @@ vertical-align: -.125em;
 <li><strong>Workflow 2: Parallelization</strong></li>
 <li><strong>Workflow 3: Routing</strong></li>
 <li><strong>Workflow 4: Evaluator-Optimizer</strong></li>
-<li><strong>Workflow 5: Orchestrate Worker</strong></li>
 </ul>
 <p>For each of these workflow, I will start with a short description of the workflow and then we’ll build up on that description the required function calling Python code of it and then the workflow section will end with the example to give a hands on example of how to implement the workflow.</p>
 <section id="llm-call-function-from-groq" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="llm-call-function-from-groq">LLM Call Function from Groq</h2>
 <p>In this report I will use the <a href="https://groq.com/">Groq</a> as the LLM provider. So the way is that every function call that we will wake, will go to the <a href="https://groq.com/">Groq</a> and then will receive the reply from the <a href="https://groq.com/">Groq</a> LLM models. To do that you need to have the API access and you can find it in this <a href="https://console.groq.com/keys">page</a> with this <a href="https://www.kerlig.com/help/groq/get-api-key">guide</a> on how to get your API case. After getting your API case you’re good to go to implement the workflows.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> groq <span class="im">import</span> Groq</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&quot;GROQ_API_KEY&quot;</span>] <span class="op">=</span> <span class="st">&quot;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&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&quot;GROQ_API_KEY&quot;</span>] <span class="op">=</span> <span class="st">&quot;Enter your API key here&quot;</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> Groq(</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>os.environ.get(<span class="st">&quot;GROQ_API_KEY&quot;</span>),  <span class="co"># This is the default and can be omitted</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>So in the previous code we generate the <strong>client</strong> class so then this client class has a “chat completion create” that that we can give the prompt which is a content and also specify the model and then we can get a reply.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chat_completion <span class="op">=</span> client.chat.completions.create(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        {</span>
@@ -4647,7 +4646,7 @@ vertical-align: -.125em;
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For ease of use now I will define the <code>llm_call</code> function which only takes the prompt and give that prompt to the “llama3-70b-8192” model and I get a response from the as a return from output of the function. We will use <code>llm_call</code> function throughout this notebook.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> llm_call(prompt: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    chat_completion <span class="op">=</span> client.chat.completions.create(</span>
@@ -4663,42 +4662,54 @@ vertical-align: -.125em;
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here we can just use this function as an example to see if everything is working.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>task_prompt <span class="op">=</span> <span class="st">&quot;Explain me briefly the agentic AI concept&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> llm_call(prompt<span class="op">=</span>task_prompt)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>task_prompt <span class="op">=</span> <span class="st">&quot;Explain me briefly the agentic AI concept&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> llm_call(prompt<span class="op">=</span>task_prompt)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>wrapped_response <span class="op">=</span> textwrap.fill(response, width<span class="op">=</span><span class="dv">80</span>)  <span class="co"># Adjust width as needed</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wrapped_response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>A great topic!
-
-Agentic AI is a concept in artificial intelligence that refers to AI systems that are autonomous, proactive, and intentional, like an &quot;agent&quot; that acts on its own behalf. These AI systems are designed to pursue specific goals and objectives, making decisions and taking actions without human intervention.
-
-The key characteristics of agentic AI include:
-
-1. **Autonomy**: The AI system operates independently, making its own decisions and taking actions.
-2. **Intentionality**: The AI system has its own goals, objectives, and motivations, which drive its behavior.
-3. **Proactivity**: The AI system anticipates and initiates actions to achieve its goals, rather than simply reacting to external stimuli.
-4. **Agency**: The AI system has a sense of self and ownership, as if it were an entity that can make choices and take actions on its own behalf.
-
-Agentic AI has the potential to revolutionize industries such as healthcare, finance, and transportation, where autonomous systems can make decisions and take actions in real-time, without human oversight. However, it also raises important questions about accountability, responsibility, and ethics, as these systems can have significant impact on human lives and society as a whole.</code></pre>
+<pre><code>A very timely topic!  Agentic AI refers to Artificial Intelligence systems that
+have their own agency, meaning they have the ability to make decisions, take
+actions, and adapt to new situations autonomously, without human intervention.
+In other words, they have a degree of independence and self-governance.  Here
+are the key characteristics of agentic AI:  1. **Autonomy**: The AI system can
+operate independently, making decisions and taking actions without human
+oversight. 2. **Self-awareness**: The AI system has a sense of its own
+existence, goals, and motivations. 3. **Decentralization**: Agentic AI systems
+can interact with their environment and other entities without relying on a
+central authority. 4. **Adaptability**: They can adapt to new situations, learn
+from experience, and evolve over time. 5. **Goal-oriented**: Agentic AI systems
+have their own goals, objectives, and motivations, which drive their decision-
+making processes.  Agentic AI has the potential to revolutionize various
+domains, such as:  1. Autonomous vehicles 2. Smart homes and cities 3.
+Healthcare and robotics 4. Finance and trading 5. Cybersecurity  However, it
+also raises important questions about accountability, transparency, and the
+potential risks associated with autonomous decision-making.  I hope this brief
+introduction helps! Do you have any specific questions about agentic AI?</code></pre>
 </div>
 </div>
 <p>But also another function that we will need is that this <code>extract_xml</code> function which is just extract the content of specific XML tag.In the examples that comes afterward, it will be more clear how this function works if it’s not very clear now.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_xml(text: <span class="bu">str</span>, tag: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Extracts the content of the specified XML tag from the given text. Used for parsing structured responses </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">        text (str): The text containing the XML.</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">        tag (str): The XML tag to extract content from.</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">        str: The content of the specified XML tag, or an empty string if the tag is not found.</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> re.search(<span class="ss">f&#39;&lt;</span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">&gt;(.*?)&lt;/</span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">&gt;&#39;</span>, text, re.DOTALL)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> match.group(<span class="dv">1</span>) <span class="cf">if</span> match <span class="cf">else</span> <span class="st">&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Extracts the content of the specified XML tag from the given text. </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Used for parsing structured responses </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">        text (str): The text containing the XML.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">        tag (str): The XML tag to extract content from.</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">        str: The content of the specified XML tag, </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">        or an empty string if the tag is not found.</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> re.search(<span class="ss">f&#39;&lt;</span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">&gt;(.*?)&lt;/</span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">&gt;&#39;</span>, text, re.DOTALL)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> match.group(<span class="dv">1</span>) <span class="cf">if</span> match <span class="cf">else</span> <span class="st">&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="workflow-1-prompt-chaining" class="level2" data-number="1">
@@ -4711,40 +4722,41 @@ Agentic AI has the potential to revolutionize industries such as healthcare, fin
 </figure>
 </div>
 <p>So here we are actually starting with the first workflow, which is prompt chaining. Essentially, in the prompt chaining, what we are doing is that we can decompose a task into the sequential subtasks and then we call the LLM where at each step, output of the LLM become the input of the next step.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> concurrent.futures <span class="im">import</span> ThreadPoolExecutor</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List, Dict, Callable</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prompt_chaining(input_text: <span class="bu">str</span>, prompts: List[<span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Execute a sequence of LLM calls where each step&#39;s output becomes the next step&#39;s input.</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">        input_text: Initial text to process</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">        prompts: List of prompts/instructions for each step</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">        Final processed text after all steps</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    current_text <span class="op">=</span> input_text</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step, prompt <span class="kw">in</span> <span class="bu">enumerate</span>(prompts, <span class="dv">1</span>):</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Step </span><span class="sc">{</span>step<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Combine the prompt with current text</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        full_prompt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Input: </span><span class="sc">{</span>current_text<span class="sc">}</span><span class="ss">&quot;</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Process through LLM</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        current_text <span class="op">=</span> llm_call(full_prompt)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(current_text)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> current_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Execute a sequence of LLM calls where each step&#39;s output </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    becomes the next step&#39;s input.</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">        input_text: Initial text to process</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">        prompts: List of prompts/instructions for each step</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">        Final processed text after all steps</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    current_text <span class="op">=</span> input_text</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step, prompt <span class="kw">in</span> <span class="bu">enumerate</span>(prompts, <span class="dv">1</span>):</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Step </span><span class="sc">{</span>step<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Combine the prompt with current text</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        full_prompt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Input: </span><span class="sc">{</span>current_text<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Process through LLM</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        current_text <span class="op">=</span> llm_call(full_prompt)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(current_text)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> current_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Essentially what this court is doing is just a “for loop” where the inputs become the prompt to the LLM, and the outputs become the new prompt to the new LLM call. So It’s a chaining the input and output together.</p>
 <section id="example-workflow-1-prompt-chaining" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="example-workflow-1-prompt-chaining"><span class="header-section-number">1.1</span> Example: Workflow 1: Prompt Chaining</h3>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data_processing_steps <span class="op">=</span> [</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Extract only the numerical values and their associated metrics from the text.</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">    Format each as &#39;value: metric&#39; on a new line.</span></span>
@@ -4798,22 +4810,18 @@ Here are the extracted numerical values and their associated metrics:
 78%: product adoption rate
 87: employee satisfaction
 34%: operating margin
-8%: customer churn (previous quarter)
 
 Step 2:
-Here is the converted list in the desired format:
+Here is the converted list:
 
 92%: customer satisfaction score
 45%: revenue growth
 23%: market share
 5%: customer churn
-43: new user acquisition cost (cannot be converted to percentage)
+43: new user acquisition cost (cannot be converted to percentage or decimal)
 78%: product adoption rate
 87%: employee satisfaction
 34%: operating margin
-8%: customer churn (previous quarter)
-
-Note: The &quot;new user acquisition cost&quot; metric is a numerical value, but it doesn&#39;t make sense to convert it to a percentage, so it remains unchanged.
 
 Step 3:
 Here is the sorted list in descending order by numerical value:
@@ -4822,10 +4830,9 @@ Here is the sorted list in descending order by numerical value:
 87%: employee satisfaction
 78%: product adoption rate
 45%: revenue growth
-43: new user acquisition cost (cannot be converted to percentage)
+43: new user acquisition cost (cannot be converted to percentage or decimal)
 34%: operating margin
 23%: market share
-8%: customer churn (previous quarter)
 5%: customer churn
 
 Step 4:
@@ -4839,16 +4846,15 @@ Here is the formatted data as a markdown table:
 | Revenue Growth | 45% |
 | Operating Margin | 34% |
 | Market Share | 23% |
-| Customer Churn (previous quarter) | 8% |
 | Customer Churn | 5% |
 | New User Acquisition Cost | 43 |
 
-Note: I kept the &quot;New User Acquisition Cost&quot; metric in the table, but removed the percentage sign since it&#39;s not a percentage value. If you want to remove it altogether, just let me know!</code></pre>
+Note: I couldn&#39;t format the &quot;New User Acquisition Cost&quot; as a percentage or decimal since it&#39;s not possible, so I left it as is.</code></pre>
 </div>
 </div>
 <p>So there in the above example as the result gets print out and every step you can look at the step by step where the flow of the things are going. And that’s so nice because as we say being transparent and simple is a quite useful when we work with this workflows.</p>
 <p>I can print out just the final outcome of the example to get the final answer as well.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;The final outcome after processing the report through the prompt chain is:&quot;</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;-----------------------------------------------------------&quot;</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4865,11 +4871,10 @@ Here is the formatted data as a markdown table:
 | Revenue Growth | 45% |
 | Operating Margin | 34% |
 | Market Share | 23% |
-| Customer Churn (previous quarter) | 8% |
 | Customer Churn | 5% |
 | New User Acquisition Cost | 43 |
 
-Note: I kept the &quot;New User Acquisition Cost&quot; metric in the table, but removed the percentage sign since it&#39;s not a percentage value. If you want to remove it altogether, just let me know!</code></pre>
+Note: I couldn&#39;t format the &quot;New User Acquisition Cost&quot; as a percentage or decimal since it&#39;s not possible, so I left it as is.</code></pre>
 </div>
 </div>
 </section>
@@ -4884,7 +4889,7 @@ Note: I kept the &quot;New User Acquisition Cost&quot; metric in the table, but 
 </figure>
 </div>
 <p>We can write it’s main python codm in function named <code>parallel</code>, where it takes two input , first is “prompt” and the second is inputs, and the inputs is the “Python list” of the prompts that we want to run in parallel.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parallel(prompt: <span class="bu">str</span>, inputs: List[<span class="bu">str</span>], n_workers: <span class="bu">int</span> <span class="op">=</span> <span class="dv">3</span>) <span class="op">-&gt;</span> List[<span class="bu">str</span>]:</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Process multiple inputs concurrently with the same prompt.&quot;&quot;&quot;</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> ThreadPoolExecutor(max_workers<span class="op">=</span>n_workers) <span class="im">as</span> executor:</span>
@@ -4893,7 +4898,7 @@ Note: I kept the &quot;New User Acquisition Cost&quot; metric in the table, but 
 </div>
 <section id="example-workflow-2-parallelization" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="example-workflow-2-parallelization"><span class="header-section-number">2.1</span> Example: Workflow 2: Parallelization</h3>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>stakeholders <span class="op">=</span> [</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Customers:</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">    - Price sensitive</span></span>
@@ -4929,8 +4934,10 @@ Note: I kept the &quot;New User Acquisition Cost&quot; metric in the table, but 
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, result <span class="kw">in</span> <span class="bu">enumerate</span>(impact_results, <span class="dv">1</span>):</span>
 <span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Stakeholder Group </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
 <span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;-&quot;</span> <span class="op">*</span> <span class="dv">50</span>)</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result)</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span> <span class="op">*</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="co">#warpped_result = textwrap.fill(result, width=80)</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(warpped_result)</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result)</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span> <span class="op">*</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis Results for Each Stakeholder Group:
 ==================================================
@@ -4939,90 +4946,102 @@ Stakeholder Group 1:
 --------------------------------------------------
 **Market Change Impact Analysis: Customers**
 
-**Priority: High**
+**I. Introduction**
 
-**Market Changes:**
+This analysis examines the potential impacts of market changes on the customer stakeholder group, specifically focusing on their price sensitivity, desire for better technology, and environmental concerns.
 
-1. **Increasing Competition**: New market entrants and disruptors are altering the competitive landscape, driving prices down and forcing companies to innovate.
-2. **Technological Advancements**: Rapid advancements in technology are raising customer expectations for innovative products and services.
-3. **Growing Environmental Concerns**: Consumers are becoming increasingly eco-conscious, driving demand for sustainable and eco-friendly products.
+**II. Market Changes**
 
-**Impacts on Customers:**
+The following market changes are expected to impact customers:
 
-**Price Sensitivity:**
+* **Increased competition**: New market entrants and established players are investing in technology and sustainability initiatives, increasing competition for customers&#39; attention and loyalty.
+* **Evolving technology**: Rapid advancements in technology are changing customer expectations and preferences, with a growing demand for innovative and eco-friendly products and services.
+* **Growing environmental awareness**: Consumers are becoming more environmentally conscious, driving demand for sustainable and responsible business practices.
 
-* **Impact:** Customers may seek cheaper alternatives, potentially leading to a loss of market share.
-* **Recommended Action:**
-    + Offer competitive pricing strategies, such as tiered pricing or subscription models.
-    + Invest in cost-saving technologies to maintain profit margins.
+**III. Impacts on Customers**
 
-**Desire for Better Tech:**
+**1. Price Sensitivity**
 
-* **Impact:** Customers may switch to competitors offering more innovative products, leading to a loss of market share and revenue.
-* **Recommended Action:**
-    + Invest in R&amp;D to develop cutting-edge products and services that meet customer needs.
-    + Partner with tech startups or innovators to stay ahead of the curve.
+* Impact: Increased competition may lead to pricing pressures, making it difficult for companies to maintain profit margins while keeping prices competitive.
+* Recommended Action:
+    + Prioritize: Implement cost-saving measures to maintain competitiveness without compromising product quality.
+    + Investigate: Alternative pricing strategies, such as tiered pricing or subscription-based models, to appeal to price-sensitive customers.
 
-**Environmental Concerns:**
+**2. Desire for Better Technology**
 
-* **Impact:** Customers may boycott companies with poor environmental track records, damaging brand reputation and losing sales.
-* **Recommended Action:**
-    + Develop sustainable products and services that appeal to eco-conscious customers.
-    + Communicate environmental efforts and achievements transparently to build trust and loyalty.
+* Impact: Rapid technological advancements may render existing products or services outdated, leading to customer dissatisfaction and churn.
+* Recommended Action:
+    + Prioritize: Invest in Research and Development (R&amp;D) to stay ahead of the technology curve and offer innovative solutions.
+    + Explore: Partnerships with technology startups or collaborations with industry leaders to accelerate innovation.
 
-**Additional Recommendations:**
+**3. Environmental Concerns**
 
-* **Customer Engagement:** Regularly engage with customers through surveys, feedback sessions, and social media to stay informed about their evolving needs and concerns.
-* **Product Development:** Develop products and services that cater to customers&#39; environmental concerns, such as green packaging, energy-efficient solutions, or sustainable materials.
-* **Education and Awareness:** Educate customers about the environmental benefits of products and services, highlighting the company&#39;s commitment to sustainability.
+* Impact: Customers may choose to switch to competitors with stronger environmental credentials, damaging brand reputation and loyalty.
+* Recommended Action:
+    + Prioritize: Develop and communicate a clear environmental sustainability strategy, outlining commitments and progress towards reducing carbon footprint.
+    + Invest: In eco-friendly product development, supply chain optimization, and sustainable operations to reduce environmental impact.
 
-By understanding the impacts of market changes on customers and taking proactive steps to address their concerns, companies can maintain a competitive edge, build brand loyalty, and ultimately drive business growth.
+**IV. Conclusion**
+
+To remain competitive and meet customer needs, companies must prioritize innovation, sustainability, and cost-effectiveness. By understanding the impacts of market changes on customers, businesses can take proactive steps to adapt and thrive in a rapidly evolving market.
+
+**Priority Matrix**
+
+| Impact | Recommended Action | Priority Level |
+| --- | --- | --- |
+| Price Sensitivity | Implement cost-saving measures | High |
+|  | Investigate alternative pricing strategies | Medium |
+| Desire for Better Technology | Invest in R&amp;D | High |
+|  | Explore partnerships or collaborations | Medium |
+| Environmental Concerns | Develop and communicate environmental sustainability strategy | High |
+|  | Invest in eco-friendly product development and sustainable operations | High |
+
+By focusing on these key areas, companies can effectively respond to market changes and meet the evolving needs and expectations of their customers.
 ==================================================
 
 Stakeholder Group 2:
 --------------------------------------------------
 **Market Changes Impact Analysis: Employees**
 
-**Summary:** The following analysis highlights the potential impacts of market changes on employees, specifically addressing their concerns regarding job security, the need for new skills, and the desire for clear direction. Recommended actions are provided to mitigate these impacts and ensure a resilient and adaptable workforce.
+**Section 1: Summary of Market Changes**
 
-**Impacts on Employees:**
+* Shift towards digitalization and automation
+* Increasing competition and consolidation in the industry
+* Changing customer preferences and behaviors
 
-### **Job Security Worries**
-
-* **Impact 1:** Automation and AI may replace certain job roles, exacerbating job security concerns.
-* **Impact 2:** Economic downturns or industry shifts may lead to layoffs and restructuring, further fueling job insecurity.
-* **Impact 3:** Rapidly changing market conditions may create uncertainty about the company&#39;s ability to adapt and survive, resulting in employee anxiety about job security.
-
-### **Need for New Skills**
-
-* **Impact 1:** Shifts in technology and industry trends may render existing skills obsolete, forcing employees to acquire new ones to remain relevant.
-* **Impact 2:** Changes in market demands may require employees to adapt to new processes, tools, and methodologies, necessitating continuous learning and upskilling.
-* **Impact 3:** The inability to keep pace with changing market requirements may lead to feelings of inadequacy and frustration among employees.
-
-### **Clear Direction**
-
-* **Impact 1:** Rapid market changes may cause confusion about the company&#39;s vision, mission, and strategic priorities, leaving employees feeling uncertain and disconnected.
-* **Impact 2:** Lack of clear direction may hinder employee engagement, motivation, and accountability, as they struggle to understand how their work contributes to the company&#39;s overall goals.
-* **Impact 3:** Inadequate communication about market changes and their implications may lead to employee skepticism and mistrust.
-
-**Recommended Actions:**
+**Section 2: Impacts on Employees**
 
 **Priority 1: Job Security Worries**
 
-* **Action 1:** Develop and communicate a clear talent management strategy, outlining upskilling and reskilling opportunities to help employees adapt to changing market conditions.
-* **Action 2:** Foster open and transparent communication about the company&#39;s response to market changes, ensuring employees are informed about the measures being taken to address their concerns.
+* **Impact:** Uncertainty and fear of job loss due to automation and restructuring
+* **Recommended Actions:**
+    + Communicate clearly and transparently about the company&#39;s vision, goals, and plans for addressing market changes
+    + Provide training and upskilling programs to ensure employees have the necessary skills to adapt to new technologies and processes
+    + Offer support and resources for employees who may be affected by restructuring, such as outplacement services or career counseling
 
 **Priority 2: Need for New Skills**
 
-* **Action 1:** Invest in employee development programs, providing access to training, mentorship, and education resources that address emerging market trends and technologies.
-* **Action 2:** Encourage a culture of continuous learning, recognizing and rewarding employees who proactively seek out new skills and knowledge.
+* **Impact:** Employees may struggle to keep pace with rapidly changing technologies and skills requirements
+* **Recommended Actions:**
+    + Develop and implement comprehensive training and development programs that focus on emerging technologies and skills
+    + Encourage continuous learning and professional development through online courses, workshops, and mentorship opportunities
+    + Collaborate with educational institutions and industry leaders to stay ahead of the curve in terms of skills and knowledge requirements
 
-**Priority 3: Clear Direction**
+**Priority 3: Clear Direction Needed**
 
-* **Action 1:** Establish a clear and concise communication strategy, ensuring that all employees understand the company&#39;s vision, mission, and priorities in response to market changes.
-* **Action 2:** Provide regular updates and progress reports on the company&#39;s response to market shifts, maintaining transparency and building trust with employees.
+* **Impact:** Employees may feel uncertain about the company&#39;s direction and their role in achieving goals
+* **Recommended Actions:**
+    + Establish clear and measurable goals that align with the company&#39;s overall vision and strategy
+    + Communicate regularly with employees about progress towards goals and provide regular feedback and coaching
+    + Empower employees to take ownership of their work and provide autonomy to make decisions that align with the company&#39;s goals and values
 
-By addressing these impacts and taking proactive steps to support employees, the organization can mitigate the negative effects of market changes and foster a resilient, adaptable, and engaged workforce.
+**Section 3: Additional Recommendations**
+
+* Conduct regular town hall meetings and feedback sessions to address employee concerns and provide updates on market changes and company initiatives
+* Develop and maintain a robust internal communications plan to ensure employees receive timely and accurate information
+* Foster a culture of innovation, experimentation, and continuous improvement to encourage employees to adapt to changing market conditions
+
+By addressing the concerns and needs of employees, the company can mitigate the negative impacts of market changes and position itself for success in a rapidly evolving industry.
 ==================================================
 
 Stakeholder Group 3:
@@ -5030,98 +5049,109 @@ Stakeholder Group 3:
 **Market Change Impact Analysis: Investors**
 
 **Summary**
+As market changes unfold, investors will be significantly impacted by shifts in growth, cost control, and risk management. To mitigate potential negative effects and capitalize on opportunities, investors must be proactively prepared to adapt their strategies and expectations.
 
-Market changes will significantly impact investors, who expect growth, cost control, and are concerned about risk. This analysis highlights the specific impacts and recommends actions to mitigate them.
+**Impact Analysis**
 
-**Impacts**
+### I. Expectation of Growth
 
-### Growth Expectations
+* **Impact:** Market changes may lead to slower growth or even reversals in certain industries, potentially disappointing investors who expect steady returns.
+* **Specific Impacts:**
+    + Reduced dividend payouts
+    + Lower stock prices
+    + Increased pressure on management to deliver growth
+* **Recommended Actions:**
+    + **Prioritize**: Diversify investment portfolios to minimize exposure to vulnerable industries.
+    + **Monitor**: Keep a close eye on market trends and adjust expectations accordingly.
+    + **Engage**: Encourage management to explore new growth opportunities and provide guidance on cost control.
 
-* **Slowing economic growth**: Reduces investment returns, impacting investor confidence and attracting new investments.
-* **Increased competition**: Decreases market share, making it challenging to maintain growth rates.
+### II. Want Cost Control
 
-### Cost Control
+* **Impact:** Market changes may lead to increased costs or reduced pricing power, making it challenging for companies to maintain profit margins.
+* **Specific Impacts:**
+    + Reduced profitability
+    + Increased operating expenses
+    + Decreased competitiveness
+* **Recommended Actions:**
+    + **Prioritize**: Focus on companies with a proven track record of cost management and operational efficiency.
+    + **Monitor**: Closely track changes in cost structures and pricing power.
+    + **Advise**: Encourage management to explore cost-saving initiatives and strategic partnerships.
 
-* **Rising operational costs**: Inflation, regulatory changes, and supply chain disruptions increase expenses, squeezing profit margins.
-* **Decreased operational efficiency**: Inefficient processes and systems lead to higher costs, reducing investor returns.
+### III. Risk Concerns
 
-### Risk Concerns
+* **Impact:** Market changes can introduce new risks or amplify existing ones, making it essential for investors to assess and manage risk exposure.
+* **Specific Impacts:**
+    + Increased volatility
+    + Higher probability of defaults or bankruptcies
+    + Regulatory changes affecting investment opportunities
+* **Recommended Actions:**
+    + **Prioritize**: Conduct thorough risk assessments and stress-testing to identify vulnerabilities.
+    + **Diversify**: Spread investments across different asset classes and geographies to minimize risk.
+    + **Engage**: Encourage management to develop and implement robust risk management strategies.
 
-* **Market volatility**: Unpredictable market fluctuations increase investment risk, causing investor anxiety.
-* **Regulatory changes**: Uncertainty around regulatory reforms and compliance requirements raise concerns about investment security.
+**Priority Matrix**
 
-**Recommended Actions**
+| **Impact** | **Priority** | **Recommended Actions** |
+| --- | --- | --- |
+| Growth | High | Diversify portfolios, monitor trends, engage with management |
+| Cost Control | Medium | Focus on efficient companies, track cost structures, advise on cost-saving initiatives |
+| Risk Concerns | High | Conduct risk assessments, diversify investments, engage with management on risk management |
 
-**Priority 1: Mitigate Risk**
-
-* **Diversify investment portfolios**: Spread investments across asset classes, sectors, and geographies to minimize risk.
-* **Implement robust risk management practices**: Regularly monitor and assess investment risks, ensuring timely adjustments to mitigate potential losses.
-
-**Priority 2: Control Costs**
-
-* **Optimize operational efficiency**: Implement cost-saving technologies, streamline processes, and renegotiate contracts to reduce expenses.
-* **Develop cost-benefit analyses**: Regularly assess and prioritize investments based on their potential returns, ensuring alignment with investor expectations.
-
-**Priority 3: Drive Growth**
-
-* **Innovate and differentiate**: Invest in research and development, and explore new markets, products, or services to drive growth and maintain competitiveness.
-* **Enhance investor communication**: Provide regular updates on growth strategies, progress, and performance to maintain investor confidence and attract new investments.
-
-**Conclusion**
-
-Investors will be significantly impacted by market changes, and it is essential to address their concerns through proactive measures. By mitigating risk, controlling costs, and driving growth, organizations can ensure continued investor confidence and attract new investments.
+By understanding the potential impacts of market changes on investors and taking proactive measures to address these concerns, investors can better navigate the evolving market landscape and protect their interests.
 ==================================================
 
 Stakeholder Group 4:
 --------------------------------------------------
-**Market Changes Impact Analysis: Suppliers**
+**Market Change Impact Analysis: Suppliers**
 
-**Section 1: Capacity Constraints**
+**Summary**
 
-**Impact:**
+The supplier stakeholder group will be significantly impacted by market changes, including capacity constraints, price pressures, and tech transitions. To mitigate these impacts, suppliers must prioritize strategic responses to adapt to the new market environment.
 
-* Suppliers may struggle to meet increasing demand, leading to delays and shortages
-* Insufficient production capacity may force suppliers to prioritize larger, more profitable customers
-* Limited availability of raw materials and components may exacerbate capacity issues
+**Impact Analysis**
 
-**Recommended Actions:**
+### 1. Capacity Constraints
 
-1. **Diversify Supplier Base:** Identify and partner with alternative suppliers to reduce dependence on single vendors and mitigate risk (High Priority)
-2. **Collaborate with Suppliers:** Work closely with suppliers to develop capacity expansion plans, share demand forecasts, and provide support for process improvements (Medium Priority)
-3. **Implement Buffer Stocking:** Maintain strategic inventory buffers to absorb supply chain disruptions and ensure business continuity (Medium Priority)
+* **Impact:** Reduced production volumes, delayed order fulfillment, and potential losses due to underutilization of resources.
+* **Priority:** High
+* **Recommended Actions:**
+    + Diversify supply chain to reduce dependence on single suppliers.
+    + Invest in operational efficiency improvements to maximize capacity utilization.
+    + Develop contingency plans for peak demand periods.
 
-**Section 2: Price Pressures**
+### 2. Price Pressures
 
-**Impact:**
+* **Impact:** Eroding profit margins, reduced investment in research and development, and potential bankruptcy risks.
+* **Priority:** High
+* **Recommended Actions:**
+    + Renegotiate contracts with customers to reflect increased costs.
+    + Implement cost-saving initiatives, such as lean manufacturing and supply chain optimization.
+    + Explore alternative revenue streams, such as value-added services.
 
-* Suppliers may increase prices due to rising raw material costs, labor expenses, or other factors
-* Price volatility may affect profit margins and create uncertainty in budgeting and forecasting
-* Suppliers may be forced to sacrifice quality or reduce services to maintain profitability
+### 3. Tech Transitions
 
-**Recommended Actions:**
+* **Impact:** Obsolescence of existing products and services, loss of market share to innovative competitors, and required investments in new technologies.
+* **Priority:** Medium-High
+* **Recommended Actions:**
+    + Conduct market research to identify emerging technologies and their potential impact.
+    + Develop strategic partnerships with technology providers to stay ahead of the curve.
+    + Invest in employee training and development to ensure a skilled workforce.
 
-1. **Negotiate Long-Term Contracts:** Enter into multi-year agreements with suppliers to lock in prices and ensure stability (High Priority)
-2. **Implement Cost-Saving Initiatives:** Collaborate with suppliers to identify areas for cost reduction, such as process improvements or material substitutions (Medium Priority)
-3. **Diversify Sourcing:** Explore alternative materials, suppliers, or regions to reduce dependence on high-cost sources and mitigate price risks (Medium Priority)
+**Prioritized Action Plan**
 
-**Section 3: Tech Transitions**
+Based on the analysis, the following prioritized action plan is recommended for suppliers:
 
-**Impact:**
+1. **Short-term (0-6 months):**
+    * Diversify supply chain to reduce dependence on single suppliers.
+    * Renegotiate contracts with customers to reflect increased costs.
+2. **Medium-term (6-18 months):**
+    * Invest in operational efficiency improvements to maximize capacity utilization.
+    * Implement cost-saving initiatives, such as lean manufacturing and supply chain optimization.
+3. **Long-term (18-36 months):**
+    * Develop strategic partnerships with technology providers to stay ahead of the curve.
+    * Invest in employee training and development to ensure a skilled workforce.
 
-* Suppliers may struggle to adapt to new technologies, leading to delays, quality issues, or increased costs
-* Failure to adopt new technologies may result in obsolescence and reduced competitiveness
-* Suppliers may require additional support, training, or investment to overcome tech transition challenges
-
-**Recommended Actions:**
-
-1. **Collaborate on Tech Development:** Work closely with suppliers to develop and implement new technologies, sharing knowledge and resources (High Priority)
-2. **Invest in Supplier Development:** Provide training, resources, and support to help suppliers overcome tech transition challenges (Medium Priority)
-3. **Develop Alternative Sourcing Strategies:** Identify alternative suppliers or partners with the necessary tech expertise to mitigate risks and ensure business continuity (Medium Priority)
-
-**Priorities:**
-
-* High Priority: Diversify Supplier Base, Negotiate Long-Term Contracts, Collaborate on Tech Development
-* Medium Priority: Collaborate with Suppliers, Implement Buffer Stocking, Implement Cost-Saving Initiatives, Diversify Sourcing, Invest in Supplier Development, Develop Alternative Sourcing Strategies
+By prioritizing these actions, suppliers can mitigate the impacts of market changes, ensure business continuity, and position themselves for long-term success.
 ==================================================</code></pre>
 </div>
 </div>
@@ -5137,41 +5167,43 @@ Stakeholder Group 4:
 </figure>
 </div>
 <p>The function <code>routing</code> is defined in the code block below. The function takes an <strong>input string</strong> and a <strong>dictionary of routes</strong>. It uses a LLM to analyze the input and decide which route (or support team) is most appropriate. The function first creates a prompt that asks the LLM to explain its reasoning and select a route. It then calls the LLM with this prompt and extracts the reasoning and selected route from the LLM’s response. Finally, it uses the selected route to process the input with a specialized prompt and returns the result.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> routing(<span class="bu">input</span>: <span class="bu">str</span>, routes: Dict[<span class="bu">str</span>, <span class="bu">str</span>]) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Route input to specialized prompt using content classification.&quot;&quot;&quot;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># First determine appropriate route using LLM with chain-of-thought</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Available routes: </span><span class="sc">{</span><span class="bu">list</span>(routes.keys())<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    selector_prompt <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    Analyze the input and select the most appropriate support team from these options: </span><span class="sc">{</span><span class="bu">list</span>(routes.keys())<span class="sc">}</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    First explain your reasoning, then provide your selection in this XML format:</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;reasoning&gt;</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    Brief explanation of why this ticket should be routed to a specific team.</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    Consider key terms, user intent, and urgency level.</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/reasoning&gt;</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;selection&gt;</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    The chosen team name</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/selection&gt;</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    Input: </span><span class="sc">{</span><span class="bu">input</span><span class="sc">}</span><span class="ss">&quot;&quot;&quot;</span>.strip()</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    route_response <span class="op">=</span> llm_call(selector_prompt)</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    reasoning <span class="op">=</span> extract_xml(route_response, <span class="st">&#39;reasoning&#39;</span>)</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    route_key <span class="op">=</span> extract_xml(route_response, <span class="st">&#39;selection&#39;</span>).strip().lower()</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Routing Analysis:&quot;</span>)</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(reasoning)</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Selected route: </span><span class="sc">{</span>route_key<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process input with selected specialized prompt</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    selected_prompt <span class="op">=</span> routes[route_key]</span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> llm_call(<span class="ss">f&quot;</span><span class="sc">{</span>selected_prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Input: </span><span class="sc">{</span><span class="bu">input</span><span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Route input to specialized prompt using content classification.&quot;&quot;&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># First determine appropriate route using LLM with chain-of-thought</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Available routes: </span><span class="sc">{</span><span class="bu">list</span>(routes.keys())<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    selector_prompt <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    Analyze the input and select the most appropriate support team from these </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    options: </span><span class="sc">{</span><span class="bu">list</span>(routes.keys())<span class="sc">}</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    First explain your reasoning, then provide your selection in this XML format:</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;reasoning&gt;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    Brief explanation of why this ticket should be routed to a specific team.</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    Consider key terms, user intent, and urgency level.</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/reasoning&gt;</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;selection&gt;</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    The chosen team name</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/selection&gt;</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    Input: </span><span class="sc">{</span><span class="bu">input</span><span class="sc">}</span><span class="ss">&quot;&quot;&quot;</span>.strip()</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    route_response <span class="op">=</span> llm_call(selector_prompt)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    reasoning <span class="op">=</span> extract_xml(route_response, <span class="st">&#39;reasoning&#39;</span>)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    route_key <span class="op">=</span> extract_xml(route_response, <span class="st">&#39;selection&#39;</span>).strip().lower()</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Routing Analysis:&quot;</span>)</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(reasoning)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Selected route: </span><span class="sc">{</span>route_key<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process input with selected specialized prompt</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    selected_prompt <span class="op">=</span> routes[route_key]</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> llm_call(<span class="ss">f&quot;</span><span class="sc">{</span>selected_prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Input: </span><span class="sc">{</span><span class="bu">input</span><span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="example-workflow-3-routing" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="example-workflow-3-routing"><span class="header-section-number">3.1</span> Example: Workflow 3: Routing</h3>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>support_routes <span class="op">=</span> {</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;billing&quot;</span>: <span class="st">&quot;&quot;&quot;You are a billing support specialist. Follow these guidelines:</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="st">    1. Always start with &quot;Billing Support Response:&quot;</span></span>
@@ -5221,33 +5253,39 @@ Stakeholder Group 4:
 <span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with different support tickets</span></span>
 <span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>tickets <span class="op">=</span> [</span>
 <span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Subject: Can&#39;t access my account</span></span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="st">    Message: Hi, I&#39;ve been trying to log in for the past hour but keep getting an &#39;invalid password&#39; error. </span></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="st">    I&#39;m sure I&#39;m using the right password. Can you help me regain access? This is urgent as I need to </span></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="st">    submit a report by end of day.</span></span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="st">    - John&quot;&quot;&quot;</span>,</span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Subject: Unexpected charge on my card</span></span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a><span class="st">    Message: Hello, I just noticed a charge of $49.99 on my credit card from your company, but I thought</span></span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="st">    I was on the $29.99 plan. Can you explain this charge and adjust it if it&#39;s a mistake?</span></span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="st">    Thanks,</span></span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="st">    Sarah&quot;&quot;&quot;</span>,</span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Subject: How to export data?</span></span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="st">    Message: I need to export all my project data to Excel. I&#39;ve looked through the docs but can&#39;t</span></span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="st">    figure out how to do a bulk export. Is this possible? If so, could you walk me through the steps?</span></span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a><span class="st">    Best regards,</span></span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="st">    Mike&quot;&quot;&quot;</span></span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Processing support tickets...</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, ticket <span class="kw">in</span> <span class="bu">enumerate</span>(tickets, <span class="dv">1</span>):</span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Ticket </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;-&quot;</span> <span class="op">*</span> <span class="dv">40</span>)</span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(ticket)</span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Response:&quot;</span>)</span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;-&quot;</span> <span class="op">*</span> <span class="dv">40</span>)</span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> routing(ticket, support_routes)</span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="st">    Message: Hi, I&#39;ve been trying to log in for the past hour but keep </span></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="st">    getting an &#39;invalid password&#39; error. </span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="st">    I&#39;m sure I&#39;m using the right password. Can you help me regain access? </span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="st">    This is urgent as I need to </span></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a><span class="st">    submit a report by end of day.</span></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="st">    - John&quot;&quot;&quot;</span>,</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Subject: Unexpected charge on my card</span></span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="st">    Message: Hello, I just noticed a charge of $49.99 on my credit card from </span></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="st">    your company, but I thought</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a><span class="st">    I was on the $29.99 plan. Can you explain this charge and adjust </span></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="st">    it if it&#39;s a mistake?</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="st">    Thanks,</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="st">    Sarah&quot;&quot;&quot;</span>,</span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&quot;&quot;Subject: How to export data?</span></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="st">    Message: I need to export all my project data to Excel. </span></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a><span class="st">    I&#39;ve looked through the docs but can&#39;t</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a><span class="st">    figure out how to do a bulk export. Is this possible? </span></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a><span class="st">    If so, could you walk me through the steps?</span></span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="st">    Best regards,</span></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="st">    Mike&quot;&quot;&quot;</span></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Processing support tickets...</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, ticket <span class="kw">in</span> <span class="bu">enumerate</span>(tickets, <span class="dv">1</span>):</span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Ticket </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;-&quot;</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(ticket)</span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Response:&quot;</span>)</span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;-&quot;</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> routing(ticket, support_routes)</span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Processing support tickets...
 
@@ -5255,8 +5293,10 @@ Stakeholder Group 4:
 Ticket 1:
 ----------------------------------------
 Subject: Can&#39;t access my account
-    Message: Hi, I&#39;ve been trying to log in for the past hour but keep getting an &#39;invalid password&#39; error. 
-    I&#39;m sure I&#39;m using the right password. Can you help me regain access? This is urgent as I need to 
+    Message: Hi, I&#39;ve been trying to log in for the past hour but keep 
+    getting an &#39;invalid password&#39; error. 
+    I&#39;m sure I&#39;m using the right password. Can you help me regain access? 
+    This is urgent as I need to 
     submit a report by end of day.
     - John
 
@@ -5266,44 +5306,55 @@ Response:
 Available routes: [&#39;billing&#39;, &#39;technical&#39;, &#39;account&#39;, &#39;product&#39;]
 Routing Analysis:
 
-The user, John, is experiencing issues logging in to his account due to an &quot;invalid password&quot; error. Despite being certain of his password, he&#39;s unable to access his account. The urgency level is high, as John needs to submit a report by the end of the day. The key terms &quot;log in&quot; and &quot;account&quot; point towards an issue with account access, rather than a technical issue with a product or billing concern. The user&#39;s intent is to regain access to his account as quickly as possible.
+The user is unable to log in to their account and is getting an &quot;invalid password&quot; error despite being certain they are using the correct password. This suggests a technical issue with account access, rather than a billing or product-related problem. The user intends to regain access to their account, and the urgency level is high due to a time-sensitive report deadline. 
 
 
-Selected route: account
-Account Support Response:
+Selected route: technical
+Technical Support Response:
 
 Dear John,
 
-We apologize for the inconvenience you&#39;re experiencing with accessing your account. We understand the urgency of your situation, and we&#39;re here to assist you. However, we must prioritize the security of your account and ensure that we&#39;re taking the necessary steps to verify your identity before making any changes.
+Thank you for reaching out to our technical support team. I&#39;m happy to help you resolve the issue with accessing your account.
 
-To begin the account recovery process, we need to verify your identity to prevent any potential unauthorized access. Please follow these steps:
+**Step-by-Step Resolution:**
 
-1. Click on the &quot;Forgot Password&quot; link on our login page and initiate the password reset process.
-2. You will receive an email with a password reset link. Click on the link and follow the instructions to set a new password.
-3. Once you&#39;ve reset your password, try logging in to your account again.
+1. **Password Reset:** Try resetting your password using the &quot;Forgot Password&quot; feature on our login page. Click on the &quot;Forgot Password&quot; link, enter your username or email address, and follow the instructions to reset your password. This will ensure that you&#39;re using the correct password.
+2. **Clear Browser Cache:** Clear your browser cache and cookies to remove any stored credentials that might be causing the issue. Press `Ctrl + Shift + Delete` (Windows) or `Command + Shift + Delete` (Mac) to open the browser&#39;s history and cache settings. Delete all browsing data, cookies, and saved website data.
+3. **Check Caps Lock and Num Lock:** Ensure that your Caps Lock and Num Lock keys are not enabled, as they can affect password entry.
+4. **Try a Different Browser:** Attempt to log in using a different web browser to rule out any browser-specific issues.
+5. **System Requirements:** Ensure your system meets the minimum requirements for our application, including:
+    * Operating System: Windows 10 or macOS High Sierra (or later)
+    * Browser: Google Chrome (latest version), Mozilla Firefox (latest version), or Microsoft Edge (latest version)
+    * Cookies and JavaScript: Enabled
 
-If you&#39;re still experiencing issues, please provide us with the following information to facilitate further assistance:
+**Workaround for Common Problems:**
 
-* The exact error message you&#39;re receiving
-* The device and browser you&#39;re using to access your account
-* Any recent changes you&#39;ve made to your account or password
+* If you&#39;re using a password manager, try logging in without it to isolate the issue.
+* If you&#39;ve recently changed your password, try using the previous password to see if the issue persists.
 
-Please note that we may require additional verification steps to ensure the security of your account. This may include answering security questions or providing identification documents.
+**Escalation Path:**
 
-Security Tip: It&#39;s essential to use unique and complex passwords for each of your online accounts. Avoid using the same password across multiple platforms, and consider enabling two-factor authentication to add an extra layer of security.
+If the above steps don&#39;t resolve the issue, please reply to this email with the following information:
 
-We appreciate your cooperation and understanding in this matter. Our team will review your case as soon as possible, and you can expect a resolution within 24-48 hours. If you have any further questions or concerns, please don&#39;t hesitate to reach out to us.
+* The exact error message you&#39;re seeing
+* The browser and version you&#39;re using
+* Any recent changes you&#39;ve made to your account or system
 
-Remember, account security is our top priority, and we&#39;re committed to ensuring the integrity of your account.
+Our team will investigate further and assist you in regaining access to your account as soon as possible. We understand the urgency of your situation and will prioritize your case accordingly.
 
-Sincerely,
-Account Security Specialist
+Thank you for your cooperation, and we look forward to resolving this issue for you.
+
+Best regards,
+[Your Name]
+Technical Support Engineer
 
 Ticket 2:
 ----------------------------------------
 Subject: Unexpected charge on my card
-    Message: Hello, I just noticed a charge of $49.99 on my credit card from your company, but I thought
-    I was on the $29.99 plan. Can you explain this charge and adjust it if it&#39;s a mistake?
+    Message: Hello, I just noticed a charge of $49.99 on my credit card from 
+    your company, but I thought
+    I was on the $29.99 plan. Can you explain this charge and adjust 
+    it if it&#39;s a mistake?
     Thanks,
     Sarah
 
@@ -5313,7 +5364,7 @@ Response:
 Available routes: [&#39;billing&#39;, &#39;technical&#39;, &#39;account&#39;, &#39;product&#39;]
 Routing Analysis:
 
-The user is reporting an unexpected charge on their credit card and is inquiring about the discrepancy between the expected and actual charges. The key terms &quot;unexpected charge&quot;, &quot;credit card&quot;, and &quot;plan&quot; suggest a billing-related issue. The user&#39;s tone is inquiring and polite, indicating a non-urgent but important issue. The user is seeking an explanation and potential correction, which is a core function of the billing team.
+This ticket should be routed to the billing team because the user is specifically asking about a charge on their credit card and requesting an explanation and potential adjustment. The use of key terms like &quot;charge&quot;, &quot;credit card&quot;, and &quot;plan&quot; indicate a billing-related issue, and the user&#39;s request for correction suggests a need for billing support. The urgency level is moderate, as the user is seeking clarification and resolution to a perceived error.
 
 
 Selected route: billing
@@ -5321,36 +5372,29 @@ Billing Support Response:
 
 Dear Sarah,
 
-Thank you for reaching out to us about the unexpected charge on your credit card. I apologize for any confusion or concern this may have caused. I&#39;d be happy to help you understand the charge and resolve the issue.
+Thank you for reaching out to us about the unexpected charge on your credit card. I apologize for any confusion or concern this may have caused. I&#39;ve reviewed your account and found that the $49.99 charge was an error on our part. You are correct that you are subscribed to our $29.99 plan, and I&#39;ll make sure to correct this discrepancy immediately.
 
-After reviewing your account, I noticed that you did indeed sign up for the $29.99 plan, but there was a one-time upgrade to our premium features, which incurred an additional $20 charge, resulting in the total charge of $49.99. This upgrade was made on [date] and was not a recurring charge.
+Upon further review, I noticed that our system mistakenly upgraded your plan to our premium tier, which resulted in the higher charge. I&#39;ve already reversed the incorrect charge, and you should see the refund processed back to your credit card within the next 3-5 business days.
 
-To correct this, I will apply a one-time credit of $20 to your account, which will be reflected on your next billing cycle. You will see the corrected charge of $29.99 on your next statement.
+To ensure that your account is corrected, I&#39;ll also adjust your plan to reflect the accurate $29.99 monthly rate moving forward. You can expect to receive an email with a confirmation of this change within the next 24 hours.
 
-Next Steps:
+If you have any further questions or concerns, please don&#39;t hesitate to reach out to me directly. I&#39;m here to help.
 
-* I will apply the credit to your account within the next 24-48 hours.
-* You will receive an email notification once the credit has been processed.
-* Your next billing cycle will reflect the corrected charge of $29.99.
+Regarding payment options, you can continue to use your credit card on file, and our system will automatically process the corrected $29.99 monthly payment. If you&#39;d like to explore alternative payment methods, such as switching to a different credit card or setting up a bank draft, please let me know and I&#39;ll be happy to assist you.
 
-If you have any further questions or concerns, please don&#39;t hesitate to reach out to me directly.
-
-Payment Options:
-
-If you would like to pay your corrected balance of $29.99, you can do so online through our website or by contacting our payment hotline at 1-800-XXX-XXXX. We accept all major credit cards, PayPal, and bank drafts.
-
-Thank you for bringing this to our attention, and I&#39;m confident that we&#39;ve resolved the issue to your satisfaction.
+Thank you for your patience and understanding, and please feel free to contact me if you have any further questions.
 
 Best regards,
-
 [Your Name]
 Billing Support Specialist
 
 Ticket 3:
 ----------------------------------------
 Subject: How to export data?
-    Message: I need to export all my project data to Excel. I&#39;ve looked through the docs but can&#39;t
-    figure out how to do a bulk export. Is this possible? If so, could you walk me through the steps?
+    Message: I need to export all my project data to Excel. 
+    I&#39;ve looked through the docs but can&#39;t
+    figure out how to do a bulk export. Is this possible? 
+    If so, could you walk me through the steps?
     Best regards,
     Mike
 
@@ -5360,39 +5404,32 @@ Response:
 Available routes: [&#39;billing&#39;, &#39;technical&#39;, &#39;account&#39;, &#39;product&#39;]
 Routing Analysis:
 
-The user is asking about how to perform a specific function within the product, specifically exporting data to Excel in bulk. The language used is informative and querying, indicating that the user has already tried to find the solution themselves but was unsuccessful. There is no mention of billing or account-related issues, and the tone is polite and helpful. This suggests that the user is looking for technical guidance rather than assistance with their account or billing.
+The user is asking about a specific feature or functionality of the product, namely exporting data to Excel in bulk. The language used is straightforward and inquisitive, suggesting that the user is looking for guidance or instructions on how to accomplish this task. There is no mention of issues, errors, or problems, which suggests that this is not a technical issue. The user has also looked through the documentation, implying that they have tried to find the answer themselves before reaching out for support. Overall, this suggests that the user needs product-specific guidance or training, rather than technical troubleshooting or billing/account-related assistance.
 
 
-Selected route: technical
-Technical Support Response:
+Selected route: product
+Product Support Response:
 
-I&#39;d be happy to help you with exporting your project data to Excel!
+Hi Mike,
 
-**System Requirements:**
-Ensure you are running our latest software version 3.2.1 or higher, and have Microsoft Excel 2013 or higher installed on your system.
+Thank you for reaching out! I&#39;m happy to help you with bulk exporting your project data to Excel. Yes, it&#39;s absolutely possible to export your data in bulk, and I&#39;d be delighted to walk you through the steps.
 
-**Step-by-Step Instructions:**
+To export your project data, follow these easy steps:
 
-1. **Login to your project dashboard**: Open our software and log in to your project dashboard using your credentials.
-2. ** Navigate to the Data Export tab**: Click on the &quot;Data&quot; tab in the top navigation menu, and then select &quot;Export Data&quot; from the dropdown list.
-3. **Select the export format**: Choose &quot;Microsoft Excel (.xlsx)&quot; as the export format from the dropdown list.
-4. **Select the data scope**: Choose &quot;Entire Project&quot; to export all project data. You can also select specific modules or datasets if you only want to export partial data.
-5. **Choose the export options**: Select the fields you want to include in the export. You can choose from pre-defined field sets or create a custom field set. Make sure to select the &quot;Include all records&quot; option to export all data.
-6. **Set the export file settings**: Choose a file name and location for the export file. You can also select the &quot;Open file after export&quot; option to open the exported file directly in Excel.
-7. **Initiate the export**: Click the &quot;Export Data&quot; button to start the export process. Depending on the size of your project data, this may take a few minutes.
+1. Navigate to the **Project Overview** page and click on the **More** dropdown menu at the top right corner.
+2. Select **Export Data** from the dropdown list.
+3. In the **Export Data** window, choose the **Excel (.xlsx)** format and select the data ranges you&#39;d like to export (e.g., tasks, issues, or custom fields).
+4. Click **Export** to download your data as an Excel file.
 
-**Workaround for Common Issues:**
+You can also customize your export by using filters and selecting specific columns to export. For more detailed instructions, please refer to our documentation section on **Exporting Data** ([link](https://example.com/docs/exporting-data)).
 
-* If you encounter a &quot; timeout error&quot; during the export process, try breaking down the export into smaller chunks by selecting specific modules or datasets instead of the entire project.
-* If you experience issues with the exported file format, ensure that your Excel version is compatible with our software. You can also try exporting in a different format, such as CSV, and then importing it into Excel.
+Additionally, you might find our **Data Analytics** feature helpful, which allows you to create custom reports and dashboards to visualize your project data. You can learn more about Data Analytics in our documentation section ([link](https://example.com/docs/data-analytics)).
 
-**Escalation Path:**
-
-If you encounter any issues during the export process, or if you need further assistance, please reply to this email or contact our technical support team at [support@ourcompany.com](mailto:support@ourcompany.com). We&#39;ll be happy to help you troubleshoot the issue or provide additional guidance.
+If you have any more questions or need further assistance, please don&#39;t hesitate to ask. We&#39;re here to help you get the most out of our product!
 
 Best regards,
 [Your Name]
-Technical Support Engineer</code></pre>
+Product Specialist</code></pre>
 </div>
 </div>
 </section>
@@ -5411,75 +5448,77 @@ Technical Support Engineer</code></pre>
 <li>The LLM can provide meaningful feedback.</li>
 </ol>
 <p>So, in a sense this workflow work well for tasks that can be improved, and you have meaningful feedback too.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Tuple, Dict, List</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate(prompt: <span class="bu">str</span>, task: <span class="bu">str</span>, context: <span class="bu">str</span> <span class="op">=</span> <span class="st">&quot;&quot;</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>]:</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Generate and improve a solution based on feedback.&quot;&quot;&quot;</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    full_prompt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>context<span class="sc">}</span><span class="ch">\n</span><span class="ss">Task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">if</span> context <span class="cf">else</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">&quot;</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> llm_call(full_prompt)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    thoughts <span class="op">=</span> extract_xml(response, <span class="st">&quot;thoughts&quot;</span>)</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> extract_xml(response, <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">=== GENERATION START ===&quot;</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Thoughts:</span><span class="ch">\n</span><span class="sc">{</span>thoughts<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Generated:</span><span class="ch">\n</span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=== GENERATION END ===</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> thoughts, result</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(prompt: <span class="bu">str</span>, content: <span class="bu">str</span>, task: <span class="bu">str</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>]:</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Evaluate if a solution meets requirements.&quot;&quot;&quot;</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    full_prompt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Original task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ch">\n</span><span class="ss">Content to evaluate: </span><span class="sc">{</span>content<span class="sc">}</span><span class="ss">&quot;</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> llm_call(full_prompt)</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    evaluation <span class="op">=</span> extract_xml(response, <span class="st">&quot;evaluation&quot;</span>)</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    feedback <span class="op">=</span> extract_xml(response, <span class="st">&quot;feedback&quot;</span>)</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=== EVALUATION START ===&quot;</span>)</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Status: </span><span class="sc">{</span>evaluation<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Feedback: </span><span class="sc">{</span>feedback<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=== EVALUATION END ===</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> evaluation, feedback</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    full_prompt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>context<span class="sc">}</span><span class="ch">\n</span><span class="ss">Task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">if</span> context <span class="cf">else</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> llm_call(full_prompt)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    thoughts <span class="op">=</span> extract_xml(response, <span class="st">&quot;thoughts&quot;</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> extract_xml(response, <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">=== GENERATION START ===&quot;</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Thoughts:</span><span class="ch">\n</span><span class="sc">{</span>thoughts<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Generated:</span><span class="ch">\n</span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=== GENERATION END ===</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> thoughts, result</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate(prompt: <span class="bu">str</span>, content: <span class="bu">str</span>, task: <span class="bu">str</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>]:</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Evaluate if a solution meets requirements.&quot;&quot;&quot;</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    full_prompt <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>prompt<span class="sc">}</span><span class="ch">\n</span><span class="ss">Original task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ch">\n</span><span class="ss">Content to evaluate: </span><span class="sc">{</span>content<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> llm_call(full_prompt)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    evaluation <span class="op">=</span> extract_xml(response, <span class="st">&quot;evaluation&quot;</span>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    feedback <span class="op">=</span> extract_xml(response, <span class="st">&quot;feedback&quot;</span>)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=== EVALUATION START ===&quot;</span>)</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Status: </span><span class="sc">{</span>evaluation<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Feedback: </span><span class="sc">{</span>feedback<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;=== EVALUATION END ===</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> evaluation, feedback</span>
 <span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eval_optimizer(task: <span class="bu">str</span>, evaluator_prompt: <span class="bu">str</span>, generator_prompt: <span class="bu">str</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, List[Dict[<span class="bu">str</span>, <span class="bu">str</span>]]]:</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Keep generating and evaluating until requirements are met.&quot;&quot;&quot;</span></span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    memory <span class="op">=</span> []</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    chain_of_thought <span class="op">=</span> []</span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    thoughts, result <span class="op">=</span> generate(generator_prompt, task)</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    memory.append(result)</span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    chain_of_thought.append({<span class="st">&quot;thoughts&quot;</span>: thoughts, <span class="st">&quot;result&quot;</span>: result})</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    improvement_count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>        evaluation, feedback <span class="op">=</span> evaluate(evaluator_prompt, result, task)</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> evaluation <span class="op">==</span> <span class="st">&quot;PASS&quot;</span>:</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> result, chain_of_thought</span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> evaluation <span class="op">==</span> <span class="st">&quot;NEEDS_IMPROVEMENT&quot;</span>:</span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>            improvement_count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> improvement_count <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Too many improvements needed. Stopping the process.&quot;</span>)</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> result, chain_of_thought</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>        context <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([</span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Previous attempts:&quot;</span>,</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span>[<span class="ss">f&quot;- </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> m <span class="kw">in</span> memory],</span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Feedback: </span><span class="sc">{</span>feedback<span class="sc">}</span><span class="ss">&quot;</span></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>        ])</span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>        thoughts, result <span class="op">=</span> generate(generator_prompt, task, context)</span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>        memory.append(result)</span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>        chain_of_thought.append({<span class="st">&quot;thoughts&quot;</span>: thoughts, <span class="st">&quot;result&quot;</span>: result})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eval_optimizer(task: <span class="bu">str</span>, evaluator_prompt: <span class="bu">str</span>, generator_prompt: </span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>                   <span class="bu">str</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, List[Dict[<span class="bu">str</span>, <span class="bu">str</span>]]]:</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Keep generating and evaluating until requirements are met.&quot;&quot;&quot;</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    memory <span class="op">=</span> []</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    chain_of_thought <span class="op">=</span> []</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    thoughts, result <span class="op">=</span> generate(generator_prompt, task)</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    memory.append(result)</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    chain_of_thought.append({<span class="st">&quot;thoughts&quot;</span>: thoughts, <span class="st">&quot;result&quot;</span>: result})</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>    improvement_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>        evaluation, feedback <span class="op">=</span> evaluate(evaluator_prompt, result, task)</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> evaluation <span class="op">==</span> <span class="st">&quot;PASS&quot;</span>:</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> result, chain_of_thought</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> evaluation <span class="op">==</span> <span class="st">&quot;NEEDS_IMPROVEMENT&quot;</span>:</span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>            improvement_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> improvement_count <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Too many improvements needed. Stopping the process.&quot;</span>)</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> result, chain_of_thought</span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>        context <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([</span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Previous attempts:&quot;</span>,</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span>[<span class="ss">f&quot;- </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> m <span class="kw">in</span> memory],</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss">Feedback: </span><span class="sc">{</span>feedback<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>        ])</span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>        thoughts, result <span class="op">=</span> generate(generator_prompt, task, context)</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>        memory.append(result)</span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>        chain_of_thought.append({<span class="st">&quot;thoughts&quot;</span>: thoughts, <span class="st">&quot;result&quot;</span>: result})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="example-workflow-4-evaluator-optimizer" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="example-workflow-4-evaluator-optimizer"><span class="header-section-number">4.1</span> Example: Workflow 4: Evaluator-Optimizer</h3>
 <p>Here the example we are working on is a coding exercise (compute the full covariance of matrix). The coding exercise involves generating code and evaluating it based on <strong>time complexity</strong> and <strong>software engineering best practices</strong>. The evaluator will assess the code and provide feedback, indicating whether it passes, fails, or needs improvement. If the code needs improvement, the feedback is passed to the generator function which then generates a new version of the code considering the feedback.</p>
-<div class="cell" data-execution_count="21">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>evaluator_prompt <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">Evaluate this following code implementation for:</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5488,141 +5527,186 @@ Technical Support Engineer</code></pre>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="st">You should be evaluating only and not attemping to solve the task.</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="st">Only output &quot;PASS&quot; if all criteria are met and you have no further suggestions for improvements.</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="st">Output your evaluation concisely in the following format.</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;evaluation&gt;PASS, NEEDS_IMPROVEMENT, or FAIL&lt;/evaluation&gt;</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;feedback&gt;</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="st">What needs improvement and why.</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/feedback&gt;</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>generator_prompt <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="st">Your goal is to complete the task based on &lt;user input&gt;. If there are feedback </span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="st">from your previous generations, you should reflect on them to improve your solution</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="st">Output your answer concisely in the following format: </span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;thoughts&gt;••••••••••••••••••</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="st">[Your understanding of the task and feedback and how you plan to improve]</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/thoughts&gt;</span></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;response&gt;</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="st">[Your code implementation here]</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/response&gt;</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>task <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;user input&gt;</span></span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="st">Suppose you have a dataset with n rows (samples) and p columns (features). You want to compute the full covariance (or correlation) matrix of these p features. Write me Python code this matrix and state the time complexity in Big-O notation with respect to n and p. You can not use any external libraries for this task.</span></span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/user input&gt;</span></span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>eval_optimizer(task, evaluator_prompt, generator_prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="st">Only output &quot;PASS&quot; if all criteria are met and you have </span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="st">no further suggestions for improvements.</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="st">Output your evaluation concisely in the following format.</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;evaluation&gt;PASS, NEEDS_IMPROVEMENT, or FAIL&lt;/evaluation&gt;</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;feedback&gt;</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="st">What needs improvement and why.</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/feedback&gt;</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>generator_prompt <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="st">Your goal is to complete the task based on &lt;user input&gt;. </span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="st">If there are feedback </span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="st">from your previous generations, you should </span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="st">reflect on them to improve your solution</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="st">Output your answer concisely in the following format: </span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;thoughts&gt;••••••••••••••••••</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="st">[Your understanding of the task and feedback and </span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="st">how you plan to improve]</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/thoughts&gt;</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;response&gt;</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="st">[Your code implementation here]</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/response&gt;</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>task <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;user input&gt;</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a><span class="st">Suppose you have a dataset with n rows (samples) and p columns (features). </span></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="st">You want to compute the full covariance (or correlation) matrix of these p features. </span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a><span class="st">Write me Python code this matrix and state the time </span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a><span class="st">complexity in Big-O notation with respect to n and p. You can not use any external </span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a><span class="st">libraries for this task.</span></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/user input&gt;</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>eval_optimizer(task, evaluator_prompt, generator_prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 === GENERATION START ===
 Thoughts:
 
-I understand that I need to write a Python code to compute the full covariance matrix of p features from a dataset with n samples, without using any external libraries. I will use nested loops to iterate over the features and calculate the covariance between each pair of features. The time complexity of this approach will be O(n*p^2) because we need to iterate over each feature pair and calculate the covariance, which takes O(n) time.
+Based on the task, I understand that I need to write a Python code to compute the full covariance matrix of p features from a dataset with n samples without using any external libraries. 
 
-From the feedback, I will make sure to provide a concise and correct implementation of the task.
+From the previous feedback, I learned that I should always provide a clear explanation of my thought process and the time complexity of my solution. 
+
+To improve my solution, I will make sure to provide a step-by-step explanation of how I compute the covariance matrix and analyze its time complexity.
+
 
 
 Generated:
 
+
+Here is the Python code to compute the full covariance matrix:
 ```
-def calculate_covariance_matrix(dataset):
-    n = len(dataset)
-    p = len(dataset[0])
-    covariance_matrix = [[0.0 for _ in range(p)] for _ in range(p)]
-
-    # Calculate means of each feature
-    feature_means = [sum(column) / n for column in zip(*dataset)]
-
-    # Calculate covariance between each pair of features
+def compute_covariance_matrix(data):
+    n = len(data)  # number of samples
+    p = len(data[0])  # number of features
+    
+    # Calculate the mean of each feature
+    means = [sum(col) / n for col in zip(*data)]
+    
+    # Calculate the covariance matrix
+    cov_matrix = [[0 for _ in range(p)] for _ in range(p)]
     for i in range(p):
         for j in range(p):
-            cov_ij = sum((x[i] - feature_means[i]) * (x[j] - feature_means[j]) for x in dataset) / (n - 1)
-            covariance_matrix[i][j] = cov_ij
-
-    return covariance_matrix
-
-# Example usage:
-dataset = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
-cov_matrix = calculate_covariance_matrix(dataset)
-print(cov_matrix)
+            for k in range(n):
+                cov_matrix[i][j] += ((data[k][i] - means[i]) * (data[k][j] - means[j]))
+            cov_matrix[i][j] /= (n - 1)
+    
+    return cov_matrix
 ```
+The time complexity of this solution is O(n*p^2), where n is the number of samples and p is the number of features. This is because we have three nested loops: one iterating over the samples, one iterating over the features, and another iterating over the features again.
+
+Note: This implementation assumes that the input data is a list of lists, where each inner list represents a sample and contains p features.
+
 
 === GENERATION END ===
 
 === EVALUATION START ===
 Status: NEEDS_IMPROVEMENT
 Feedback: 
+
+The implementation has a correct time complexity analysis, which is O(n*p^2).
+
+However, there are some areas that can be improved from a software engineering best practices perspective:
+
+1. The function does not include any input validation or error handling. For example, it assumes that the input data is a list of lists, where each inner list has the same length. It also assumes that the data is not empty. Adding some basic input validation and error handling can make the function more robust.
+
+2. The function is not well-documented. It would be helpful to add a docstring that explains what the function does, what input it expects, and what output it returns.
+
+3. The variable names are not very descriptive. For example, `n` and `p` could be renamed to `num_samples` and `num_features` to make the code more readable.
+
+4. The code can be made more concise and readable by using list comprehensions and avoiding explicit loops where possible.
+
+5. The implementation does not consider the case where the input data is very large. In such cases, it may be more efficient to use a more memory-efficient data structure, such as a NumPy array, instead of a list of lists.
+
+
 === EVALUATION END ===
 
 
 === GENERATION START ===
 Thoughts:
-••••••••••••••••••
-I understand that the task is to write a Python function to compute the full covariance matrix of a dataset with n rows (samples) and p columns (features) without using any external libraries. The provided feedback is the previous attempt at solving this task, which has some issues. I plan to improve the solution by optimizing the code and providing the correct time complexity in Big-O notation.
 
 
 Generated:
 
 ```
-def calculate_covariance_matrix(dataset):
-    n = len(dataset)
-    p = len(dataset[0])
-    covariance_matrix = [[0.0 for _ in range(p)] for _ in range(p)]
+def compute_covariance_matrix(data):
+    &quot;&quot;&quot;
+    Compute the full covariance matrix of a dataset.
 
-    # Calculate means of each feature
-    feature_means = [sum(column) / n for column in zip(*dataset)]
+    Args:
+    data (list of lists): A list of lists, where each inner list represents a sample and contains p features.
 
-    # Calculate covariance between each pair of features
-    for i in range(p):
-        for j in range(i, p):  # optimize by only iterating over upper triangular part
-            cov_ij = sum((x[i] - feature_means[i]) * (x[j] - feature_means[j]) for x in dataset) / (n - 1)
-            covariance_matrix[i][j] = cov_ij
-            covariance_matrix[j][i] = cov_ij  # covariance matrix is symmetric
+    Returns:
+    list of lists: The full covariance matrix of the p features.
 
-    return covariance_matrix
+    Raises:
+    ValueError: If the input data is empty or if the inner lists have different lengths.
+    &quot;&quot;&quot;
 
-# Example usage:
-dataset = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
-cov_matrix = calculate_covariance_matrix(dataset)
-print(cov_matrix)
+    if not data:
+        raise ValueError(&quot;Input data is empty&quot;)
 
-# Time complexity: O(n * p^2) because we have two nested loops over the features (p) and a single loop over the samples (n)
+    num_samples = len(data)
+    num_features = len(data[0])
+
+    if not all(len(row) == num_features for row in data):
+        raise ValueError(&quot;Inner lists must have the same length&quot;)
+
+    # Calculate the mean of each feature
+    means = [sum(col) / num_samples for col in zip(*data)]
+
+    # Calculate the covariance matrix
+    cov_matrix = [[sum(((data[k][i] - means[i]) * (data[k][j] - means[j])) for k in range(num_samples)) / (num_samples - 1) 
+                    for j in range(num_features)] 
+                   for i in range(num_features)]
+
+    return cov_matrix
 ```
+The time complexity of this solution is O(n*p^2), where n is the number of samples and p is the number of features.
 
 === GENERATION END ===
 
 === EVALUATION START ===
 Status: NEEDS_IMPROVEMENT
 Feedback: 
-The time complexity analysis is correct, O(n * p^2), due to the two nested loops over the features (p) and a single loop over the samples (n).
 
-However, from a software engineering best practice perspective, there are a few areas for improvement:
+The time complexity of O(n*p^2) is correct. However, there are some software engineering best practices that can be improved:
 
-1. The function name `calculate_covariance_matrix` could be more descriptive, e.g., `compute_full_covariance_matrix`.
-2. There is no input validation or error handling. What if the input dataset is empty, or if the rows have different lengths?
-3. The variable names `n` and `p` could be more descriptive, e.g., `num_samples` and `num_features`.
-4. The function returns the covariance matrix, but it would be more flexible to return a named tuple or a dictionary with additional information, such as the feature means.
-5. The example usage is not part of the function, and it would be better to separate the example from the function definition.
+1. The function name `compute_covariance_matrix` is clear, but it would be better to use a more descriptive name like `compute_full_covariance_matrix` to emphasize that it computes the full covariance matrix.
 
-By addressing these points, the code can become more robust, readable, and maintainable.
+2. The argument `data` is a list of lists, which is not very descriptive. It would be better to use a more descriptive name like `feature_data` or `samples`.
+
+3. The function does not check if the input data is a list of lists. It should add a check to ensure that the input data meets this requirement.
+
+4. The function does not check if the number of samples is greater than 1. If the number of samples is 1, the covariance matrix is not defined.
+
+5. The function uses `zip(*data)` to transpose the data, which is not very efficient for large datasets. It would be better to use a list comprehension to transpose the data.
+
+6. The function uses a list comprehension to calculate the covariance matrix, which can be hard to read and maintain. It would be better to break it down into smaller, more readable functions.
+
+7. The function does not include a docstring example, which makes it harder for users to understand how to use the function.
+
+8. The function does not handle the case where the number of samples is less than the number of features. In this case, the covariance matrix is not defined.
+
 
 === EVALUATION END ===
 
 Too many improvements needed. Stopping the process.</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>(&#39;\n```\ndef calculate_covariance_matrix(dataset):\n    n = len(dataset)\n    p = len(dataset[0])\n    covariance_matrix = [[0.0 for _ in range(p)] for _ in range(p)]\n\n    # Calculate means of each feature\n    feature_means = [sum(column) / n for column in zip(*dataset)]\n\n    # Calculate covariance between each pair of features\n    for i in range(p):\n        for j in range(i, p):  # optimize by only iterating over upper triangular part\n            cov_ij = sum((x[i] - feature_means[i]) * (x[j] - feature_means[j]) for x in dataset) / (n - 1)\n            covariance_matrix[i][j] = cov_ij\n            covariance_matrix[j][i] = cov_ij  # covariance matrix is symmetric\n\n    return covariance_matrix\n\n# Example usage:\ndataset = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]\ncov_matrix = calculate_covariance_matrix(dataset)\nprint(cov_matrix)\n\n# Time complexity: O(n * p^2) because we have two nested loops over the features (p) and a single loop over the samples (n)\n```\n&#39;,
- [{&#39;thoughts&#39;: &#39;\nI understand that I need to write a Python code to compute the full covariance matrix of p features from a dataset with n samples, without using any external libraries. I will use nested loops to iterate over the features and calculate the covariance between each pair of features. The time complexity of this approach will be O(n*p^2) because we need to iterate over each feature pair and calculate the covariance, which takes O(n) time.\n\nFrom the feedback, I will make sure to provide a concise and correct implementation of the task.\n&#39;,
-   &#39;result&#39;: &#39;\n```\ndef calculate_covariance_matrix(dataset):\n    n = len(dataset)\n    p = len(dataset[0])\n    covariance_matrix = [[0.0 for _ in range(p)] for _ in range(p)]\n\n    # Calculate means of each feature\n    feature_means = [sum(column) / n for column in zip(*dataset)]\n\n    # Calculate covariance between each pair of features\n    for i in range(p):\n        for j in range(p):\n            cov_ij = sum((x[i] - feature_means[i]) * (x[j] - feature_means[j]) for x in dataset) / (n - 1)\n            covariance_matrix[i][j] = cov_ij\n\n    return covariance_matrix\n\n# Example usage:\ndataset = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]\ncov_matrix = calculate_covariance_matrix(dataset)\nprint(cov_matrix)\n```\n&#39;},
-  {&#39;thoughts&#39;: &#39;••••••••••••••••••\nI understand that the task is to write a Python function to compute the full covariance matrix of a dataset with n rows (samples) and p columns (features) without using any external libraries. The provided feedback is the previous attempt at solving this task, which has some issues. I plan to improve the solution by optimizing the code and providing the correct time complexity in Big-O notation.\n&#39;,
-   &#39;result&#39;: &#39;\n```\ndef calculate_covariance_matrix(dataset):\n    n = len(dataset)\n    p = len(dataset[0])\n    covariance_matrix = [[0.0 for _ in range(p)] for _ in range(p)]\n\n    # Calculate means of each feature\n    feature_means = [sum(column) / n for column in zip(*dataset)]\n\n    # Calculate covariance between each pair of features\n    for i in range(p):\n        for j in range(i, p):  # optimize by only iterating over upper triangular part\n            cov_ij = sum((x[i] - feature_means[i]) * (x[j] - feature_means[j]) for x in dataset) / (n - 1)\n            covariance_matrix[i][j] = cov_ij\n            covariance_matrix[j][i] = cov_ij  # covariance matrix is symmetric\n\n    return covariance_matrix\n\n# Example usage:\ndataset = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]\ncov_matrix = calculate_covariance_matrix(dataset)\nprint(cov_matrix)\n\n# Time complexity: O(n * p^2) because we have two nested loops over the features (p) and a single loop over the samples (n)\n```\n&#39;}])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<pre><code>(&#39;\n```\ndef compute_covariance_matrix(data):\n    &quot;&quot;&quot;\n    Compute the full covariance matrix of a dataset.\n\n    Args:\n    data (list of lists): A list of lists, where each inner list represents a sample and contains p features.\n\n    Returns:\n    list of lists: The full covariance matrix of the p features.\n\n    Raises:\n    ValueError: If the input data is empty or if the inner lists have different lengths.\n    &quot;&quot;&quot;\n\n    if not data:\n        raise ValueError(&quot;Input data is empty&quot;)\n\n    num_samples = len(data)\n    num_features = len(data[0])\n\n    if not all(len(row) == num_features for row in data):\n        raise ValueError(&quot;Inner lists must have the same length&quot;)\n\n    # Calculate the mean of each feature\n    means = [sum(col) / num_samples for col in zip(*data)]\n\n    # Calculate the covariance matrix\n    cov_matrix = [[sum(((data[k][i] - means[i]) * (data[k][j] - means[j])) for k in range(num_samples)) / (num_samples - 1) \n                    for j in range(num_features)] \n                   for i in range(num_features)]\n\n    return cov_matrix\n```\nThe time complexity of this solution is O(n*p^2), where n is the number of samples and p is the number of features.\n&#39;,
+ [{&#39;thoughts&#39;: &#39;\nBased on the task, I understand that I need to write a Python code to compute the full covariance matrix of p features from a dataset with n samples without using any external libraries. \n\nFrom the previous feedback, I learned that I should always provide a clear explanation of my thought process and the time complexity of my solution. \n\nTo improve my solution, I will make sure to provide a step-by-step explanation of how I compute the covariance matrix and analyze its time complexity.\n\n&#39;,
+   &#39;result&#39;: &#39;\n\nHere is the Python code to compute the full covariance matrix:\n```\ndef compute_covariance_matrix(data):\n    n = len(data)  # number of samples\n    p = len(data[0])  # number of features\n    \n    # Calculate the mean of each feature\n    means = [sum(col) / n for col in zip(*data)]\n    \n    # Calculate the covariance matrix\n    cov_matrix = [[0 for _ in range(p)] for _ in range(p)]\n    for i in range(p):\n        for j in range(p):\n            for k in range(n):\n                cov_matrix[i][j] += ((data[k][i] - means[i]) * (data[k][j] - means[j]))\n            cov_matrix[i][j] /= (n - 1)\n    \n    return cov_matrix\n```\nThe time complexity of this solution is O(n*p^2), where n is the number of samples and p is the number of features. This is because we have three nested loops: one iterating over the samples, one iterating over the features, and another iterating over the features again.\n\nNote: This implementation assumes that the input data is a list of lists, where each inner list represents a sample and contains p features.\n\n&#39;},
+  {&#39;thoughts&#39;: &#39;&#39;,
+   &#39;result&#39;: &#39;\n```\ndef compute_covariance_matrix(data):\n    &quot;&quot;&quot;\n    Compute the full covariance matrix of a dataset.\n\n    Args:\n    data (list of lists): A list of lists, where each inner list represents a sample and contains p features.\n\n    Returns:\n    list of lists: The full covariance matrix of the p features.\n\n    Raises:\n    ValueError: If the input data is empty or if the inner lists have different lengths.\n    &quot;&quot;&quot;\n\n    if not data:\n        raise ValueError(&quot;Input data is empty&quot;)\n\n    num_samples = len(data)\n    num_features = len(data[0])\n\n    if not all(len(row) == num_features for row in data):\n        raise ValueError(&quot;Inner lists must have the same length&quot;)\n\n    # Calculate the mean of each feature\n    means = [sum(col) / num_samples for col in zip(*data)]\n\n    # Calculate the covariance matrix\n    cov_matrix = [[sum(((data[k][i] - means[i]) * (data[k][j] - means[j])) for k in range(num_samples)) / (num_samples - 1) \n                    for j in range(num_features)] \n                   for i in range(num_features)]\n\n    return cov_matrix\n```\nThe time complexity of this solution is O(n*p^2), where n is the number of samples and p is the number of features.\n&#39;}])</code></pre>
 </div>
 </div>
 
