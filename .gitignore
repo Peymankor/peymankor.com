@@ -1,2 +1,38 @@
+# Existing rules
 /.quarto/
 .Rproj.user
+
+# LaTeX-generated intermediate and auxiliary files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# Backup and temporary files
+*.bak
+*.tmp
+*.sav
+
+# Editor-specific files
+*~
+*.swp
+*.swo
+*.DS_Store
+
+# Ignore PDFs except if explicitly tracked
+!*.pdf
+
