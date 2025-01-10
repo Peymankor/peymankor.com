@@ -4747,70 +4747,47 @@ vertical-align: -.125em;
 
 
 <style type="text/css">
+.hamburger {
+display: none;
+background: none;
+border: none;
+padding: 0;
+margin: 0;
+cursor: pointer;
+}
+.hamburger .line {
+display: block;
+width: 25px;
+height: 3px;
+margin: 5px auto;
+background-color: #000000;
+transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+.hamburger {
+display: block;
+}
+
+.hamburger.is-active .line:nth-child(1) {
+transform: translateY(8px) rotate(45deg);
+}
+.hamburger.is-active .line:nth-child(2) {
+opacity: 0;
+}
+.hamburger.is-active .line:nth-child(3) {
+transform: translateY(-8px) rotate(-45deg);
+}
+}
+
 .navbar-nav .nav-link {
-font-size: 20px !important;
+font-size: 24px !important; 
 font-family: 'Inter', sans-serif;
 font-weight: 500;
 padding: 0.5rem 1rem !important;
-color: #000000 !important;
+color: #fefdfd !important;
 transition: color 0.2s ease;
-}
-.navbar-nav .nav-link:hover {
-color: #404040 !important;
-}
-.navbar {
-padding-top: 1rem;
-padding-bottom: 1rem;
-background-color: #ffffff !important;
-border-bottom: 1px solid #e2e8f0 !important;
-}
-.navbar-dark {
-background-color: #ffffff !important;
-}
-.navbar-dark .navbar-brand {
-color: #000000 !important;
-}
-
-@media (max-width: 768px) {
-.navbar {
-padding-top: 0.5rem;
-padding-bottom: 0.5rem;
-}
-.navbar-nav .nav-link {
-font-size: 16px;
-padding: 0.25rem 0.5rem !important;
-}
-}
-
-#toc {
-font-family: Arial, sans-serif;
-font-size: 14px;
-color: #1a73e8; 
-position: fixed; 
-top: 0;
-right: 0;
-padding: 10px;
-width: 200px;
-max-height: 100%;
-overflow-y: auto;
-}
-
-#toc a {
-color: #1a73e8;
-text-decoration: none;
-display: block;
-margin-bottom: 5px;
-}
-#toc a:hover {
-text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-#toc {
-display: none; 
-}
-}
-</style>
+}</style>
 <meta name="twitter:title" content="Building Effective Agents: A Short Hands-On Tutorial – Peyman Kor">
 <meta name="twitter:description" content="A short hands-on tutorial on building effective agents following the Anthropic report">
 <meta name="twitter:image" content="augllm.png">
