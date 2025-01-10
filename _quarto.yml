@@ -19,14 +19,22 @@ website:
       - text: "CV"
         href: cv.qmd
         target: "_blank"
+      - text: "Book a Call"
+        href: "https://cal.com/peyman-kor-xf878d/45min"
+        target: "_blank"
 
   twitter-card:
     creator: "@peyman_kor"
 format:
   html:
+    grid:
+      margin-width: 250px
+      body-width: 800px
     theme: [sandstone, _variables.scss]
     css: styles.css
     toc: true
+    page-layout: full
+  
 
 collections:
   blog:
@@ -38,3 +46,7 @@ collections:
         page-layout: full
 
 
+# So here the notes is that the. They grid control how what's a white spacing of between the front left to right. So the margin width and the margin. Another margin will control that one. But also another thing is that. Is that I can control the style CCS and the variable CCS for the detail. These two links are very nice good links for having control over the these two parameter in the quarter website. 
+
+#https://quarto.org/docs/output-formats/html-themes.html
+#https://quarto.org/docs/output-formats/page-layout.html
