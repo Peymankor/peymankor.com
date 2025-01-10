@@ -34,6 +34,9 @@ format:
     css: styles.css
     toc: true
     page-layout: full
+    navbar-style: 
+      collapse-below: lg
+      background: white
   
 
 collections:

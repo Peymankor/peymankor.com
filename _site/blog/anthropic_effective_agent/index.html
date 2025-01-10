@@ -4494,11 +4494,22 @@ padding-top: 1rem;
 padding-bottom: 1rem;
 background-color: #ffffff !important;
 border-bottom: 1px solid #e2e8f0 !important;
+}
 .navbar-dark {
 background-color: #ffffff !important;
 }
 .navbar-dark .navbar-brand {
 color: #000000 !important;
+}
+
+@media (max-width: 768px) {
+.navbar {
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+}
+.navbar-nav .nav-link {
+font-size: 16px;
+padding: 0.25rem 0.5rem !important;
 }
 }
 
@@ -4523,6 +4534,12 @@ margin-bottom: 5px;
 }
 #toc a:hover {
 text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+#toc {
+display: none; 
+}
 }
 </style>
 <meta name="twitter:title" content="Peyman Kor - Building Effective Agents: A Short Hands-On Tutorial">

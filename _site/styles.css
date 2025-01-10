@@ -1,5 +1,4 @@
-/* css styles */
-
+/* Navbar styles */
 .navbar-nav .nav-link {
     font-size: 20px !important;
     font-family: 'Inter', sans-serif;
@@ -18,6 +17,7 @@
     padding-bottom: 1rem;
     background-color: #ffffff !important;
     border-bottom: 1px solid #e2e8f0 !important;
+}
 
 .navbar-dark {
     background-color: #ffffff !important;
@@ -26,6 +26,18 @@
 .navbar-dark .navbar-brand {
     color: #000000 !important;
 }
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 16px;
+        padding: 0.25rem 0.5rem !important;
+    }
 }
 
 /* Style the TOC */
@@ -40,19 +52,23 @@
     width: 200px;
     max-height: 100%;
     overflow-y: auto;
-  }
-  
-  /* Style links within the TOC */
-  #toc a {
+}
+
+/* Style links within the TOC */
+#toc a {
     color: #1a73e8;
     text-decoration: none;
     display: block;
     margin-bottom: 5px;
-  }
-  
-  #toc a:hover {
-    text-decoration: underline;
-  }
+}
 
-  
-  
+#toc a:hover {
+    text-decoration: underline;
+}
+
+/* Media query for hiding TOC on smaller screens */
+@media (max-width: 768px) {
+    #toc {
+        display: none; /* Hide the TOC on mobile to prevent interference */
+    }
+}
