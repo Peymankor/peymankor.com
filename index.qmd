@@ -1,71 +1,59 @@
 ---
-title: "Peyman Kor"
-image: profile.jpg
+title: ""
+page-layout: full
 about:
-  template: trestles
-  links:
-    - text: LinkedIn
-      url: "https://www.linkedin.com/in/peyman-kor/"
-      icon: linkedin
-    - text: Twitter
-      icon: twitter
-      url: "https://twitter.com/peyman_kor"
-    - text: Medium
-      icon: medium
-      url: "https://medium.com/@peymankor"
-    - text: Email
-      url: "kor.peyman@gmail.com"
-comments: false
+  id: hero-heading
+  template: solana
+  image: profile.jpg
+  image-width: 400px
+  image-shape: round
 ---
 
-::: {.column-page}
+<style>
+.quarto-about-solana .about-image {
+    margin-left: 1em;
+    margin-right: -5em;
+}
+.quarto-about-solana .about-image img {
+    border-radius: 50% !important;
+    width: 400px !important;
+    height: 400px !important;
+    object-fit: cover !important;
+}
+#hero-heading {
+    font-size: 24px;
+}
+.contact-links {
+    margin-top: 2em;
+    text-align: left;
+}
+.contact-links a {
+    margin-right: 1em;
+    text-decoration: none;
+    color: #0056b3;
+}
+</style>
 
-## <span style="color: #1E90FF;">Short Bio</span>
+:::{#hero-heading}
 
-Hello! 🤗 
+I'm Peyman Kor, a Data Scientist and Machine Learning/AI researcher. I grew up in [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} north of Iran and currently finishing my Ph.D. in Norway.
 
-I’m **Peyman Kor**, a **Data Scientist** with a **Ph.D. in Machine Learning** from the University of Stavanger. I specialize in applying advanced data science techniques and machine learning algorithms to solve real-world problems. 
+My focus is on AI/ML models and I am currently exploring how Generative AI and the Agentic AI workflow can lead to optimizing and automating the process. 
 
-I have over three years of experience developing machine learning models for **optimization**, **decision-making**, and driving impactful results across industries such as **energy** and **finance**.
+As my PhD topic, I worked on [Reinforcement Learning](https://en.wikipedia.org/wiki/Reinforcement_learning){target="_blank"}. Both in the context of how we can use Reinforcement Learning in the more classical method like [Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"}, but also how Reinforcement Learning can be used in generative AI in the frame of [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
 
----
+Previously, I studied at Technical University of Denmark and worked on various computational projects. I graduated from University of Stavanger with M.Sc in Engineering, where I specialized in developing practical ML solutions for real-world problems.
 
-### <span style="color: #32CD32;">Projects and Expertise</span>
+I'm active on GitHub and frequently publish my research findings in my blog. You can find my work in various academic publications and technical blogs.
 
-- **Decision Analysis and Optimization:** 
-  - Expertise in applying sequential decision-making frameworks, dynamic programming, and reinforcement learning techniques.
-- **Machine Learning for Financial Engineering:** 
-  - Developed Q-learning algorithms to optimize policies for American options pricing, showing the power of reinforcement learning in financial modeling.
-- **Bayesian Optimization and Stochastic Processes:** 
-  - I applied Bayesian methods to optimize complex processes, such as well control in oil production, achieving superior results compared to traditional algorithms.
+I enjoy tackling challenging technical problems and collaborating with innovative teams. 
 
----
-
-### <span style="color: #FFA500;">Technical Skills</span>
-
-- **Programming:** 
-  - Proficient in **Python**, **R**, and **SQL**, with a strong background in libraries such as **Pandas**, **Scikit-learn**, **PyTorch**, and **XGBoost**.
-- **Big Data:** 
-  - Experienced in **PySpark** for handling large-scale datasets.
-- **Cloud/DevOps:** 
-  - Familiar with cloud services like **Microsoft Azure** and **AWS**, and containerization tools like **Docker**.
-- **Version Control and Collaboration:** 
-  - Skilled in using **Git** and **GitHub** for version control and team collaboration.
-
-I aim to leverage my academic expertise and hands-on project experience to solve industry challenges in **Data Science**, **Machine Learning**, and **AI**, driving innovation and delivering data-driven solutions.
-
----
-
-## <span style="color: #8A2BE2;">Education</span>
-
-- **Ph.D. in Computational Engineering**, [University of Stavanger](https://www.uis.no/en), 2021 - Present
-- **MSc in Computational Modeling and Applied Mathematics (non-degree)**, [Technical University of Denmark](https://www.dtu.dk/english/), 2019-2020
-- **MSc in Reservoir Engineering**, University of Stavanger, Norway, 2017-2019
-- **BSc in Reservoir Engineering**, Petroleum University of Technology, Iran, 2011-2016
-
-<!-- On this site I keep a list of [my publications](papers), [presentations](talks), 
-and [my CV](cv.pdf), as well as a [technical blog](blog.html). -->
-
-<p></p>
+<div class="contact-links">
+<a href="https://www.linkedin.com/in/peyman-kor/" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
+<a href="https://twitter.com/peyman_kor" target="_blank"><i class="bi bi-twitter"></i> Twitter</a>
+<a href="https://medium.com/@peymankor" target="_blank"><i class="bi bi-medium"></i> Medium</a>
+<a href="https://github.com/peymankor" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+<a href="mailto:kor.peyman@gmail.com"><i class="bi bi-envelope"></i> Email</a>
+</div>
 
 :::
