@@ -36,3 +36,8 @@
 # Ignore PDFs except if explicitly tracked
 !*.pdf
 
+.env
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+
