@@ -4,6 +4,8 @@ project:
 
 website:
   title: "Peyman Kor"
+  google-analytics: G-5HXVH6767Y
+
   navbar:
     right:
       - text: "Home"
