@@ -1,0 +1,52 @@
+---
+title: "Scientific Publications"
+page-layout: article
+---
+
+
+
+### Summary of Publications {.unnumbered}
+
+This collection of publications concentrates on key areas, including:
+
+- **Artificial Intelligence (AI)**
+- **Reinforcement Learning**
+- **Optimization Techniques**
+- **Decision Analytics**
+- **Machine Learning**
+- **Petroleum Engineering**
+  
+Most of the work is applied work that derives and improves processes for the use cases.
+
+## 2025
+
+* Peyman Kor, "[Aligning AI Behavior with Human Values: A Tutorial on Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf)", work in progress
+
+
+## 2024
+
+* P. Kor, A. Hong, and R. Bratvold, "[Reservoir Production Management With Bayesian Optimization: Achieving Robust Results in a Fraction of the Time](https://doi.org/10.2118/217985-PA)," SPE Journal, vol. 29, no. 02, pp. 620-640, 2024.
+
+* P. Kor, R. B. Bratvold, and A. Hong, "[Is Reinforcement Learning Good at American Option Valuation?](https://www.mdpi.com/1999-4893/17/9/400)," Algorithms, vol. 17, no. 9, p. 400, 2024.
+
+## 2019
+
+* P. Kor, "[Decision-Driven Data Analytics for Well Placement Optimization in Field Development Scenario-Powered by Machine Learning](https://bookdown.org/kor_peyman/masterthesisuis/)," M.Sc Thesis, University of Stavanger, Norway, 2019.
+
+## 2017
+
+* A. K. Ghahfarokhi, P. Kor, R. Kharrat, and B. S. Soulgani, "[Characterization of asphaltene deposition process in flow loop apparatus: An experimental investigation and modeling approach](https://www.sciencedirect.com/science/article/pii/S0920410517300372)," Journal of Petroleum Science and Engineering, vol. 151, pp. 330-340, 2017.
+
+* P. Kor, R. Kharrat, and A. Ayoubi, "[Comparison and evaluation of several models in prediction of asphaltene deposition profile along an oil well: a case study](https://link.springer.com/article/10.1007/s13202-016-0269-z)," Journal of Petroleum Exploration and Production Technology, vol. 7, pp. 497-510, 2017.
+
+* A. H. Youzband, P. Kor, E. Joonaki, and V. Taghikhani, "[Development of a new model for quantifying of Asphaltene deposition-Role of precipitation, aggregation and radial transport](https://www.earthdoc.org/content/papers/10.3997/2214-4609.201700755)," in 79th EAGE Conference and Exhibition 2017, pp. 1-5, 2017.
+
+## 2016
+
+* P. Kor and R. Kharrat, "[Modeling of asphaltene particle deposition from turbulent oil flow in tubing: Model validation and a parametric study](https://www.sciencedirect.com/science/article/pii/S2405656116301535)," Petroleum, vol. 2, no. 4, pp. 393-398, 2016.
+
+* P. Kor and R. Kharrat, "[Prediction of the asphaltene deposition profile along a wellbore during natural production from a reservoir](https://www.tandfonline.com/doi/full/10.1080/15567036.2015.1115923)," Energy Sources, Part A: Recovery, Utilization, and Environmental Effects, vol. 38, no. 19, pp. 2837-2844, 2016.
+
+---
+
+For more publications and citations, visit my [Google Scholar profile](https://scholar.google.com/citations?user=di4h5_4AAAAJ&hl=en). 
