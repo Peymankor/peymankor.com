@@ -91,6 +91,41 @@
     "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
   },
   {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Scientific Publications",
+    "section": "",
+    "text": "This collection of publications concentrates on key areas, including:\n\nArtificial Intelligence (AI)\nReinforcement Learning\nOptimization Techniques\nDecision Analytics\nMachine Learning\nPetroleum Engineering\n\nMost of the work is applied work that derives and improves processes for the use cases."
+  },
+  {
+    "objectID": "publications.html#section",
+    "href": "publications.html#section",
+    "title": "Scientific Publications",
+    "section": "2025",
+    "text": "2025\n\nPeyman Kor, “Aligning AI Behavior with Human Values: A Tutorial on Reinforcement Learning from Human Feedback”, work in progress"
+  },
+  {
+    "objectID": "publications.html#section-1",
+    "href": "publications.html#section-1",
+    "title": "Scientific Publications",
+    "section": "2024",
+    "text": "2024\n\nP. Kor, A. Hong, and R. Bratvold, “Reservoir Production Management With Bayesian Optimization: Achieving Robust Results in a Fraction of the Time,” SPE Journal, vol. 29, no. 02, pp. 620-640, 2024.\nP. Kor, R. B. Bratvold, and A. Hong, “Is Reinforcement Learning Good at American Option Valuation?,” Algorithms, vol. 17, no. 9, p. 400, 2024."
+  },
+  {
+    "objectID": "publications.html#section-2",
+    "href": "publications.html#section-2",
+    "title": "Scientific Publications",
+    "section": "2019",
+    "text": "2019\n\nP. Kor, “Decision-Driven Data Analytics for Well Placement Optimization in Field Development Scenario-Powered by Machine Learning,” M.Sc Thesis, University of Stavanger, Norway, 2019."
+  },
+  {
+    "objectID": "publications.html#section-3",
+    "href": "publications.html#section-3",
+    "title": "Scientific Publications",
+    "section": "2017",
+    "text": "2017\n\nA. K. Ghahfarokhi, P. Kor, R. Kharrat, and B. S. Soulgani, “Characterization of asphaltene deposition process in flow loop apparatus: An experimental investigation and modeling approach,” Journal of Petroleum Science and Engineering, vol. 151, pp. 330-340, 2017.\nP. Kor, R. Kharrat, and A. Ayoubi, “Comparison and evaluation of several models in prediction of asphaltene deposition profile along an oil well: a case study,” Journal of Petroleum Exploration and Production Technology, vol. 7, pp. 497-510, 2017.\nA. H. Youzband, P. Kor, E. Joonaki, and V. Taghikhani, “Development of a new model for quantifying of Asphaltene deposition-Role of precipitation, aggregation and radial transport,” in 79th EAGE Conference and Exhibition 2017, pp. 1-5, 2017."
+  },
+  {
     "objectID": "presentations/esip2023poster/index.html#spatialsample",
     "href": "presentations/esip2023poster/index.html#spatialsample",
     "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
@@ -124,5 +159,19 @@
     "title": "CV",
     "section": "",
     "text": "Your browser does not support iframes."
+  },
+  {
+    "objectID": "publications.html#section-4",
+    "href": "publications.html#section-4",
+    "title": "Scientific Publications",
+    "section": "2016",
+    "text": "2016\n\nP. Kor and R. Kharrat, “Modeling of asphaltene particle deposition from turbulent oil flow in tubing: Model validation and a parametric study,” Petroleum, vol. 2, no. 4, pp. 393-398, 2016.\nP. Kor and R. Kharrat, “Prediction of the asphaltene deposition profile along a wellbore during natural production from a reservoir,” Energy Sources, Part A: Recovery, Utilization, and Environmental Effects, vol. 38, no. 19, pp. 2837-2844, 2016.\n\n\nFor more publications and citations, visit my Google Scholar profile."
+  },
+  {
+    "objectID": "publications.html#summary-of-publications",
+    "href": "publications.html#summary-of-publications",
+    "title": "Scientific Publications",
+    "section": "",
+    "text": "This collection of publications concentrates on key areas, including:\n\nArtificial Intelligence (AI)\nReinforcement Learning\nOptimization Techniques\nDecision Analytics\nMachine Learning\nPetroleum Engineering\n\nMost of the work is applied work that derives and improves processes for the use cases."
   }
 ]
