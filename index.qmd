@@ -35,7 +35,6 @@ about:
 </style>
 
 :::{#hero-heading}
-
 I'm Peyman Kor, a Data Scientist and Machine Learning/AI researcher. I grew up in [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} north of Iran and currently finishing my Ph.D. in Norway.
 
 My focus is on AI/ML models and I am currently exploring how Generative AI and the Agentic AI workflow can lead to optimizing and automating the process. 

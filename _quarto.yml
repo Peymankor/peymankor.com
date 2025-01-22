@@ -11,14 +11,14 @@ website:
       - text: "Peyman Kor"
         href: index.html
     right:
+      - text: "Blog"
+        href: blog/index.html
       - text: "Publications"
         href: publications.qmd
       - text: "Presentations"
         href: presentations
-      - text: "Blog"
-        href: blog/index.html
 #        target: "_blank"
-      - text: "Cv"
+      - text: "CV"
         href: cv.qmd
         target: "_blank"
       - text: "Book a call"
