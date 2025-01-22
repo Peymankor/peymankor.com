@@ -1,10 +1,13 @@
 ---
-description: "Explore compelling content on technology, learning, and personal growth."
+title: "Blog Posts"
 listing:
   contents: "*/index.*"
   sort: "date desc"
-  categories: true
-  type: default
+  type: table
+  fields: [title, date]
+  field-display-names:
+    title: "Title"
+    date: "Date"
   filter-ui: false
 page-layout: full
 ---
