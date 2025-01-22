@@ -7,9 +7,10 @@ website:
   google-analytics: G-5HXVH6767Y
 
   navbar:
-    right:
-      - text: "Home"
+    left:
+      - text: "Peyman Kor"
         href: index.html
+    right:
       - text: "Publications"
         href: publications.qmd
       - text: "Presentations"
@@ -17,10 +18,10 @@ website:
       - text: "Blog"
         href: blog/index.html
 #        target: "_blank"
-      - text: "CV"
+      - text: "Cv"
         href: cv.qmd
         target: "_blank"
-      - text: "Book a Call"
+      - text: "Book a call"
         href: "https://cal.com/peyman-kor-xf878d/45min"
         target: "_blank"
 
