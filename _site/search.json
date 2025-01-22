@@ -189,25 +189,11 @@
     "text": "Conceptual Guide for RLHF Process"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog Posts",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nBuilding Effective Agents: A Short Hands-On Tutorial\n\n\nJan 6, 2025\n\n\n\n\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\n\n\nNov 15, 2024\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
-    "section": "",
-    "text": "Your browser does not support iframes."
-  },
-  {
-    "objectID": "blog/RLHF/index.html#intro",
-    "href": "blog/RLHF/index.html#intro",
+    "objectID": "blog/RLHF/index.html#introduction",
+    "href": "blog/RLHF/index.html#introduction",
     "title": "Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan",
-    "section": "1 Intro",
-    "text": "1 Intro\nSo this blog post is for the people who are who probably heard the term Reinforcement Learning from Human Feedback (RLHF) and are curious what is this methodology is and what are the resources to learn about it.\nEssentially, RLHF has been developed to transform Large Language Models (LLM) from AI model to AI assistant. That is the core idea. The AI assistant here means that Foundation model companies like OpenAI, Claude, Google can make AI products that are more helpful and useful for their costumers. Indeed that is a crucial aspect of the any product developmnet strategy because ultimately, you want to build products that are useful for your human customers."
+    "section": "1 Introduction",
+    "text": "1 Introduction\nSo this blog post is for the people who are who probably heard the term Reinforcement Learning from Human Feedback (RLHF) and are curious what is this methodology is and what are the resources to learn about it.\nEssentially, RLHF has been developed to transform Large Language Models (LLM) from AI model to AI assistant. That is the core idea. The AI assistant here means that Foundation model companies like OpenAI, Claude, Google can make AI products that are more helpful and useful for their costumers. Indeed that is a crucial aspect of the any product development strategy because ultimately, you want to build products that are useful for your human customers."
   },
   {
     "objectID": "blog/RLHF/index.html#background-on-foundation-models",
@@ -224,17 +210,24 @@
     "text": "3 Study Roadmap\nTo help you navigate this complex topic, I’ve organized learning resources into five main categories:\n\nIntroductory Tutorials\nKey Research Papers\nHands-on Codes\nOnline Courses\nRLHF Book\n\n\n3.1 Introductory Tutorials\nHere the goal is to get a high-level understanding of RLHF. I suggest you to start with the Chip Huyen’s blog post on RLHF. It is a great introduction to the topic.\nResources:\n\n📚 20m: Introduction to RLHF by Chip Huyen Read here\n📺 40m: RLHF: From Zero to ChatGPT by Nathan Lambert Watch here\n📺 60m: Lecture on RLHF by Hyung Won Chung See here\n\n\n\n3.2 Key Research Papers\nHere are some important research papers I think worth reading to get a deeper understanding of RLHF.\n\n📚 30m: InstructGPT Paper – Applying RLHF to a general language model Read here\n📚 30m: DPO Paper by Rafael Rafailov Read here\n📚 30m: Artificial Intelligence, Values, and Alignment – An essential paper Read here\n\n\n\n3.3 Hands-on Codes\nHere I am adding some codes that you can run on your local machine to get a hands-on experience of RLHF. I woudl like to note that TRL seems a nice library that has been used for RLHF, maybe that can be go to go for you when it comes to RLHF implementation.\n\n📚 2h: Detoxifying a Language Model using PPO Read here\n📚 2h: RLHF with DPO & Hugging Face Read here\n📚 1h: TRL Library for Fast Implementation – Minimal and efficient Read here\n\n\n\n3.4 Online Courses\nIf you are looking for a more structured learning experience, I recommend taking an online course. Here are some courses that cover RLHF:\n\n📚 1h: Reinforcement Learning from Human Feedback by Nikita Namjoshi Course link\n\n\n\n3.5 RLHF Book\nFinally, if you want to dive deep into RLHF, I recommend reading the book *A Little Bit of Reinforcement Learning from Human Feedback by Nathan Lambert. This book is in progress and you can read it online for free."
   },
   {
-    "objectID": "blog/RLHF/index.html#introduction",
-    "href": "blog/RLHF/index.html#introduction",
-    "title": "Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan",
-    "section": "1 Introduction",
-    "text": "1 Introduction\nSo this blog post is for the people who are who probably heard the term Reinforcement Learning from Human Feedback (RLHF) and are curious what is this methodology is and what are the resources to learn about it.\nEssentially, RLHF has been developed to transform Large Language Models (LLM) from AI model to AI assistant. That is the core idea. The AI assistant here means that Foundation model companies like OpenAI, Claude, Google can make AI products that are more helpful and useful for their costumers. Indeed that is a crucial aspect of the any product development strategy because ultimately, you want to build products that are useful for your human customers."
-  },
-  {
     "objectID": "blog/RLHF/index.html#conclusion",
     "href": "blog/RLHF/index.html#conclusion",
     "title": "Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan",
     "section": "4 Conclusion",
     "text": "4 Conclusion\nI hope this study guide helps you get started with Reinforcement Learning from Human Feedback (RLHF). Remember, the key to mastering any topic is consistent practice and learning. Good luck on your RLHF journey!"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog Posts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\n \n\n\n \n\n\n\n\n \n\n\n \n\n\n\n\nBuilding Effective Agents: A Short Hands-On Tutorial\n\n\nJan 6, 2025\n\n\n\n\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\n\n\nNov 15, 2024\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Your browser does not support iframes."
   }
 ]
