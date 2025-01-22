@@ -1,7 +1,7 @@
 ---
 title: "Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan" 
 author: "Peyman Kor"
-date: "2024-11-15"
+date: 2024-11-15
 description: "A study guide to get into Reinforcement Learning from Human Feedback (RLHF)"
 categories: [rl] 
 tags: [rlhf, alignment, genai] 
