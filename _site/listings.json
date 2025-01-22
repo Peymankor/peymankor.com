@@ -2,8 +2,8 @@
   {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/RLHF/index.html",
-      "/blog/anthropic_effective_agent/index.html"
+      "/blog/anthropic_effective_agent/index.html",
+      "/blog/RLHF/index.html"
     ]
   }
 ]
