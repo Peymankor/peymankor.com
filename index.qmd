@@ -35,17 +35,16 @@ about:
 </style>
 
 :::{#hero-heading}
-I'm Peyman Kor, a Data Scientist and Machine Learning/AI researcher. I grew up in [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} north of Iran and currently finishing my Ph.D. in Norway.
 
-My focus is on AI/ML models and I am currently exploring how Generative AI and the Agentic AI workflow can lead to optimizing and automating the process. 
+I'm Peyman Kor - a Data Scientist and Machine Learning/AI Researcher passionate about helping businesses unlock the potential of Artificial Intelligence and Generative AI.
 
-As my PhD topic, I worked on [Reinforcement Learning](https://en.wikipedia.org/wiki/Reinforcement_learning){target="_blank"}. Both in the context of how we can use Reinforcement Learning in the more classical method like [Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"}, but also how Reinforcement Learning can be used in generative AI in the frame of [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
+Originally from [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} in northern Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. My current research explores Agentic AI workflows and Generative AI models for process optimization and automation.
 
-Previously, I studied at Technical University of Denmark and worked on various computational projects. I graduated from University of Stavanger with M.Sc in Engineering, where I specialized in developing practical ML solutions for real-world problems.
+My doctoral work focuses on Reinforcement Learning, investigating both classical approaches like [Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"} and innovative applications in generative AI, such as [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}.
 
-I'm active on GitHub and frequently publish my research findings in my blog. You can find my work in various academic publications and technical blogs.
+Previously, I studied at the Technical University of Denmark and worked on diverse computational projects. I hold an M.Sc in Engineering from the University of Stavanger, specializing [developing practical ML solutions for real-world problems](https://bookdown.org/kor_peyman/masterthesisuis/){target="_blank"}.
 
-I enjoy tackling challenging technical problems and collaborating with innovative teams. 
+I'm actively engaged on [GitHub](https://github.com/Peymankor){target="_blank"} and regularly share research insights through my blog. My passion lies in solving complex technical problems and collaborating with innovative teams.
 
 <div class="contact-links">
 <a href="https://www.linkedin.com/in/peyman-kor/" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
