@@ -9,7 +9,7 @@
 <meta name="author" content="Peyman Kor">
 <meta name="dcterms.date" content="2025-01-28">
 
-<title>A simple LLM Agent Workflow with LangGraph – Peyman Kor</title>
+<title>Building a Simple LLM Agent Workflow with LangGraph – Peyman Kor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta name="twitter:title" content="A simple LLM Agent Workflow with LangGraph – Peyman Kor">
+<meta name="twitter:title" content="Building a Simple LLM Agent Workflow with LangGraph – Peyman Kor">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="index_files/figure-html/cell-8-1-image.png">
 <meta name="twitter:creator" content="@peyman_kor">
@@ -190,6 +190,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
   <li><a href="#generate-the-answer" id="toc-generate-the-answer" class="nav-link" data-scroll-target="#generate-the-answer">Generate the answer</a></li>
   <li><a href="#building-the-graph" id="toc-building-the-graph" class="nav-link" data-scroll-target="#building-the-graph">Building the graph</a></li>
   <li><a href="#report-with-agent" id="toc-report-with-agent" class="nav-link" data-scroll-target="#report-with-agent">Report with Agent</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -198,7 +199,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A simple LLM Agent Workflow with LangGraph</h1>
+<h1 class="title">Building a Simple LLM Agent Workflow with LangGraph</h1>
   <div class="quarto-categories">
     <div class="quarto-category">agenticworkflow</div>
   </div>
@@ -237,10 +238,9 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 <ul>
 <li>The memory can be both short-term (Short-term memory can be the dialog history) or long-term</li>
 <li>The tools can be API calls, so the LLM can access specific information, for example internet API to get the additional information</li>
-<li>The planning section shows how the LLM can divide multiple tasks and execute them autonomously</li>
+<li>The planning section shows how the LLM can divide multiple tasks and execute them</li>
 </ul>
-<p>In this short blog, I’m going to show what LangGraph is - a well-established and structured Python framework for building LLM agents.</p>
-<p>What we want to do is very simple:</p>
+<p>In this short blog, I’m going to first show what LangGraph is - a well-established and structured Python framework for building LLM agents. Then, what we want to do is very simple:</p>
 <ol type="1">
 <li>We start with one question (a query)</li>
 <li>That query goes to the LLM tools (Wikipedia and web search)</li>
@@ -252,8 +252,8 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 </section>
 <section id="setting-up-the-api-keys" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-api-keys">Setting up the API keys</h2>
-<p>So the first thing is that we need to give the API key of the open AI. In order to use the LLM from the OpenAI. So for that one in this case I have <code>.env</code> file where the I gave the openai ky is available at that file. So I’m going to load that file and then I’m going to use the openai API key. Alternatively, you can just put the API key directly in the code. I wrote method 2 in the code below.</p>
-<div id="cell-5" class="cell">
+<p>First, we need to provide the OpenAI API key to use their LLM services. In my case, I store the API key in a <code>.env</code> file for better security and load it from there. Alternatively, you can directly set the API key in the code, which I’ve shown as Method 2 below. Both approaches work, but using a <code>.env</code> file is generally considered better practice since it keeps sensitive credentials separate from the code.</p>
+<div id="cell-5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
@@ -262,16 +262,15 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>openai_api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 2</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#import os</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#os.environ["OPENAI_API_KEY"] = "your-api-key"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#import os</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#os.environ["OPENAI_API_KEY"] = "your-api-key"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="report-with-standalone-llm" class="level2">
 <h2 class="anchored" data-anchor-id="report-with-standalone-llm">Report with Standalone LLM</h2>
-<p>Now let’s get started. First, we import ChatOpenAI from langchain_openai. I’m using GPT-4-mini since it’s the most cost-effective option. My test query is “briefly explain DeepSeek” - I purposefully selected this query to benchmark how the LLM agent improves the response compared to using just the LLM alone. This serves as an evaluation metric. The code uses a simple system message to set up the assistant role, and I save the report from the LLM in a markdown file for better readability.</p>
-<div id="cell-7" class="cell" data-execution_count="15">
+<p>Now let’s get started. First, we import ChatOpenAI from langchain_openai. I’m using GPT-4-mini since it’s the most cost-effective option. My test query is “Briefly explain me DeepSeek and how it affected NVIDIA Share price” - I purposefully selected this query to benchmark how the LLM agent improves the response compared to using just the LLM alone. This serves as an evaluation metric. The code uses a simple system message to set up the assistant role, and I save the report from the LLM in a markdown file for better readability.</p>
+<div id="cell-7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI(model<span class="op">=</span><span class="st">"gpt-4o-mini"</span>, temperature<span class="op">=</span><span class="dv">0</span>)</span>
@@ -308,7 +307,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 </ol>
 <p>The workflow is implemented using a <code>State</code> class that tracks: - <code>question</code>: The user’s original query - <code>context</code>: Combined results from web and Wikipedia searches (which is a list, added together) - <code>answer</code>: The final response generated by the LLM</p>
 <p>The State class uses a TypedDict to enforce these three fields.</p>
-<div id="cell-10" class="cell" data-execution_count="17">
+<div id="cell-10" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing_extensions <span class="im">import</span> TypedDict</span>
@@ -328,7 +327,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 <section id="define-the-tools" class="level3">
 <h3 class="anchored" data-anchor-id="define-the-tools">Define the Tools</h3>
 <p>Here we have two search functions. In both functions, we take a question from the state (which we defined in the previous section) and pass it to either web search or Wikipedia search. These tools provide additional context to the LLM so it can generate a better informed report.</p>
-<div id="cell-12" class="cell" data-execution_count="18">
+<div id="cell-12" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.messages <span class="im">import</span> HumanMessage, SystemMessage</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_community.document_loaders <span class="im">import</span> WikipediaLoader</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_community.tools <span class="im">import</span> TavilySearchResults</span>
@@ -376,7 +375,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 <section id="generate-the-answer" class="level2">
 <h2 class="anchored" data-anchor-id="generate-the-answer">Generate the answer</h2>
 <p>Now with that context the generate answer function takes that state which has a question and also context that provided from the previous two tools function and now we answer the same question which was about NVIDIA and also from the deep seek with this context. So that’s the kind of the bringing the more context to the workflow.</p>
-<div id="cell-14" class="cell" data-execution_count="10">
+<div id="cell-14" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_answer(state):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Node to answer a question """</span></span>
@@ -400,9 +399,9 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 </section>
 <section id="building-the-graph" class="level2">
 <h2 class="anchored" data-anchor-id="building-the-graph">Building the graph</h2>
-<p>Now we build the graph. We start with the state, and then we add the nodes. We add the search_web and search_wikipedia nodes, and then we add the generate_answer node. We then add the edges, and then we compile the graph.</p>
+<p>Now we build the graph. We start with the state, and then we add the nodes. We add the search_web and search_wikipedia nodes, and then we add the generate_answer node. We then add the edges (simply it is how the nodes are connected), and then we compile the graph.</p>
 <p>Note that in the in the final graph we see that we have a 5 nodes but just the first note is a start and the last note is the end, but those are the default one. But then we only have a 31 which is two of the tools, and then gathering and getting the answer using a tool which is another tools.</p>
-<div id="cell-16" class="cell" data-execution_count="19">
+<div id="cell-16" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langgraph.graph <span class="im">import</span> StateGraph, START, END</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>builder <span class="op">=</span> StateGraph(State)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -436,7 +435,7 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 <section id="report-with-agent" class="level2">
 <h2 class="anchored" data-anchor-id="report-with-agent">Report with Agent</h2>
 <p>Now as you can see, we are asking the same question again about DeepSeek and how it affected the NVIDIA share price. This time we are invoking the graph that we defined earlier, which is a combination of all the edges and nodes that we put together. After compiling the graph in the previous step, it is now ready to function as a workflow. As before, I save the final report as a markdown file for easier readability and comparison.</p>
-<div id="cell-19" class="cell">
+<div id="cell-19" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> graph.invoke({<span class="st">"question"</span>: </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Briefly explain me DeepSeek and how it affected NVIDIA Share price"</span>})</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -452,6 +451,12 @@ gtag('config', 'G-5HXVH6767Y', { 'anonymize_ip': true});
 <figcaption>image.png</figcaption>
 </figure>
 </div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In summary, in this blog, we explored the concept of AI agents using LangGraph, a nice Python framework for building LLM agents. We started with a simple LLM workflow and then enhanced it with tools (Wikipedia and web search) to provide more context. We built a graph to orchestrate the workflow and then used it to answer a question about DeepSeek and NVIDIA share price.</p>
+<p>As we can see, if we just compare the report of the LLM stand alone without access to the tools with the LLM with access to the tool, we can see that the first report was not satisfactory. It was purely just a Hallucination. But when you add the latest report about NVIDIA and and the share price and also DeepSeek from both internet and wikipedia. Then your report can be more realistic. So this is a typical example that you can start with the base and weak (and cheap!) LLM model like a mini 4, but giving the proper context, proper tools, it can just get better and better.</p>
+<p>And I want to make a similarity to the human. We human are agents too :) because essentially what happens is that when you have a more tools you are more capable. And here is in this example, the tools help the initial agent to be more capable in providing the answer that we want.</p>
 
 
 </section>

@@ -1,3 +1,0 @@
-# Report using Agent
-
-DeepSeek is a Chinese AI company that has developed a model, DeepSeek V3, which reportedly matches the performance of OpenAI's best models while using significantly fewer Nvidia GPUs and at a much lower cost. This has raised concerns among investors about the future demand for Nvidia's GPUs, which has been a key driver of the company's stock price. Following the announcement of DeepSeek's capabilities, Nvidia's share price fell by 12.5%, reflecting market panic over potential reduced demand for its products due to DeepSeek's efficiency.
