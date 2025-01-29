@@ -1,0 +1,5 @@
+# Report using LLM
+
+DeepSeek is a technology developed by NVIDIA that leverages deep learning and artificial intelligence to enhance search capabilities, particularly in large datasets. It utilizes advanced algorithms to improve the efficiency and accuracy of data retrieval, making it valuable for various applications, including cloud computing and data analytics.
+
+The introduction of DeepSeek has positively impacted NVIDIA's share price by reinforcing its position as a leader in AI and machine learning technologies. Investors often respond favorably to innovations that promise to drive future revenue growth, and DeepSeek's potential applications in high-demand sectors have contributed to increased investor confidence. Consequently, NVIDIA's stock has seen upward momentum, reflecting the market's optimism about the company's growth prospects in the AI space.
