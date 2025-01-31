@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/4waysgenai/index.html",
       "/blog/simplelanggraph/index.html",
       "/blog/anthropic_effective_agent/index.html",
       "/blog/RLHF/index.html"
