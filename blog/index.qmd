@@ -1,13 +1,19 @@
 ---
-title: "Blog Posts"
+title: "Articles"
 listing:
   contents: "*/index.*"
   sort: "date desc"
-  type: table
-  fields: [title, date]
-  field-display-names:
-    title: "Title"
-    date: "Date"
-  filter-ui: false
-page-layout: full
+  type: default
+  categories: true
+  feed: true
+  fields: [title, date, description, image]
+  date-format: "Do MMMM YYYY"
+  page-size: 10
+page-layout: article
+sidebar:
+  style: "floating"
+  search: false
+  contents:
+    - section: "Categories"
+      contents: auto
 ---
