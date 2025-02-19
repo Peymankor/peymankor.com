@@ -32,7 +32,7 @@
     "href": "index.html",
     "title": "Peyman Kor",
     "section": "",
-    "text": "Peyman Kor\n\n\nAI & Decision Analytics | GenAI Researcher & Educator | Data Scientist\n\nI’m Peyman Kor - a Data Scientist and Machine Learning/AI Researcher.\nOriginally from Bandar Torkaman in northern Iran, I’m now based in Norway, completing my Ph.D. in Reinforcement Learning. Currently I am exploring three main areas:\n\n\nAgentic AI and LLM workflow for automation and productivity.\nReinforcement Learning for improving reasoning in LLMs.\nDecision-quality and science of better decision making.\n\n\nMy doctoral work focuses on Reinforcement Learning, investigating both classical approaches like Q-learning and innovative applications such as RL for LLMs Reinforcement Learning from Human Feedback.\nPrior to my PhD, as a Data Scientist, I was part of a successful industry collaboration project focused on optimizing, resulting in developing an innovative Bayesian Optimization workflow.\nPreviously, I studied at the Technical University of Denmark and worked on diverse computational projects. In addition, I hold an M.Sc in Engineering from the University of Stavanger, specializing developing practical ML solutions for real-world problems.\nI’m actively engaged on GitHub and regularly share findings through my blog.\n\n LinkedIn  Twitter  Medium  GitHub  Email"
+    "text": "Peyman Kor\n\n\nAI & Decision Analytics | GenAI Researcher & Educator | Data Scientist\n\n\n\nSummary\n\nI’m Peyman Kor - a Data Scientist and Machine Learning/AI Researcher.\nOriginally from Bandar Torkaman in northern Iran, I’m now based in Norway, completing my Ph.D. in Reinforcement Learning. Currently I am exploring three main areas:\n\n\nAgentic AI and LLM workflow for automation and productivity.\nReinforcement Learning for improving reasoning in LLMs.\nDecision-quality and science of better decision making.\n\n\nMy doctoral work focuses on Reinforcement Learning, investigating both classical approaches like Q-learning and innovative applications such as RL for LLMs Reinforcement Learning from Human Feedback.\nPrior to my PhD, as a Data Scientist, I was part of a successful industry collaboration project focused on optimizing, resulting in developing an innovative Bayesian Optimization workflow.\nPreviously, I studied at the Technical University of Denmark and worked on diverse computational projects. In addition, I hold an M.Sc in Engineering from the University of Stavanger, specializing developing practical ML solutions for real-world problems.\nI’m actively engaged on GitHub and regularly share findings through my blog.\n\n\nExperience\n\n\n\nNORCE & UiS\n\n\nJan 2021 - Dec 2021\n\n\nData Scientist\n\n\n• Developed novel machine learning model for production optimization in subsurface applications\n• Designed and tested algorithms for probabilistic modeling, improving computational efficiency by 500%\n• Collaborated with stakeholders from eight Norwegian energy companies, ensuring seamless integration of analytical insights into decision-making\n\n\n\n\nDecarbonify\n\n\nJan 2020 - June 2020\n\n\nData Scientist\n\n\nEstablished and implemented a database system leading to efficient data extraction and analysis using SQL.\n\n\n\n\nAKER BP\n\n\nJun 2019 - Aug 2019\n\n\nData Scientist Intern\n\n\n• Developed a probabilistic reserve estimate dashboard tool using R Shiny/RStudio to provide real-time data-driven insights for decision-making\n• Analyzed over 10,000 scenarios using Monte Carlo Simulations, allowing data-driven decision-making and improved risk assessment\n\n\n\n\n\nEducation\n\n\n\nUniversity of Stavanger\n\n\n2022 - 2024\n\n\nPhD in Applied Data Science & Machine Learning\n\n\nFocus: Optimization, Quantitative Finance (Option Trading & Derivatives). Skills: Python, R, SQL, Scientific Reporting.\n\n\n\n\nTechnical University of Denmark\n\n\n2019 - 2020\n\n\nAdvanced Studies in Data Science & Machine Learning\n\n\nCompleted a one-year specialized program in Data Science, Machine Learning and Mathematical Modeling.\n\n\n\n\nUniversity of Stavanger\n\n\n2017 - 2019\n\n\nMSc in Engineering\n\n\nMSc Thesis: Decision-Driven Data Analytics for Well Placement Optimization in Field Development Scenario-Powered by Machine Learning.\n\n\n\n\n LinkedIn  Twitter  Medium  GitHub  Email"
   },
   {
     "objectID": "blog/4waysgenai/index.html",
@@ -166,6 +166,41 @@
     "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
     "section": "waywiser",
     "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
+  },
+  {
+    "objectID": "awards.html",
+    "href": "awards.html",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "September 2022 | Stavanger Kommune\n\nAwarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services.\n\n\n\nSeptember 2019 | Technical University of Denmark\n\nSecured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams.\n\n\n\nMay 2019 | SPE European Region Contest\n\nReceived the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach.\n\n\n\nJune 2019 | University of Stavanger\n\nSelected as the “Most Integrated International Student” at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community."
+  },
+  {
+    "objectID": "awards.html#open-data-hackathon-prize",
+    "href": "awards.html#open-data-hackathon-prize",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "September 2022 | Stavanger Kommune\n\nAwarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services."
+  },
+  {
+    "objectID": "awards.html#innovation-hackathon-prize",
+    "href": "awards.html#innovation-hackathon-prize",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "September 2019 | Technical University of Denmark\n\nSecured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams."
+  },
+  {
+    "objectID": "awards.html#best-poster-award",
+    "href": "awards.html#best-poster-award",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "May 2019 | SPE European Region Contest\n\nReceived the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach."
+  },
+  {
+    "objectID": "awards.html#most-integrated-international-student",
+    "href": "awards.html#most-integrated-international-student",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "June 2019 | University of Stavanger\n\nSelected as the “Most Integrated International Student” at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community."
   },
   {
     "objectID": "publications.html",
@@ -303,7 +338,7 @@
   {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
-    "title": "Articles",
+    "title": "Blog",
     "section": "",
     "text": "Generative AI: 4 Ways It Can Enhance Human Life\n\n\n\n\n\nMy notes on how generative AI can enhance human life\n\n\n\n\n\n31st January 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Simple LLM Agent Workflow with LangGraph\n\n\n\n\n\n\n\n\n\n\n\n28th January 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding Effective Agents: A Short Hands-On Tutorial\n\n\n\n\n\n A short hands-on tutorial on building effective agents following the Anthropic report\n\n\n\n\n\n6th January 2025\n\n\n\n\n\n\n\n\n\n\n\n\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\n\n\n\n\n\nA study guide to get into Reinforcement Learning from Human Feedback (RLHF)\n\n\n\n\n\n15th November 2024\n\n\n\n\n\n\nNo matching items"
   },

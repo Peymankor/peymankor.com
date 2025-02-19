@@ -18,12 +18,14 @@ website:
       - text: "Presentations"
         href: presentations
 #        target: "_blank"
-      - text: "CV"
-        href: cv.qmd
-        target: "_blank"
-      - text: "Book a call"
-        href: "https://cal.com/peyman-kor-xf878d/45min"
-        target: "_blank"
+      - text: "Awards"
+        href: awards.qmd
+#      - text: "CV"
+#        href: cv.qmd
+#        target: "_blank"
+#      - text: "Book a call"
+#        href: "https://cal.com/peyman-kor-xf878d/45min"
+#        target: "_blank"
 
   twitter-card:
     creator: "@peyman_kor"

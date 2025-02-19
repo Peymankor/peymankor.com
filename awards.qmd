@@ -1,0 +1,93 @@
+---
+title: "Awards & Recognition"
+page-layout: full
+---
+
+:::{.column-page}
+
+<!-- # Awards & Recognition {.gradient-text .text-center .mb-5} -->
+
+
+## Open Data Hackathon Prize {.award-heading}
+**September 2022 | Stavanger Kommune**
+
+![](awardimages/stavanger_kommune.jpg){.award-image}
+
+Awarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services.
+
+## Innovation Hackathon Prize {.award-heading}
+**September 2019 | Technical University of Denmark**
+
+![](awardimages/hacktawondenmark.JPG){.award-image}
+
+Secured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams.
+
+## Best Poster Award {.award-heading}
+**May 2019 | SPE European Region Contest**
+
+![](awardimages/award_poland.jpg){.award-image}
+
+Received the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach.
+
+## Most Integrated International Student {.award-heading}
+**June 2019 | University of Stavanger**
+
+![](awardimages/bestintegrated.png){.award-image}
+
+Selected as the "Most Integrated International Student" at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community.
+
+:::
+
+<style>
+.gradient-text {
+    background: linear-gradient(45deg, #2c5282, #4299e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1em;
+    font-weight: 800;
+    margin-bottom: 1.5em;
+}
+
+.award-heading {
+    color: #2d3748;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.award-image {
+    width: 100%;
+    max-width: 1000px;
+    margin: 1em 0 2em 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+strong {
+    color: #4299e1;
+    display: block;
+    margin-bottom: 0.8em;
+    font-size: 0.95em;
+}
+
+.column-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-5 {
+    margin-bottom: 2rem;
+}
+</style> 
