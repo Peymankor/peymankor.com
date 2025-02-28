@@ -249,13 +249,17 @@ p {
 
 I'm Peyman Kor - a Data Scientist and Machine Learning/AI Researcher.
 
-Originally from [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} in northern Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. **Currently** I am exploring three main areas:
+Originally from [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} in northern Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. 
+
+
+<!--**Currently** I am exploring three main areas:
 
 <div class="research-areas">
 1. Agentic AI and LLM workflow for automation and productivity.
 2. Reinforcement Learning for improving reasoning in LLMs.
 3. Decision-quality and science of better decision making.
 </div>
+-->
 
 My doctoral work focuses on Reinforcement Learning, investigating both classical approaches [like Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"} and innovative applications such as RL for LLMs [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
 
