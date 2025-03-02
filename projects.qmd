@@ -1,0 +1,147 @@
+---
+title: "Data Project Portfolio"
+page-layout: full
+title-block-banner: true
+css: styles.css
+---
+
+## Data Science & AI Projects
+
+Welcome to my data science and AI project portfolio. Here you'll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics.
+
+### Featured Projects
+
+
+#### Ameriopt Python package for American Option Pricing with Reinforcement Learning
+
+![Ameriopt](projectimage/ameriopt.png){width=800 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/AmeriOpt)  
+**Article**: [Medium](https://medium.com/@peymankor/from-zero-to-hero-a-step-by-step-guide-to-binomial-option-pricing-in-less-than-30-lines-of-code-10ff2af268e2)
+
+Developed a Python package for American option pricing using reinforcement learning. The package provides a flexible and efficient framework for pricing American options using deep neural networks and reinforcement learning algorithms.
+
+::: {.skills}
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Reinforcement Learning](https://img.shields.io/badge/Reinforcement_Learning-FF6F00?style=for-the-badge)
+![Deep Learning](https://img.shields.io/badge/Deep_Learning-512BD4?style=for-the-badge)
+![Option Pricing](https://img.shields.io/badge/Option_Pricing-2C8EBB?style=for-the-badge)
+![Quantitative Finance](https://img.shields.io/badge/Quantitative_Finance-25A162?style=for-the-badge)
+:::
+
+---
+
+#### Inventory Optimization with Reinforcement Learning
+
+![Inventory Optimization](projectimage/inventory.png){width=400 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/BayesOpt_Reservoir_Optimization)  
+**Article**: [Medium](https://medium.com/towards-data-science/optimizing-inventory-management-with-reinforcement-learning-a-hands-on-python-guide-7833df3d25a6)
+
+Developed a reinforcement learning approach to optimize inventory management decisions. Implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.
+
+::: {.skills}
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Reinforcement Learning](https://img.shields.io/badge/Reinforcement_Learning-FF6F00?style=for-the-badge)
+![Q-Learning](https://img.shields.io/badge/Q--Learning-00599C?style=for-the-badge)
+![Optimization](https://img.shields.io/badge/Optimization-F7931E?style=for-the-badge)
+:::
+
+---
+
+#### Dynamic Programming for Inventory Optimization
+
+![Dynamic Programming](projectimage/dynamic.png){width=800 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/Bayesopt_well_control)  
+**Article**: [TowardsAI](https://pub.towardsai.net/inventory-optimization-with-dynamic-programming-in-less-than-100-lines-of-python-code-ab1cc58ef34c)
+
+Implemented a dynamic programming solution for inventory management in less than 100 lines of Python code. The approach determines optimal inventory levels by balancing holding costs, stockout costs, and ordering costs.
+
+::: {.skills}
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Dynamic Programming](https://img.shields.io/badge/Dynamic_Programming-4285F4?style=for-the-badge)
+![Supply Chain](https://img.shields.io/badge/Supply_Chain-FF9900?style=for-the-badge)
+![Optimization](https://img.shields.io/badge/Optimization-F7931E?style=for-the-badge)
+:::
+
+---
+
+#### Reinforcement Learning for LLM Alignment
+
+![RLHF for LLMs](projectimage/rlhf.png){width=800 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/RLHF)  
+**Article**: [AIMind](https://pub.aimind.so/reinforcement-learning-meets-large-language-models-llms-aligning-human-preferences-in-llms-88c3a3f1a3f9)
+
+Explored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences. Analyzed the techniques used in training models like ChatGPT and Claude.
+
+::: {.skills}
+![RLHF](https://img.shields.io/badge/RLHF-FF6F00?style=for-the-badge)
+![LLMs](https://img.shields.io/badge/LLMs-0081CB?style=for-the-badge)
+![AI Alignment](https://img.shields.io/badge/AI_Alignment-FF4081?style=for-the-badge)
+![Deep Learning](https://img.shields.io/badge/Deep_Learning-512BD4?style=for-the-badge)
+:::
+
+---
+
+#### Binomial Option Pricing Model
+
+![Option Pricing](projectimage/binomial.png){width=800 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/AmeriOpt)  
+**Article**: [DataDrivenInvestor](https://medium.datadriveninvestor.com/from-zero-to-hero-a-step-by-step-guide-to-binomial-option-pricing-in-less-than-30-lines-of-code-10ff2af268e2)
+
+Developed a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.
+
+::: {.skills}
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Financial Modeling](https://img.shields.io/badge/Financial_Modeling-25A162?style=for-the-badge)
+![Options Pricing](https://img.shields.io/badge/Options_Pricing-2C8EBB?style=for-the-badge)
+![Quantitative Finance](https://img.shields.io/badge/Quantitative_Finance-25A162?style=for-the-badge)
+:::
+
+### Research & Academic Projects
+
+#### Bayesian Optimization for Reservoir Engineering
+
+![Bayesian Optimization](projectimage/boimage.png){width=800 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/BayesOpt_Reservoir_Optimization)
+
+Applied Bayesian optimization techniques to optimize well placement and control in reservoir engineering. The approach efficiently explores the parameter space to maximize oil recovery while minimizing computational costs.
+
+::: {.skills}
+![Bayesian Optimization](https://img.shields.io/badge/Bayesian_Optimization-4285F4?style=for-the-badge)
+![Reservoir Engineering](https://img.shields.io/badge/Reservoir_Engineering-FF9900?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Gaussian Processes](https://img.shields.io/badge/Gaussian_Processes-00599C?style=for-the-badge)
+:::
+
+
+#### Reinforcement Learning for American Option Pricing
+
+![Reinforcement Learning](projectimage/rloption.png){width=800 height=600}
+
+**GitHub**: [Repository](https://github.com/Peymankor/RLHF)
+
+Implemented a reinforcement learning approach to optimize American option pricing. The approach uses a deep neural network to approximate the optimal policy for pricing American options.
+
+::: {.skills}
+![Reinforcement Learning](https://img.shields.io/badge/Reinforcement_Learning-FF6F00?style=for-the-badge)
+![Deep Learning](https://img.shields.io/badge/Deep_Learning-512BD4?style=for-the-badge)
+![American Option Pricing](https://img.shields.io/badge/American_Option_Pricing-2C8EBB?style=for-the-badge)
+![Quantitative Finance](https://img.shields.io/badge/Quantitative_Finance-25A162?style=for-the-badge)
+:::
+
+---
+
+
+
+### Data Science Articles & Tutorials
+
+- [Bridging the Gap: Integrating Data Science and Decision Science through Six Essential Questions](https://pub.towardsai.net/bridging-the-gap-integrating-data-science-and-decision-science-through-six-essential-questions-1747eff7487d)
+- [Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan](https://pub.towardsai.net/learn-reinforcement-learning-from-human-feedback-rlhf-your-9-hour-study-plan-2bb0b8314e94)
+- [Understanding Why There Is No Such Thing as 'Correct Probability' in Data Science](https://pub.towardsai.net/understanding-why-there-is-no-such-thing-as-correct-probability-in-data-science-950c81629bcf)
+- [Forgot Solutions in Life. It's All About Trade-offs (Here Is How to Master Them)](https://medium.com/@peymankor/forgot-solutions-in-life-its-all-about-trade-offs-here-is-how-to-master-them-4cdbf3a8a395)
+- [The Power of Negative Thinking: Supercharge your Decision-Making Skill](https://medium.com/@peymankor/the-power-of-negative-thinking-supercharge-your-decision-making-skill-c81782177f97) 

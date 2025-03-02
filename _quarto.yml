@@ -13,6 +13,8 @@ website:
     right:
       - text: "Blog"
         href: blog/index.html
+      - text: "Data & AI Portfolio"
+        href: projects.qmd
       - text: "Publications"
         href: publications.qmd
       - text: "Presentations"
