@@ -154,53 +154,18 @@
     "text": "Conclusion\nIn summary, in this blog, we explored the concept of AI agents using LangGraph, a nice Python framework for building LLM agents. We started with a simple LLM workflow and then enhanced it with tools (Wikipedia and web search) to provide more context. We built a graph to orchestrate the workflow and then used it to answer a question about DeepSeek and NVIDIA share price.\nAs we can see, if we just compare the report of the LLM stand alone without access to the tools with the LLM with access to the tool, we can see that the first report was not satisfactory. It was purely just a Hallucination. But when you add the latest report about NVIDIA and and the share price and also DeepSeek from both internet and wikipedia. Then your report can be more realistic. So this is a typical example that you can start with the base and weak (and cheap!) LLM model like a mini 4, but giving the proper context, proper tools, it can just get better and better.\nAnd I want to make a similarity to the human. We human are agents too :) because essentially what happens is that when you have a more tools you are more capable. And here is in this example, the tools help the initial agent to be more capable in providing the answer that we want."
   },
   {
-    "objectID": "presentations/esip2023poster/index.html#spatialsample",
-    "href": "presentations/esip2023poster/index.html#spatialsample",
-    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
-    "section": "spatialsample",
-    "text": "spatialsample\nThe spatialsample package provides methods for spatial cross-validation. These methods provide more accurate estimates of model performance when extrapolating into new areas, and are particularly useful when there is no independent probability sample available for assessing predictions.\nFunctions in spatialsample provide a standardized interface to several of the most popular spatial CV approaches, and return objects which extend classes from the rsample package. As a result, these objects can seamlessly be used with any functions within the tidymodels modeling framework.\n\nRead the paper\nRead the docs\nGet the package"
-  },
-  {
-    "objectID": "presentations/esip2023poster/index.html#waywiser",
-    "href": "presentations/esip2023poster/index.html#waywiser",
-    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
-    "section": "waywiser",
-    "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
-  },
-  {
-    "objectID": "awards.html",
-    "href": "awards.html",
-    "title": "Awards & Recognition",
+    "objectID": "presentations/esip2023talk/index.html",
+    "href": "presentations/esip2023talk/index.html",
+    "title": "Mapping shrublands across New York State.",
     "section": "",
-    "text": "September 2022 | Stavanger Kommune\n\nAwarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services.\n\n\n\nSeptember 2019 | Technical University of Denmark\n\nSecured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams.\n\n\n\nMay 2019 | SPE European Region Contest\n\nReceived the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach.\n\n\n\nJune 2019 | University of Stavanger\n\nSelected as the “Most Integrated International Student” at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community."
+    "text": "See the slides!\n\n\nRead the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
   },
   {
-    "objectID": "awards.html#open-data-hackathon-prize",
-    "href": "awards.html#open-data-hackathon-prize",
-    "title": "Awards & Recognition",
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Peyman Kor",
     "section": "",
-    "text": "September 2022 | Stavanger Kommune\n\nAwarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services."
-  },
-  {
-    "objectID": "awards.html#innovation-hackathon-prize",
-    "href": "awards.html#innovation-hackathon-prize",
-    "title": "Awards & Recognition",
-    "section": "",
-    "text": "September 2019 | Technical University of Denmark\n\nSecured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams."
-  },
-  {
-    "objectID": "awards.html#best-poster-award",
-    "href": "awards.html#best-poster-award",
-    "title": "Awards & Recognition",
-    "section": "",
-    "text": "May 2019 | SPE European Region Contest\n\nReceived the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach."
-  },
-  {
-    "objectID": "awards.html#most-integrated-international-student",
-    "href": "awards.html#most-integrated-international-student",
-    "title": "Awards & Recognition",
-    "section": "",
-    "text": "June 2019 | University of Stavanger\n\nSelected as the “Most Integrated International Student” at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community."
+    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
   },
   {
     "objectID": "publications.html",
@@ -245,18 +210,67 @@
     "text": "2016\n\nP. Kor and R. Kharrat, “Modeling of asphaltene particle deposition from turbulent oil flow in tubing: Model validation and a parametric study,” Petroleum, vol. 2, no. 4, pp. 393-398, 2016.\nP. Kor and R. Kharrat, “Prediction of the asphaltene deposition profile along a wellbore during natural production from a reservoir,” Energy Sources, Part A: Recovery, Utilization, and Environmental Effects, vol. 38, no. 19, pp. 2837-2844, 2016.\n\n\nFor more publications and citations, visit my Google Scholar profile."
   },
   {
-    "objectID": "presentations/index.html",
-    "href": "presentations/index.html",
-    "title": "Peyman Kor",
+    "objectID": "awards.html",
+    "href": "awards.html",
+    "title": "Awards & Recognition",
     "section": "",
-    "text": "PresentationSSs\n\n\n\n\nPresentations\n\nAs lead/presenting author:\n\n2023\n\n\n\nPresentation at D&DA Group Meeting on “from Dynamic Programming to Reinforcement Learning” - University of Stavanger\n\n\nDec, 2023\n\n Link to Slides \n\nPresentation to New MSc Students at Department of Energy - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on DP/ADP/RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides \n\n\n2022\n\n\n\nPresentation at D&DA Group Meeting on Optimal Policy for American Option Problem using Three Methods: Binomial Lattice, LSM, and RL - University of Stavanger\n\n\nAug, 2023\n\n Link to Slides"
+    "text": "September 2022 | Stavanger Kommune\n\nAwarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services.\n\n\n\nSeptember 2019 | Technical University of Denmark\n\nSecured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams.\n\n\n\nMay 2019 | SPE European Region Contest\n\nReceived the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach.\n\n\n\nJune 2019 | University of Stavanger\n\nSelected as the “Most Integrated International Student” at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community."
   },
   {
-    "objectID": "presentations/esip2023talk/index.html",
-    "href": "presentations/esip2023talk/index.html",
-    "title": "Mapping shrublands across New York State.",
+    "objectID": "awards.html#open-data-hackathon-prize",
+    "href": "awards.html#open-data-hackathon-prize",
+    "title": "Awards & Recognition",
     "section": "",
-    "text": "See the slides!\n\n\nRead the IJRS paper!\n\n\nRead the book chapter!\nNovel plant communities reshape landscapes and pose challenges for land cover classification and mapping that can constrain research and stewardship efforts. In the US Northeast, emergence of low-statured woody vegetation, or shrublands, instead of secondary forests in post-agricultural landscapes is well documented by field studies, but poorly understood from a landscape perspective, which limits the ability to systematically study and manage these lands.\nTo address gaps in classification/mapping of low-statured cover types where they have been historically rare, we developed models to predict shrubland distributions at 30 m resolution across New York State (NYS), using a stacked ensemble combining a random forest, gradient boosting machine, and artificial neural network to integrate remote sensing of structural (airborne LIDAR) and optical (satellite imagery) properties of vegetation cover. We first classified a 1 m canopy height model (CHM), derived from a patchwork of available LIDAR coverages, to define shrubland presence/absence. Next, these non-contiguous maps were used to train a model ensemble based on temporally segmented imagery to predict shrubland probability for the entire study landscape (NYS). Approximately 2.5% of the CHM coverage area was classified as shrubland.\nModels using Landsat predictors trained on the classified CHM were effective at identifying shrubland (test set AUC = 0.893, real-world AUC = 0.904), in discriminating between shrub/young forest and other cover classes, and produced qualitatively sensible maps, even when extending beyond the original training data. After ground-truthing, we expect these shrubland maps and models will have many research and stewardship applications including wildlife conservation, invasive species mitigation and natural climate solutions. Our results suggest that incorporation of airborne LiDAR, even from a discontinuous patchwork of coverages, can improve land cover classification of historically rare but increasingly prevalent shrubland habitats across broader areas."
+    "text": "September 2022 | Stavanger Kommune\n\nAwarded the prize of NOK 5,000 by Stavanger kommune for proposing an innovative data-driven application concept that addresses real-world challenges in urban development and city services."
+  },
+  {
+    "objectID": "awards.html#innovation-hackathon-prize",
+    "href": "awards.html#innovation-hackathon-prize",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "September 2019 | Technical University of Denmark\n\nSecured First Prize of DKK 100,000 at Technical University of Denmark for developing an innovative digital dialogue tool that revolutionizes communication for new parents. The project was selected among 50+ international teams."
+  },
+  {
+    "objectID": "awards.html#best-poster-award",
+    "href": "awards.html#best-poster-award",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "May 2019 | SPE European Region Contest\n\nReceived the Best Poster Award at the Society Of Petroleum Engineers European Region Contest in Krakow, Poland. The research presentation was recognized among international submissions for its innovative approach."
+  },
+  {
+    "objectID": "awards.html#most-integrated-international-student",
+    "href": "awards.html#most-integrated-international-student",
+    "title": "Awards & Recognition",
+    "section": "",
+    "text": "June 2019 | University of Stavanger\n\nSelected as the “Most Integrated International Student” at the Institute of Energy Resources, University of Stavanger. Recognition for exceptional academic performance and active participation in the university community."
+  },
+  {
+    "objectID": "presentations/esip2023poster/index.html#spatialsample",
+    "href": "presentations/esip2023poster/index.html#spatialsample",
+    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
+    "section": "spatialsample",
+    "text": "spatialsample\nThe spatialsample package provides methods for spatial cross-validation. These methods provide more accurate estimates of model performance when extrapolating into new areas, and are particularly useful when there is no independent probability sample available for assessing predictions.\nFunctions in spatialsample provide a standardized interface to several of the most popular spatial CV approaches, and return objects which extend classes from the rsample package. As a result, these objects can seamlessly be used with any functions within the tidymodels modeling framework.\n\nRead the paper\nRead the docs\nGet the package"
+  },
+  {
+    "objectID": "presentations/esip2023poster/index.html#waywiser",
+    "href": "presentations/esip2023poster/index.html#waywiser",
+    "title": "Assessing spatial models in scientifically sound ways is hard. New tools for the tidymodels modeling framework can help make it easier.",
+    "section": "waywiser",
+    "text": "waywiser\nThe waywiser package is an ergonomic toolbox providing a consistent user interface for assessing spatial models. To that end, waywiser makes it easy to compute model assessment metrics, evaluate predictions aggregated to multiple scales, and identify areas where your model can’t safely make predictions. The multi-scale assessment protocol follows Riemann et al. (2010), and is designed to help modelers identify minimum mapping units and regions where models underperform, as well as to estimate how well models perform at relevant levels of aggregation.\n\nRead the paper\nRead the docs\nGet the package"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Data Project Portfolio",
+    "section": "",
+    "text": "Welcome to my data science and AI project portfolio. Here you’ll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics.\n\n\n\n\n\n\n\nAmeriopt\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a Python package for American option pricing using reinforcement learning. The package provides a flexible and efficient framework for pricing American options using deep neural networks and reinforcement learning algorithms.\n\n    \n\n\n\n\n\n\n\n\nInventory Optimization\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a reinforcement learning approach to optimize inventory management decisions. Implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.\n\n   \n\n\n\n\n\n\n\n\nDynamic Programming\n\n\nGitHub: Repository\nArticle: TowardsAI\nImplemented a dynamic programming solution for inventory management in less than 100 lines of Python code. The approach determines optimal inventory levels by balancing holding costs, stockout costs, and ordering costs.\n\n   \n\n\n\n\n\n\n\n\nRLHF for LLMs\n\n\nGitHub: Repository\nArticle: AIMind\nExplored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences. Analyzed the techniques used in training models like ChatGPT and Claude.\n\n   \n\n\n\n\n\n\n\n\nOption Pricing\n\n\nGitHub: Repository\nArticle: DataDrivenInvestor\nDeveloped a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.\n\n   \n\n\n\n\n\n\n\n\n\n\nBayesian Optimization\n\n\nGitHub: Repository\nApplied Bayesian optimization techniques to optimize well placement and control in reservoir engineering. The approach efficiently explores the parameter space to maximize oil recovery while minimizing computational costs.\n\n   \n\n\n\n\n\n\n\nReinforcement Learning\n\n\nGitHub: Repository\nImplemented a reinforcement learning approach to optimize American option pricing. The approach uses a deep neural network to approximate the optimal policy for pricing American options.\n\n   \n\n\n\n\n\n\n\nBridging the Gap: Integrating Data Science and Decision Science through Six Essential Questions\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\nUnderstanding Why There Is No Such Thing as ‘Correct Probability’ in Data Science\nForgot Solutions in Life. It’s All About Trade-offs (Here Is How to Master Them)\nThe Power of Negative Thinking: Supercharge your Decision-Making Skill"
+  },
+  {
+    "objectID": "projects.html#data-science-ai-projects",
+    "href": "projects.html#data-science-ai-projects",
+    "title": "Data Project Portfolio",
+    "section": "",
+    "text": "Welcome to my data science and AI project portfolio. Here you’ll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics.\n\n\n\n\n\n\n\nAmeriopt\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a Python package for American option pricing using reinforcement learning. The package provides a flexible and efficient framework for pricing American options using deep neural networks and reinforcement learning algorithms.\n\n    \n\n\n\n\n\n\n\n\nInventory Optimization\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a reinforcement learning approach to optimize inventory management decisions. Implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.\n\n   \n\n\n\n\n\n\n\n\nDynamic Programming\n\n\nGitHub: Repository\nArticle: TowardsAI\nImplemented a dynamic programming solution for inventory management in less than 100 lines of Python code. The approach determines optimal inventory levels by balancing holding costs, stockout costs, and ordering costs.\n\n   \n\n\n\n\n\n\n\n\nRLHF for LLMs\n\n\nGitHub: Repository\nArticle: AIMind\nExplored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences. Analyzed the techniques used in training models like ChatGPT and Claude.\n\n   \n\n\n\n\n\n\n\n\nOption Pricing\n\n\nGitHub: Repository\nArticle: DataDrivenInvestor\nDeveloped a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.\n\n   \n\n\n\n\n\n\n\n\n\n\nBayesian Optimization\n\n\nGitHub: Repository\nApplied Bayesian optimization techniques to optimize well placement and control in reservoir engineering. The approach efficiently explores the parameter space to maximize oil recovery while minimizing computational costs.\n\n   \n\n\n\n\n\n\n\nReinforcement Learning\n\n\nGitHub: Repository\nImplemented a reinforcement learning approach to optimize American option pricing. The approach uses a deep neural network to approximate the optimal policy for pricing American options.\n\n   \n\n\n\n\n\n\n\nBridging the Gap: Integrating Data Science and Decision Science through Six Essential Questions\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\nUnderstanding Why There Is No Such Thing as ‘Correct Probability’ in Data Science\nForgot Solutions in Life. It’s All About Trade-offs (Here Is How to Master Them)\nThe Power of Negative Thinking: Supercharge your Decision-Making Skill"
   },
   {
     "objectID": "blog/anthropic_effective_agent/index.html",
@@ -355,19 +369,5 @@
     "title": "CV",
     "section": "",
     "text": "Your browser does not support iframes."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Data Project Portfolio",
-    "section": "",
-    "text": "Welcome to my data science and AI project portfolio. Here you’ll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics.\n\n\n\n\n\n\n\nAmeriopt\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a Python package for American option pricing using reinforcement learning. The package provides a flexible and efficient framework for pricing American options using deep neural networks and reinforcement learning algorithms.\n\n    \n\n\n\n\n\n\n\n\nInventory Optimization\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a reinforcement learning approach to optimize inventory management decisions. Implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.\n\n   \n\n\n\n\n\n\n\n\nDynamic Programming\n\n\nGitHub: Repository\nArticle: TowardsAI\nImplemented a dynamic programming solution for inventory management in less than 100 lines of Python code. The approach determines optimal inventory levels by balancing holding costs, stockout costs, and ordering costs.\n\n   \n\n\n\n\n\n\n\n\nRLHF for LLMs\n\n\nGitHub: Repository\nArticle: AIMind\nExplored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences. Analyzed the techniques used in training models like ChatGPT and Claude.\n\n   \n\n\n\n\n\n\n\n\nOption Pricing\n\n\nGitHub: Repository\nArticle: DataDrivenInvestor\nDeveloped a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.\n\n   \n\n\n\n\n\n\n\n\n\n\nBayesian Optimization\n\n\nGitHub: Repository\nApplied Bayesian optimization techniques to optimize well placement and control in reservoir engineering. The approach efficiently explores the parameter space to maximize oil recovery while minimizing computational costs.\n\n   \n\n\n\n\n\n\n\nReinforcement Learning\n\n\nGitHub: Repository\nImplemented a reinforcement learning approach to optimize American option pricing. The approach uses a deep neural network to approximate the optimal policy for pricing American options.\n\n   \n\n\n\n\n\n\n\nBridging the Gap: Integrating Data Science and Decision Science through Six Essential Questions\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\nUnderstanding Why There Is No Such Thing as ‘Correct Probability’ in Data Science\nForgot Solutions in Life. It’s All About Trade-offs (Here Is How to Master Them)\nThe Power of Negative Thinking: Supercharge your Decision-Making Skill"
-  },
-  {
-    "objectID": "projects.html#data-science-ai-projects",
-    "href": "projects.html#data-science-ai-projects",
-    "title": "Data Project Portfolio",
-    "section": "",
-    "text": "Welcome to my data science and AI project portfolio. Here you’ll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics.\n\n\n\n\n\n\n\nAmeriopt\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a Python package for American option pricing using reinforcement learning. The package provides a flexible and efficient framework for pricing American options using deep neural networks and reinforcement learning algorithms.\n\n    \n\n\n\n\n\n\n\n\nInventory Optimization\n\n\nGitHub: Repository\nArticle: Medium\nDeveloped a reinforcement learning approach to optimize inventory management decisions. Implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.\n\n   \n\n\n\n\n\n\n\n\nDynamic Programming\n\n\nGitHub: Repository\nArticle: TowardsAI\nImplemented a dynamic programming solution for inventory management in less than 100 lines of Python code. The approach determines optimal inventory levels by balancing holding costs, stockout costs, and ordering costs.\n\n   \n\n\n\n\n\n\n\n\nRLHF for LLMs\n\n\nGitHub: Repository\nArticle: AIMind\nExplored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences. Analyzed the techniques used in training models like ChatGPT and Claude.\n\n   \n\n\n\n\n\n\n\n\nOption Pricing\n\n\nGitHub: Repository\nArticle: DataDrivenInvestor\nDeveloped a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.\n\n   \n\n\n\n\n\n\n\n\n\n\nBayesian Optimization\n\n\nGitHub: Repository\nApplied Bayesian optimization techniques to optimize well placement and control in reservoir engineering. The approach efficiently explores the parameter space to maximize oil recovery while minimizing computational costs.\n\n   \n\n\n\n\n\n\n\nReinforcement Learning\n\n\nGitHub: Repository\nImplemented a reinforcement learning approach to optimize American option pricing. The approach uses a deep neural network to approximate the optimal policy for pricing American options.\n\n   \n\n\n\n\n\n\n\nBridging the Gap: Integrating Data Science and Decision Science through Six Essential Questions\nLearn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan\nUnderstanding Why There Is No Such Thing as ‘Correct Probability’ in Data Science\nForgot Solutions in Life. It’s All About Trade-offs (Here Is How to Master Them)\nThe Power of Negative Thinking: Supercharge your Decision-Making Skill"
   }
 ]

@@ -17,8 +17,8 @@ website:
         href: projects.qmd
       - text: "Publications"
         href: publications.qmd
-      - text: "Presentations"
-        href: presentations
+#      - text: "Presentations"
+#        href: presentations
 #        target: "_blank"
       - text: "Awards"
         href: awards.qmd
