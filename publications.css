@@ -1,0 +1,107 @@
+/* Publications page styling - Minimalistic Design */
+.publications-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5em;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Title styling */
+.publications-container h1.title {
+    font-size: 2.2em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: #2d3748;
+}
+
+/* Year heading styling */
+.publications-container h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #4a5568;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Publication item styling */
+.publication-item {
+    padding: 0.8em 0;
+    margin-bottom: 0.8em;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.publication-item:last-of-type {
+    border-bottom: none;
+}
+
+.publication-item p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.publication-title {
+    font-weight: 400;
+    color: #2d3748;
+}
+
+.publication-link {
+    color: #3182ce;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.publication-link:hover {
+    color: #2c5282;
+    text-decoration: underline;
+}
+
+/* Keywords styling */
+.keywords {
+    margin-top: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.keywords span {
+    font-size: 0.75em;
+    background-color: #f7fafc;
+    color: #4a5568;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+    display: inline-block;
+}
+
+/* Google Scholar link styling */
+.scholar-link {
+    display: inline-block;
+    margin-top: 2em;
+    padding: 0.6em 1.2em;
+    background: #f7fafc;
+    color: #3182ce;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.scholar-link:hover {
+    background: #ebf8ff;
+    color: #2c5282;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .publications-container {
+        padding: 1em;
+    }
+    
+    .keywords {
+        margin-top: 0.4em;
+    }
+} 
