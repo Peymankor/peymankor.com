@@ -7,7 +7,9 @@ css: styles.css
 
 ## Data Science & AI Projects
 
-Welcome to my data science and AI project portfolio. Here you'll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics.
+Here you'll find a collection of my work in machine learning, reinforcement learning, optimization, and decision analytics. 
+
+Mainly written in **Python/R** programming languages, and often under version control with **Git/GitHub**.    
 
 ### Featured Projects
 
@@ -17,9 +19,10 @@ Welcome to my data science and AI project portfolio. Here you'll find a collecti
 ![Ameriopt](projectimage/ameriopt.png){width=800 height=600}
 
 **GitHub**: [Repository](https://github.com/Peymankor/AmeriOpt)  
-**Article**: [Medium](https://medium.com/@peymankor/from-zero-to-hero-a-step-by-step-guide-to-binomial-option-pricing-in-less-than-30-lines-of-code-10ff2af268e2)
+**Article**: [Online](https://www.mdpi.com/1999-4893/17/9/400)
 
-Developed a Python package for American option pricing using reinforcement learning. The package provides a flexible and efficient framework for pricing American options using deep neural networks and reinforcement learning algorithms.
+Here I developed a Python package for American option pricing using reinforcement learning. It is available on [PyPI](https://pypi.org/project/ameriopt/) and [GitHub](https://github.com/Peymankor/AmeriOpt). Is a simple and efficient way to price American options using reinforcement learning.
+
 
 ::: {.skills}
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -35,10 +38,10 @@ Developed a Python package for American option pricing using reinforcement learn
 
 ![Inventory Optimization](projectimage/inventory.png){width=400 height=600}
 
-**GitHub**: [Repository](https://github.com/Peymankor/BayesOpt_Reservoir_Optimization)  
+**GitHub**: [Repository](https://github.com/Peymankor/medium_blogs/blob/main/2024/08-Aug/RL-Inventory/main.py)  
 **Article**: [Medium](https://medium.com/towards-data-science/optimizing-inventory-management-with-reinforcement-learning-a-hands-on-python-guide-7833df3d25a6)
 
-Developed a reinforcement learning approach to optimize inventory management decisions. Implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.
+Developed a reinforcement learning approach to optimize inventory management decisions. I implemented Q-Learning algorithm in Python to determine optimal ordering policies that minimize costs while maintaining service levels.
 
 ::: {.skills}
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -52,8 +55,7 @@ Developed a reinforcement learning approach to optimize inventory management dec
 #### Dynamic Programming for Inventory Optimization
 
 ![Dynamic Programming](projectimage/dynamic.png){width=800 height=600}
-
-**GitHub**: [Repository](https://github.com/Peymankor/Bayesopt_well_control)  
+ 
 **Article**: [TowardsAI](https://pub.towardsai.net/inventory-optimization-with-dynamic-programming-in-less-than-100-lines-of-python-code-ab1cc58ef34c)
 
 Implemented a dynamic programming solution for inventory management in less than 100 lines of Python code. The approach determines optimal inventory levels by balancing holding costs, stockout costs, and ordering costs.
@@ -74,7 +76,7 @@ Implemented a dynamic programming solution for inventory management in less than
 **GitHub**: [Repository](https://github.com/Peymankor/RLHF)  
 **Article**: [AIMind](https://pub.aimind.so/reinforcement-learning-meets-large-language-models-llms-aligning-human-preferences-in-llms-88c3a3f1a3f9)
 
-Explored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences. Analyzed the techniques used in training models like ChatGPT and Claude.
+Here, I explored the application of Reinforcement Learning from Human Feedback (RLHF) for aligning Large Language Models with human preferences.
 
 ::: {.skills}
 ![RLHF](https://img.shields.io/badge/RLHF-FF6F00?style=for-the-badge)
@@ -89,16 +91,33 @@ Explored the application of Reinforcement Learning from Human Feedback (RLHF) fo
 
 ![Option Pricing](projectimage/binomial.png){width=800 height=600}
 
-**GitHub**: [Repository](https://github.com/Peymankor/AmeriOpt)  
 **Article**: [DataDrivenInvestor](https://medium.datadriveninvestor.com/from-zero-to-hero-a-step-by-step-guide-to-binomial-option-pricing-in-less-than-30-lines-of-code-10ff2af268e2)
 
-Developed a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.
+Implemented a Python implementation of the Binomial Option Pricing Model for valuing American options. The implementation uses recursive techniques to efficiently calculate option prices at different time steps.
 
 ::: {.skills}
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Financial Modeling](https://img.shields.io/badge/Financial_Modeling-25A162?style=for-the-badge)
 ![Options Pricing](https://img.shields.io/badge/Options_Pricing-2C8EBB?style=for-the-badge)
 ![Quantitative Finance](https://img.shields.io/badge/Quantitative_Finance-25A162?style=for-the-badge)
+:::
+
+---
+
+#### Probabilistic Reserve Estimate Dashboard (AKER BP)
+
+![Reserve Estimation](projectimage/voicalculation.png){width=900 height=800}
+
+**Demo**: [VOI Analysis](https://peymankor.shinyapps.io/VOI_Analysis/) | [Probabilistic Reserve Evaluation](https://peymankor.shinyapps.io/Probabilistc_Reserve_Evaluation_V1/)
+
+Here, I developed a probabilistic reserve estimate dashboard tool using R Shiny/RStudio during my project with AKER BP (ShinyApps). The tool provides real-time data-driven insights for decision-making in energy asset valuation. It also allows users to analyze over 10,000 scenarios using Monte Carlo simulations, enabling improved risk assessment and data-driven decision-making.
+
+::: {.skills}
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+![Shiny](https://img.shields.io/badge/Shiny-blue?style=for-the-badge)
+![Monte Carlo](https://img.shields.io/badge/Monte_Carlo-FF9900?style=for-the-badge)
+![Data Visualization](https://img.shields.io/badge/Data_Visualization-4285F4?style=for-the-badge)
+![Energy Analytics](https://img.shields.io/badge/Energy_Analytics-25A162?style=for-the-badge)
 :::
 
 ### Research & Academic Projects
