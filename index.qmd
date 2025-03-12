@@ -263,7 +263,7 @@ Originally from [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman)
 </div>
 -->
 
-My doctoral work focuses on Reinforcement Learning, investigating both classical approaches [like Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"} and innovative applications such as RL for LLMs [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
+My doctoral work test focuses on Reinforcement Learning, investigating both classical approaches [like Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"} and innovative applications such as RL for LLMs [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
 
 Prior to my PhD, as a Data Scientist, I was part of a successful industry collaboration project focused on optimizing, resulting in developing an innovative [Bayesian Optimization](https://onepetro.org/SJ/article-abstract/29/02/620/535724/Reservoir-Production-Management-With-Bayesian?redirectedFrom=fulltext){target="_blank"} workflow.
 
