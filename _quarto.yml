@@ -4,13 +4,14 @@ project:
 
 website:
   title: "Peyman Kor"
+  description: "I am Peyman Kor - a Data Scientist and Machine Learning/AI Researcher."
   google-analytics: G-5HXVH6767Y
 
   navbar:
     left:
       - text: "Peyman Kor"
         href: index.html
-    right:
+    right:  
       - text: "Blog"
         href: blog/index.html
       - text: "Data & AI Portfolio"
