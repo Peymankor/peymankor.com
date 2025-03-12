@@ -11,7 +11,7 @@ website:
   navbar:
     left:
       - text: "Peyman Kor"
-        href: index.html
+        href: index.qmd
     right:  
       - text: "Blog"
         href: blog/index.html
