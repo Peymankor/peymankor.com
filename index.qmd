@@ -1,6 +1,7 @@
 ---
 pagetitle: "Peyman Kor | About"
 side-title: "Peyman Kor | About"
+description: "Peyman Kor is a Data Scientist and Machine Learning/AI Researcher."
 page-layout: full
 about:
   id: hero-heading

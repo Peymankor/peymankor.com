@@ -35,6 +35,7 @@ website:
     creator: "@peyman_kor"
 format:
   html:
+    pagetitle: "Peyman Kor | {{< meta title >}}"
     grid:
       margin-width: 250px
       body-width: 800px
