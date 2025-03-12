@@ -1,5 +1,6 @@
 ---
 pagetitle: "Peyman Kor | About"
+side-title: "Peyman Kor | About"
 page-layout: full
 about:
   id: hero-heading
