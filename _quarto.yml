@@ -17,6 +17,8 @@ website:
         href: blog/index.html
       - text: "Data & AI Portfolio"
         href: projects.qmd
+      - text: "Course - Learn with Peyman"
+        href: https://maven.com/peymankor/appl-rl
       - text: "Publications"
         href: publications.qmd
 #      - text: "Presentations"
