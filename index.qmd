@@ -251,7 +251,7 @@ p {
 
 I am Peyman Kor - a Data Scientist and Machine Learning/AI Researcher.
 
-Originally from [Bandar Torkaman](https://en.wikipedia.org/wiki/Bandar_Torkaman){target="_blank"} in northern Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. 
+Originally from Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. 
 
 
 <!--**Currently** I am exploring three main areas:

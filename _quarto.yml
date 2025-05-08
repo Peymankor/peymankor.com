@@ -17,7 +17,7 @@ website:
         href: blog/index.html
       - text: "Data & AI Portfolio"
         href: projects.qmd
-      - text: "Course - Learn with Peyman"
+      - text: "Reinforcement Learning Course"
         href: https://maven.com/peymankor/appl-rl
       - text: "Publications"
         href: publications.qmd
