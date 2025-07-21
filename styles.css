@@ -377,6 +377,7 @@ pre, code {
   /* Adjust name/title font size */
   .name-title {
     font-size: 2em !important;
+    margin-top: 0.7em !important;
   }
 
   /* Headline font size */
