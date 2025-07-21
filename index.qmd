@@ -1,12 +1,12 @@
 ---
-pagetitle: "Peyman Kor | About"
-side-title: "Peyman Kor | About"
+pagetitle: "Peyman Kor"
+#side-title: "Peyman Kor | About"
 description: "Peyman Kor is a Data Scientist and Machine Learning/AI Researcher."
 page-layout: full
 about:
   id: hero-heading
   template: solana
-  image: profile.jpg
+  image: profile_compressed.jpg
   image-width: 300px
 ---
 
