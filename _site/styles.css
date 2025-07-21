@@ -349,3 +349,51 @@ pre, code {
   box-shadow: none !important;
 }
 
+/* --- Mobile improvements for main content and about page --- */
+@media (max-width: 600px) {
+  /* Make profile/about images responsive */
+  .quarto-about-solana .about-image img,
+  .about-image img,
+  img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* Remove negative margins that cause overflow */
+  .quarto-about-solana .about-image {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Add spacing below profile/about images and above the name-title */
+  .quarto-about-solana .about-image img,
+  .about-image img {
+    margin-bottom: 1.2em !important;
+  }
+
+  /* Adjust name/title font size */
+  .name-title {
+    font-size: 2em !important;
+  }
+
+  /* Headline font size */
+  .headline {
+    font-size: 1.1em !important;
+  }
+
+  /* Stack contact links vertically */
+  .contact-links {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5em !important;
+  }
+
+  /* General: prevent horizontal scrolling */
+  body, html {
+    overflow-x: hidden !important;
+  }
+}
+
