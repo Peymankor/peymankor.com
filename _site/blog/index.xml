@@ -115,8 +115,8 @@ The <b>Option Price</b> (or premium) is the maximum amount a holder is willing t
 </ul>
 <p>If we know the Expected Value of holding the option at the time, we can just simply compare the two alternatives and choose the one higher. Simply:</p>
 <ul>
-<li><p>If <img src="https://latex.codecogs.com/png.latex?C(x_t,%20t)%20%3E%20max(0,%20K-x_t%20%20)">, we should exercise the option.</p></li>
-<li><p>If <img src="https://latex.codecogs.com/png.latex?C(x_t,%20t)%20%3C%20max(0,%20K-x_t)">, we should hold the option.</p></li>
+<li><p>If <img src="https://latex.codecogs.com/png.latex?C(x_t,%20t)%20%3E%20max(0,%20K-x_t%20%20)">, we should hold the option.</p></li>
+<li><p>If <img src="https://latex.codecogs.com/png.latex?C(x_t,%20t)%20%3C%20max(0,%20K-x_t)">, we should exercise the option.</p></li>
 </ul>
 <p>Here, the <img src="https://latex.codecogs.com/png.latex?C(x_t,%20t)"> is the function that gives the idea about the Expected Value of holding the option at the time. It is a function of the stock price and the time.</p>
 <p>In summary, the option price of the American Option can be divided into three steps:</p>
