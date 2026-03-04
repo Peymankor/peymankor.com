@@ -16,18 +16,18 @@ website:
       - text: "Blog"
         href: blog/index.html
       - text: "Data & AI Portfolio"
-        href: projects.qmd
+        href: pages/projects.qmd
       - text: "Reinforcement Learning Course"
         href: https://maven.com/peymankor/appl-rl
       - text: "Publications"
-        href: publications.qmd
+        href: pages/publications.qmd
 #      - text: "Presentations"
 #        href: presentations
 #        target: "_blank"
       - text: "Awards"
-        href: awards.qmd
+        href: pages/awards.qmd
 #      - text: "CV"
-#        href: cv.qmd
+#        href: pages/cv.qmd
 #        target: "_blank"
 #      - text: "Book a call"
 #        href: "https://cal.com/peyman-kor-xf878d/45min"

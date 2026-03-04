@@ -2,7 +2,7 @@
 title: "Data Project Portfolio"
 page-layout: full
 title-block-banner: true
-css: styles.css
+css: ../styles.css
 ---
 
 ## Data Science & AI Projects
@@ -16,7 +16,7 @@ Mainly written in **Python/R** programming languages, and often under version co
 
 #### Ameriopt Python package for American Option Pricing with Reinforcement Learning
 
-![Ameriopt](projectimage/ameriopt.png){width=800 height=600}
+![Ameriopt](../projectimage/ameriopt.png){width=800 height=600}
 
 **GitHub**: [Repository](https://github.com/Peymankor/AmeriOpt)  
 **Article**: [Online](https://www.mdpi.com/1999-4893/17/9/400)
@@ -36,7 +36,7 @@ Here I developed a Python package for American option pricing using reinforcemen
 
 #### Inventory Optimization with Reinforcement Learning
 
-![Inventory Optimization](projectimage/inventory.png){width=400 height=600}
+![Inventory Optimization](../projectimage/inventory.png){width=400 height=600}
 
 **GitHub**: [Repository](https://github.com/Peymankor/medium_blogs/blob/main/2024/08-Aug/RL-Inventory/main.py)  
 **Article**: [Medium](https://medium.com/towards-data-science/optimizing-inventory-management-with-reinforcement-learning-a-hands-on-python-guide-7833df3d25a6)
@@ -54,7 +54,7 @@ Developed a reinforcement learning approach to optimize inventory management dec
 
 #### Dynamic Programming for Inventory Optimization
 
-![Dynamic Programming](projectimage/dynamic.png){width=800 height=600}
+![Dynamic Programming](../projectimage/dynamic.png){width=800 height=600}
  
 **Article**: [TowardsAI](https://pub.towardsai.net/inventory-optimization-with-dynamic-programming-in-less-than-100-lines-of-python-code-ab1cc58ef34c)
 
@@ -71,7 +71,7 @@ Implemented a dynamic programming solution for inventory management in less than
 
 #### Reinforcement Learning for LLM Alignment
 
-![RLHF for LLMs](projectimage/rlhf.png){width=800 height=600}
+![RLHF for LLMs](../projectimage/rlhf.png){width=800 height=600}
 
 **GitHub**: [Repository](https://github.com/Peymankor/RLHF)  
 **Article**: [AIMind](https://pub.aimind.so/reinforcement-learning-meets-large-language-models-llms-aligning-human-preferences-in-llms-88c3a3f1a3f9)
@@ -89,7 +89,7 @@ Here, I explored the application of Reinforcement Learning from Human Feedback (
 
 #### Binomial Option Pricing Model
 
-![Option Pricing](projectimage/binomial.png){width=800 height=600}
+![Option Pricing](../projectimage/binomial.png){width=800 height=600}
 
 **Article**: [DataDrivenInvestor](https://medium.datadriveninvestor.com/from-zero-to-hero-a-step-by-step-guide-to-binomial-option-pricing-in-less-than-30-lines-of-code-10ff2af268e2)
 
@@ -106,7 +106,7 @@ Implemented a Python implementation of the Binomial Option Pricing Model for val
 
 #### Probabilistic Reserve Estimate Dashboard (AKER BP)
 
-![Reserve Estimation](projectimage/voicalculation.png){width=900 height=800}
+![Reserve Estimation](../projectimage/voicalculation.png){width=900 height=800}
 
 **Demo**: [VOI Analysis](https://peymankor.shinyapps.io/VOI_Analysis/) | [Probabilistic Reserve Evaluation](https://peymankor.shinyapps.io/Probabilistc_Reserve_Evaluation_V1/)
 
@@ -124,7 +124,7 @@ Here, I developed a probabilistic reserve estimate dashboard tool using R Shiny/
 
 #### Bayesian Optimization for Reservoir Engineering
 
-![Bayesian Optimization](projectimage/boimage.png){width=800 height=600}
+![Bayesian Optimization](../projectimage/boimage.png){width=800 height=600}
 
 **GitHub**: [Repository](https://github.com/Peymankor/BayesOpt_Reservoir_Optimization)
 
@@ -140,7 +140,7 @@ Applied Bayesian optimization techniques to optimize well placement and control 
 
 #### Reinforcement Learning for American Option Pricing
 
-![Reinforcement Learning](projectimage/rloption.png){width=800 height=600}
+![Reinforcement Learning](../projectimage/rloption.png){width=800 height=600}
 
 **GitHub**: [Repository](https://github.com/Peymankor/RLHF)
 

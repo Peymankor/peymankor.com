@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://peymankor.com/cv.html</loc>
-    <lastmod>2026-03-04T19:04:58.083Z</lastmod>
+    <loc>https://peymankor.com/pages/cv.html</loc>
+    <lastmod>2026-03-04T20:07:21.394Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/presentations/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.200Z</lastmod>
+    <loc>https://peymankor.com/pages/publications.html</loc>
+    <lastmod>2026-03-04T20:07:12.338Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/presentations/esip2023talk/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.200Z</lastmod>
+    <loc>https://peymankor.com/pages/awards.html</loc>
+    <lastmod>2026-03-04T20:07:36.205Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/publications.html</loc>
-    <lastmod>2026-03-04T19:04:58.220Z</lastmod>
+    <loc>https://peymankor.com/presentations/esip2023poster/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.167Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/blog/RLHF/Linkeidnpost.html</loc>
+    <loc>https://peymankor.com/blog/simplelanggraph/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.081Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/blog/RLHF/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.063Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/blog/anthropic_effective_agent/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.064Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/blog/4waysgenai/draft_voice_text.html</loc>
+    <lastmod>2026-03-04T19:04:58.062Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/blog/rl_for_option/substack.html</loc>
+    <lastmod>2026-03-04T19:04:58.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/docs/plans/2026-03-04-website-redesign.html</loc>
+    <lastmod>2026-03-04T19:38:47.238Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/docs/plans/2026-03-04-website-redesign-design.html</loc>
+    <lastmod>2026-03-04T19:36:50.463Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/index.html</loc>
+    <lastmod>2026-03-04T20:03:35.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/blog/rl_for_option/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.072Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peymankor.com/blog/4waysgenai/index.html</loc>
     <lastmod>2026-03-04T19:04:58.062Z</lastmod>
   </url>
   <url>
@@ -25,63 +61,23 @@
     <lastmod>2026-03-04T19:04:58.065Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/blog/4waysgenai/index.html</loc>
+    <loc>https://peymankor.com/blog/RLHF/Linkeidnpost.html</loc>
     <lastmod>2026-03-04T19:04:58.062Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/blog/rl_for_option/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.072Z</lastmod>
+    <loc>https://peymankor.com/presentations/esip2023talk/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.200Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/index.html</loc>
-    <lastmod>2026-03-04T19:43:06.362Z</lastmod>
+    <loc>https://peymankor.com/presentations/index.html</loc>
+    <lastmod>2026-03-04T19:04:58.200Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/docs/plans/2026-03-04-website-redesign-design.html</loc>
-    <lastmod>2026-03-04T19:36:50.463Z</lastmod>
+    <loc>https://peymankor.com/pages/projects.html</loc>
+    <lastmod>2026-03-04T20:07:30.963Z</lastmod>
   </url>
   <url>
-    <loc>https://peymankor.com/awards.html</loc>
-    <lastmod>2026-03-04T19:45:17.458Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/projects.html</loc>
-    <lastmod>2026-03-04T19:45:39.085Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/docs/plans/2026-03-04-website-redesign.html</loc>
-    <lastmod>2026-03-04T19:38:47.238Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/blog/rl_for_option/substack.html</loc>
-    <lastmod>2026-03-04T19:04:58.080Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/blog/4waysgenai/draft_voice_text.html</loc>
-    <lastmod>2026-03-04T19:04:58.062Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/blog/anthropic_effective_agent/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.064Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/blog/RLHF/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.063Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/blog/simplelanggraph/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.081Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/about.html</loc>
-    <lastmod>2026-03-04T19:04:58.050Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/presentations/esip2023poster/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.167Z</lastmod>
-  </url>
-  <url>
-    <loc>https://peymankor.com/sample/index.html</loc>
-    <lastmod>2026-03-04T19:04:58.220Z</lastmod>
+    <loc>https://peymankor.com/pages/about.html</loc>
+    <lastmod>2026-03-04T20:07:47.567Z</lastmod>
   </url>
 </urlset>

@@ -6,7 +6,7 @@ page-layout: full
 about:
   id: hero-heading
   template: solana
-  image: profile_compressed.jpg
+  image: images/profile_compressed.jpg
   image-width: 300px
 ---
 
