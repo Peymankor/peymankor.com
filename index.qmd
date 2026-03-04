@@ -249,7 +249,7 @@ p {
 <div class="summary-section">
 <h2>Summary</h2>
 
-I am Peyman Kor - a Data Scientist and Machine Learning/AI Researcher.
+I am Peyman Kor Test- a Data Scientist and Machine Learning/AI Researcher.
 
 Originally from Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. 
 
