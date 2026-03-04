@@ -236,25 +236,18 @@ p {
 
 <div class="name-title">Peyman Kor</div>
 
-<div class="headline">AI & Decision Analytics | GenAI Researcher & Educator | Data Scientist </div>
+<div class="headline">AI Consultant | Building AI Agents for Better Business Decisions | PhD in AI/ML</div>
 
 <div class="summary-section">
 
-I am Peyman Kor Test- a Data Scientist and Machine Learning/AI Researcher.
+I am Peyman Kor, AI Consultant with experince buidng end-to-end AI agents for business problems.
 
-Originally from Iran, I'm now based in Norway, completing my Ph.D. in Reinforcement Learning. 
+Originally from Iran, I'm now based in Norway, completed my PhD in Reinforcement Learning. 
 
 
-<!--**Currently** I am exploring three main areas:
+Most recently at [Antire](https://antire.com){target="_blank"}, I built [bristIQ](https://antire.com/en/customer-stories/a-first-of-its-kind-expert-verified-ai-for-better-google-ads-performance){target="_blank"} — a first-of-its-kind, expert-verified AI agent for Google Ads optimization. 
 
-<div class="research-areas">
-1. Agentic AI and LLM workflow for automation and productivity.
-2. Reinforcement Learning for improving reasoning in LLMs.
-3. Decision-quality and science of better decision making.
-</div>
--->
-
-My doctoral work test focuses on Reinforcement Learning, investigating both classical approaches [like Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"} and innovative applications such as RL for LLMs [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
+My doctoral work focuses on Reinforcement Learning, investigating both classical approaches [like Q-learning](https://www.mdpi.com/1999-4893/17/9/400){target="_blank"} and innovative applications such as RL for LLMs [Reinforcement Learning from Human Feedback](https://github.com/Peymankor/RLHF/blob/main/main.pdf){target="_blank"}. 
 
 Prior to my PhD, as a Data Scientist, I was part of a successful industry collaboration project focused on optimizing, resulting in developing an innovative [Bayesian Optimization](https://onepetro.org/SJ/article-abstract/29/02/620/535724/Reservoir-Production-Management-With-Bayesian?redirectedFrom=fulltext){target="_blank"} workflow.
 
@@ -264,6 +257,32 @@ I'm actively engaged on [GitHub](https://github.com/peymankor){target="_blank"} 
 
 <div class="experience-section">
 <h2>Experience</h2>
+
+<div class="experience-item">
+<h3>Antire</h3>
+<div class="year">Aug 2025 - Present</div>
+<div class="role">AI & Data Engineering Consultant</div>
+<div class="description">
+• Building AI agent for Google Ads optimization using Python, LangChain, and Google Ads API
+
+• Driving AI adoption across the organization through the "AI Value Center" initiative
+
+• Collaborating with C-suite leadership on AI strategy leveraging Azure OpenAI, Vertex AI, and BigQuery
+</div>
+</div>
+
+<div class="experience-item">
+<h3>decisionclarity</h3>
+<div class="year">Feb 2025 - Present</div>
+<div class="role">Independent Data Science Consultant</div>
+<div class="description">
+• Research on LLM applications for enterprise "Deep Research" solutions
+
+• Rapid software prototyping and data-driven marketing analytics
+
+• Consulting with CEO/Founder on no-code and AI-powered business solutions
+</div>
+</div>
 
 <div class="experience-item">
 <h3>NORCE & UiS</h3>
