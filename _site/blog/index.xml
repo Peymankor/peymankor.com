@@ -9,7 +9,7 @@
 <link>https://peymankor.com/blog/</link>
 <atom:link href="https://peymankor.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Peyman Kor - Data Scientist and Machine Learning/AI Researcher specializing in Reinforcement Learning, GenAI, and Decision Analytics. PhD researcher with industry experience in ML applications.</description>
-<generator>quarto-1.6.40</generator>
+<generator>quarto-1.8.27</generator>
 <lastBuildDate>Sun, 20 Jul 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title>American Option Pricing with Reinforcement Learning: A Hands-On Python Tutorial</title>
@@ -271,7 +271,7 @@ The <b>Option Price</b> (or premium) is the maximum amount a holder is willing t
 <p><img src="https://latex.codecogs.com/png.latex?x_T%20%5Csim%20%20%5Cexp(%5Cmathcal%7BN%7D(log(x_S)%20+%20(%5Cmu-%5Cfrac%7B%5Csigma%5E2%7D%7B2%7D)(T-S),%20%5Csigma%5E2(T-S)))"></p>
 <p>Now we can generate the price paths for the training data.</p>
 <div id="074452fa" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
 background-color: null;
@@ -428,11 +428,11 @@ font-style: inherit;">=</span> next_price</span>
 <span id="cb2-46">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> results</span></code></pre></div>
+font-style: inherit;">return</span> results</span></code></pre></div></div>
 </div>
 <p>We need to define the parameters of the GBM model:</p>
 <div id="48cb98be" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># data for training</span></span>
 <span id="cb3-2"></span>
@@ -470,10 +470,10 @@ font-style: inherit;">0.06</span></span>
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0.2</span></span></code></pre></div>
+font-style: inherit;">0.2</span></span></code></pre></div></div>
 </div>
 <div id="4fac6bb6" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">RL_data_training <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">RL_data_training <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> simulate_GBM_training(</span>
 <span id="cb4-2">    expiry_time<span class="op" style="color: #5E5E5E;
@@ -503,7 +503,7 @@ font-style: inherit;"># Example of the first 3 data points</span></span>
 background-color: null;
 font-style: inherit;">print</span>(RL_data_training[:<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">3</span>])</span></code></pre></div>
+font-style: inherit;">3</span>])</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[(0, 36, 37.41164023881166), (1, 37.41164023881166, 38.20678191352067), (2, 38.20678191352067, 36.60198653364306)]</code></pre>
 </div>
@@ -525,7 +525,7 @@ font-style: inherit;">3</span>])</span></code></pre></div>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cphi_5(s)%20=%20%5Cexp%5Cleft(-%5Chat%7Bx%7D_t%20/%202%5Cright)%20%5Cleft(1%20-%204%5Chat%7Bx%7D_t%20+%203%5Chat%7Bx%7D_t%5E2%20-%20%5Cfrac%7B1%7D%7B6%7D%5Chat%7Bx%7D_t%5E3%5Cright)"></p>
 <p>The <code>make_feature_functions</code> function is used to create a list of feature functions that will be used to approximate the Q-function.</p>
 <div id="7b1495f9" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> numpy.polynomial.laguerre <span class="im" style="color: #00769E;
 background-color: null;
@@ -654,14 +654,14 @@ font-style: inherit;">range</span>(num_laguerre):</span>
 <span id="cb6-24">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> features</span></code></pre></div>
+font-style: inherit;">return</span> features</span></code></pre></div></div>
 </div>
 </section>
 <section id="train-q-learning-model" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="train-q-learning-model"><span class="header-section-number">6.3</span> 3. Train Q-Learning Model</h3>
 <p>The optimal weights <img src="https://latex.codecogs.com/png.latex?w%5E*"> are found by solving the linear system of equations.</p>
 <div id="14708ea3" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
 background-color: null;
@@ -922,10 +922,10 @@ font-style: inherit;">#print(a_inv)</span></span>
 <span id="cb7-60">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> wts</span></code></pre></div>
+font-style: inherit;">return</span> wts</span></code></pre></div></div>
 </div>
 <div id="172579e6" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Example usage</span></span>
 <span id="cb8-2">num_laguerre_val <span class="op" style="color: #5E5E5E;
@@ -975,7 +975,7 @@ font-style: inherit;">=</span>epsilon_val)</span>
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Weights: "</span>, weights)</span></code></pre></div>
+font-style: inherit;">"Weights: "</span>, weights)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Weights:  [ -554.51448774   617.53175068  -396.44157314   -84.64166498
    266.87967408  -102.40787482   110.1107564   1186.26095963
@@ -994,7 +994,7 @@ font-style: inherit;">"Weights: "</span>, weights)</span></code></pre></div>
 <section id="generate-test-data" class="level3" data-number="6.4">
 <h3 data-number="6.4" class="anchored" data-anchor-id="generate-test-data"><span class="header-section-number">6.4</span> 4. Generate Test Data</h3>
 <div id="40c8052c" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> scoring_sim_data(</span>
@@ -1099,10 +1099,10 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> paths[:,<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span>:]</span></code></pre></div>
+font-style: inherit;">1</span>:]</span></code></pre></div></div>
 </div>
 <div id="32124eac" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">num_simulations_test <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">num_simulations_test <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1275,7 +1275,7 @@ background-color: null;
 font-style: inherit;"># Also save the plot in high quality</span></span>
 <span id="cb11-34"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#plt.figure(figsize=(14, 8), dpi=300)</span></span></code></pre></div>
+font-style: inherit;">#plt.figure(figsize=(14, 8), dpi=300)</span></span></code></pre></div></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1285,7 +1285,7 @@ font-style: inherit;">#plt.figure(figsize=(14, 8), dpi=300)</span></span></code>
 </div>
 </div>
 <div id="b3a49787" class="cell">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#num_simulations_test = 10000</span></span>
 <span id="cb12-2"></span>
@@ -1372,14 +1372,14 @@ background-color: null;
 font-style: inherit;">#plt.close()</span></span>
 <span id="cb12-32"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#plt.show()</span></span></code></pre></div>
+font-style: inherit;">#plt.show()</span></span></code></pre></div></div>
 </div>
 <p>In the graph above, we can see the first 10 simulated stock price paths.</p>
 </section>
 <section id="apply-learned-policy-from-step-3-and-calculate-the-option-price" class="level3" data-number="6.5">
 <h3 data-number="6.5" class="anchored" data-anchor-id="apply-learned-policy-from-step-3-and-calculate-the-option-price"><span class="header-section-number">6.5</span> 5. Apply Learned Policy (from step 3) and calculate the option price</h3>
 <div id="d0c54621" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> calculate_option_price(</span>
@@ -1575,10 +1575,10 @@ font-style: inherit;"># Return the average of the option prices across all paths
 <span id="cb13-46">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> np.average(option_prices)</span></code></pre></div>
+font-style: inherit;">return</span> np.average(option_prices)</span></code></pre></div></div>
 </div>
 <div id="fdafcfc3" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">option_price <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">option_price <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> calculate_option_price(</span>
 <span id="cb14-2">    stock_paths<span class="op" style="color: #5E5E5E;
@@ -1601,7 +1601,7 @@ font-style: inherit;">=</span>weights</span>
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Option Price using RL Method:"</span>, option_price)</span></code></pre></div>
+font-style: inherit;">"Option Price using RL Method:"</span>, option_price)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Option Price using RL Method: 4.461213286722788</code></pre>
 </div>
@@ -1631,11 +1631,11 @@ font-style: inherit;">"Option Price using RL Method:"</span>, option_price)</spa
 </ul>
 <p>The results of the RL method and the LSMC method can be compared in the table below. The RL method price is computed in the next cell.</p>
 <div id="3489bdf1" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"American Option Price using RL Method:"</span>, option_price)</span></code></pre></div>
+font-style: inherit;">"American Option Price using RL Method:"</span>, option_price)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>American Option Price using RL Method: 4.461213286722788</code></pre>
 </div>
@@ -1822,7 +1822,7 @@ font-style: inherit;">"American Option Price using RL Method:"</span>, option_pr
 <h2 class="anchored" data-anchor-id="setting-up-the-api-keys">Setting up the API keys</h2>
 <p>First, we need to provide the OpenAI API key to use their LLM services. In my case, I store the API key in a <code>.env</code> file for better security and load it from there. Alternatively, you can directly set the API key in the code, which I’ve shown as Method 2 below. Both approaches work, but using a <code>.env</code> file is generally considered better practice since it keeps sensitive credentials separate from the code.</p>
 <div id="cell-5" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Method 1</span></span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -1854,14 +1854,14 @@ background-color: null;
 font-style: inherit;">#import os</span></span>
 <span id="cb1-11"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#os.environ["OPENAI_API_KEY"] = "your-api-key"</span></span></code></pre></div>
+font-style: inherit;">#os.environ["OPENAI_API_KEY"] = "your-api-key"</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="report-with-standalone-llm" class="level2">
 <h2 class="anchored" data-anchor-id="report-with-standalone-llm">Report with Standalone LLM</h2>
 <p>Now let’s get started. First, we import ChatOpenAI from langchain_openai. I’m using GPT-4-mini since it’s the most cost-effective option. My test query is “Briefly explain me DeepSeek and how it affected NVIDIA Share price” - I purposefully selected this query to benchmark how the LLM agent improves the response compared to using just the LLM alone. This serves as an evaluation metric. The code uses a simple system message to set up the assistant role, and I save the report from the LLM in a markdown file for better readability.</p>
 <div id="cell-7" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_openai <span class="im" style="color: #00769E;
 background-color: null;
@@ -1926,7 +1926,7 @@ background-color: null;
 font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb2-19">    f.write(answer.content)</span></code></pre></div>
+<span id="cb2-19">    f.write(answer.content)</span></code></pre></div></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1945,7 +1945,7 @@ font-style: inherit;">"</span>)</span>
 <p>The workflow is implemented using a <code>State</code> class that tracks: - <code>question</code>: The user’s original query - <code>context</code>: Combined results from web and Wikipedia searches (which is a list, added together) - <code>answer</code>: The final response generated by the LLM</p>
 <p>The State class uses a TypedDict to enforce these three fields.</p>
 <div id="cell-10" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"></span>
 <span id="cb3-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
@@ -1990,13 +1990,13 @@ font-style: inherit;"># https://app.tavily.com/</span></span>
 background-color: null;
 font-style: inherit;">=</span> os.getenv(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"TAVILY_API_KEY"</span>)</span></code></pre></div>
+font-style: inherit;">"TAVILY_API_KEY"</span>)</span></code></pre></div></div>
 </div>
 <section id="define-the-tools" class="level3">
 <h3 class="anchored" data-anchor-id="define-the-tools">Define the Tools</h3>
 <p>Here we have two search functions. In both functions, we take a question from the state (which we defined in the previous section) and pass it to either web search or Wikipedia search. These tools provide additional context to the LLM so it can generate a better informed report.</p>
 <div id="cell-12" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langchain_core.messages <span class="im" style="color: #00769E;
 background-color: null;
@@ -2192,7 +2192,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> {<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"context"</span>: [formatted_search_docs]} </span></code></pre></div>
+font-style: inherit;">"context"</span>: [formatted_search_docs]} </span></code></pre></div></div>
 </div>
 </section>
 </section>
@@ -2200,7 +2200,7 @@ font-style: inherit;">"context"</span>: [formatted_search_docs]} </span></code><
 <h2 class="anchored" data-anchor-id="generate-the-answer">Generate the answer</h2>
 <p>Now with that context the generate answer function takes that state which has a question and also context that provided from the previous two tools function and now we answer the same question which was about NVIDIA and also from the deep seek with this context. So that’s the kind of the bringing the more context to the workflow.</p>
 <div id="cell-14" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> generate_answer(state):</span>
@@ -2276,7 +2276,7 @@ font-style: inherit;">return</span> {<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"answer"</span>: answer, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"context"</span>: context}</span></code></pre></div>
+font-style: inherit;">"context"</span>: context}</span></code></pre></div></div>
 </div>
 </section>
 <section id="building-the-graph" class="level2">
@@ -2284,7 +2284,7 @@ font-style: inherit;">"context"</span>: context}</span></code></pre></div>
 <p>Now we build the graph. We start with the state, and then we add the nodes. We add the search_web and search_wikipedia nodes, and then we add the generate_answer node. We then add the edges (simply it is how the nodes are connected), and then we compile the graph.</p>
 <p>Note that in the in the final graph we see that we have a 5 nodes but just the first note is a start and the last note is the end, but those are the default one. But then we only have a 31 which is two of the tools, and then gathering and getting the answer using a tool which is another tools.</p>
 <div id="cell-16" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> langgraph.graph <span class="im" style="color: #00769E;
 background-color: null;
@@ -2344,7 +2344,7 @@ font-style: inherit;">=</span> builder.<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">compile</span>()</span>
 <span id="cb6-20"></span>
-<span id="cb6-21">display(Image(graph.get_graph().draw_mermaid_png()))</span></code></pre></div>
+<span id="cb6-21">display(Image(graph.get_graph().draw_mermaid_png()))</span></code></pre></div></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2358,7 +2358,7 @@ font-style: inherit;">compile</span>()</span>
 <h2 class="anchored" data-anchor-id="report-with-agent">Report with Agent</h2>
 <p>Now as you can see, we are asking the same question again about DeepSeek and how it affected the NVIDIA share price. This time we are invoking the graph that we defined earlier, which is a combination of all the edges and nodes that we put together. After compiling the graph in the previous step, it is now ready to function as a workflow. As before, I save the final report as a markdown file for easier readability and comparison.</p>
 <div id="cell-19" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">result <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">result <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> graph.invoke({<span class="st" style="color: #20794D;
 background-color: null;
@@ -2392,7 +2392,7 @@ background-color: null;
 font-style: inherit;">"</span>)</span>
 <span id="cb7-8">    f.write(result[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'answer'</span>].content)</span></code></pre></div>
+font-style: inherit;">'answer'</span>].content)</span></code></pre></div></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2445,7 +2445,7 @@ font-style: inherit;">'answer'</span>].content)</span></code></pre></div>
 <p>In this report I will use the <a href="https://groq.com/">Groq</a> as the LLM provider. So the way is that every function call that we will wake, will go to the <a href="https://groq.com/">Groq</a> and then will receive the reply from the <a href="https://groq.com/">Groq</a> LLM models. To do that you need to have the API access and you can find it in this <a href="https://console.groq.com/keys">page</a> with this <a href="https://www.kerlig.com/help/groq/get-api-key">guide</a> on how to get your API case. After getting your API case you’re good to go to implement the workflows.</p>
 <p>Method 1:</p>
 <div id="cell-6" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#import os</span></span>
 <span id="cb1-2"><span class="co" style="color: #5E5E5E;
@@ -2461,11 +2461,11 @@ background-color: null;
 font-style: inherit;">#client = Groq(</span></span>
 <span id="cb1-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#    api_key=os.environ.get("GROQ_API_KEY"), </span></span></code></pre></div>
+font-style: inherit;">#    api_key=os.environ.get("GROQ_API_KEY"), </span></span></code></pre></div></div>
 </div>
 <p>Method 2:</p>
 <div id="cell-8" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
 <span id="cb2-2"><span class="im" style="color: #00769E;
@@ -2493,11 +2493,11 @@ background-color: null;
 font-style: inherit;">=</span>os.environ.get(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"GROQ_API_KEY"</span>),  </span>
-<span id="cb2-9">)</span></code></pre></div>
+<span id="cb2-9">)</span></code></pre></div></div>
 </div>
 <p>So in the previous code we generate the <strong>client</strong> class so then this client class has a “chat completion create” that that we can give the prompt which is a content and also specify the model and then we can get a reply.</p>
 <div id="cell-10" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> groq <span class="im" style="color: #00769E;
 background-color: null;
@@ -2527,11 +2527,11 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"llama3-8b-8192"</span>,</span>
-<span id="cb3-11">)</span></code></pre></div>
+<span id="cb3-11">)</span></code></pre></div></div>
 </div>
 <p>For ease of use now I will define the <code>llm_call</code> function which only takes the prompt and give that prompt to the “llama3-70b-8192” model and I get a response from the as a return from output of the function. We will use <code>llm_call</code> function throughout this notebook.</p>
 <div id="cell-12" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> llm_call(prompt: <span class="bu" style="color: null;
@@ -2571,11 +2571,11 @@ font-weight: bold;
 font-style: inherit;">return</span> chat_completion.choices[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>].message.content</span>
-<span id="cb4-13">    </span></code></pre></div>
+<span id="cb4-13">    </span></code></pre></div></div>
 </div>
 <p>Here we can just use this function as an example to see if everything is working.</p>
 <div id="cell-14" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> textwrap</span>
 <span id="cb5-2"></span>
@@ -2601,7 +2601,7 @@ background-color: null;
 font-style: inherit;"># Adjust width as needed</span></span>
 <span id="cb5-7"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(wrapped_response)</span></code></pre></div>
+font-style: inherit;">print</span>(wrapped_response)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Agentic AI is a concept in artificial intelligence that refers to AI systems
 that have a certain level of autonomy, self-awareness, and decision-making
@@ -2624,7 +2624,7 @@ them.  Would you like me to elaborate on any specific aspect of agentic AI?</cod
 </div>
 <p>But also another function that we will need is that this <code>extract_xml</code> function which is just extract the content of specific XML tag.In the examples that comes afterward, it will be more clear how this function works if it’s not very clear now.</p>
 <div id="cell-16" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> re</span>
 <span id="cb7-2"></span>
@@ -2702,7 +2702,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">""</span></span></code></pre></div>
+font-style: inherit;">""</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="workflow-1-prompt-chaining" class="level2" data-number="1">
@@ -2716,7 +2716,7 @@ font-style: inherit;">""</span></span></code></pre></div>
 </div>
 <p>So here we are actually starting with the first workflow, which is prompt chaining. Essentially, in the prompt chaining, what we are doing is that we can decompose a task into the sequential subtasks and then we call the LLM where at each step, output of the LLM become the input of the next step.</p>
 <div id="cell-20" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> concurrent.futures <span class="im" style="color: #00769E;
 background-color: null;
@@ -2840,13 +2840,13 @@ font-style: inherit;">print</span>(current_text)</span>
 <span id="cb8-29">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> current_text</span></code></pre></div>
+font-style: inherit;">return</span> current_text</span></code></pre></div></div>
 </div>
 <p>Essentially what this court is doing is just a “for loop” where the inputs become the prompt to the LLM, and the outputs become the new prompt to the new LLM call. So It’s a chaining the input and output together.</p>
 <section id="example-workflow-1-prompt-chaining" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="example-workflow-1-prompt-chaining"><span class="header-section-number">1.1</span> Example: Workflow 1: Prompt Chaining</h3>
 <div id="cell-23" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">data_processing_steps <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">data_processing_steps <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb9-2">    <span class="st" style="color: #20794D;
@@ -2969,7 +2969,7 @@ font-style: inherit;">=</span> prompt_chaining(input_text<span class="op" style=
 background-color: null;
 font-style: inherit;">=</span>report, prompts<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>data_processing_steps)</span></code></pre></div>
+font-style: inherit;">=</span>data_processing_steps)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Step 1:
@@ -3032,7 +3032,7 @@ Let me know if you need any further assistance!</code></pre>
 <p>So there in the above example as the result gets print out and every step you can look at the step by step where the flow of the things are going. And that’s so nice because as we say being transparent and simple is a quite useful when we work with this workflows.</p>
 <p>I can print out just the final outcome of the example to get the final answer as well.</p>
 <div id="cell-25" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
@@ -3044,7 +3044,7 @@ background-color: null;
 font-style: inherit;">"-----------------------------------------------------------"</span>)</span>
 <span id="cb11-3"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(final_output)</span></code></pre></div>
+font-style: inherit;">print</span>(final_output)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The final outcome after processing the report through the prompt chain is:
 -----------------------------------------------------------
@@ -3078,7 +3078,7 @@ Let me know if you need any further assistance!</code></pre>
 </div>
 <p>We can write it’s main python codm in function named <code>parallel</code>, where it takes two input , first is “prompt” and the second is inputs, and the inputs is the “Python list” of the prompts that we want to run in parallel.</p>
 <div id="cell-29" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> parallel(prompt: <span class="bu" style="color: null;
@@ -3141,12 +3141,12 @@ font-weight: bold;
 font-style: inherit;">for</span> f <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">in</span> futures]</span></code></pre></div>
+font-style: inherit;">in</span> futures]</span></code></pre></div></div>
 </div>
 <section id="example-workflow-2-parallelization" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="example-workflow-2-parallelization"><span class="header-section-number">2.1</span> Example: Workflow 2: Parallelization</h3>
 <div id="cell-31" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">stakeholders <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">stakeholders <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [</span>
 <span id="cb14-2">    <span class="st" style="color: #20794D;
@@ -3284,7 +3284,7 @@ font-style: inherit;">"="</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">50</span>)</span></code></pre></div>
+font-style: inherit;">50</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis Results for Each Stakeholder Group:
 ==================================================
@@ -3512,7 +3512,7 @@ By understanding the impacts of market changes on suppliers and taking proactive
 </div>
 <p>The function <code>routing</code> is defined in the code block below. The function takes an <strong>input string</strong> and a <strong>dictionary of routes</strong>. It uses a LLM to analyze the input and decide which route (or support team) is most appropriate. The function first creates a prompt that asks the LLM to explain its reasoning and select a route. It then calls the LLM with this prompt and extracts the reasoning and selected route from the LLM’s response. Finally, it uses the selected route to process the input with a specialized prompt and returns the result.</p>
 <div id="cell-36" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> routing(<span class="bu" style="color: null;
@@ -3673,12 +3673,12 @@ font-style: inherit;">input</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span>)</span></code></pre></div>
+font-style: inherit;">"</span>)</span></code></pre></div></div>
 </div>
 <section id="example-workflow-3-routing" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="example-workflow-3-routing"><span class="header-section-number">3.1</span> Example: Workflow 3: Routing</h3>
 <div id="cell-38" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">support_routes <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">support_routes <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
 <span id="cb17-2">    <span class="st" style="color: #20794D;
@@ -3957,7 +3957,7 @@ background-color: null;
 font-style: inherit;">=</span> routing(ticket, support_routes)</span>
 <span id="cb17-82">    <span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(response)</span></code></pre></div>
+font-style: inherit;">print</span>(response)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Processing support tickets...
 
@@ -4147,7 +4147,7 @@ Product Specialist</code></pre>
 </ol>
 <p>So, in a sense this workflow work well for tasks that can be improved, and you have meaningful feedback too.</p>
 <div id="cell-42" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
 background-color: null;
@@ -4543,13 +4543,13 @@ font-style: inherit;">=</span> generate(generator_prompt, task, context)</span>
 background-color: null;
 font-style: inherit;">"thoughts"</span>: thoughts, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"result"</span>: result})</span></code></pre></div>
+font-style: inherit;">"result"</span>: result})</span></code></pre></div></div>
 </div>
 <section id="example-workflow-4-evaluator-optimizer" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="example-workflow-4-evaluator-optimizer"><span class="header-section-number">4.1</span> Example: Workflow 4: Evaluator-Optimizer</h3>
 <p>Here the example we are working on is a coding exercise (compute the full covariance of matrix). The coding exercise involves generating code and evaluating it based on <strong>time complexity</strong> and <strong>software engineering best practices</strong>. The evaluator will assess the code and provide feedback, indicating whether it passes, fails, or needs improvement. If the code needs improvement, the feedback is passed to the generator function which then generates a new version of the code considering the feedback.</p>
 <div id="cell-45" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1">evaluator_prompt <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1">evaluator_prompt <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -4673,7 +4673,7 @@ font-style: inherit;">&lt;/user input&gt;</span></span>
 background-color: null;
 font-style: inherit;">"""</span></span>
 <span id="cb20-46"></span>
-<span id="cb20-47">eval_optimizer(task, evaluator_prompt, generator_prompt)</span></code></pre></div>
+<span id="cb20-47">eval_optimizer(task, evaluator_prompt, generator_prompt)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 === GENERATION START ===

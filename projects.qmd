@@ -163,4 +163,25 @@ Implemented a reinforcement learning approach to optimize American option pricin
 - [Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan](https://pub.towardsai.net/learn-reinforcement-learning-from-human-feedback-rlhf-your-9-hour-study-plan-2bb0b8314e94)
 - [Understanding Why There Is No Such Thing as 'Correct Probability' in Data Science](https://pub.towardsai.net/understanding-why-there-is-no-such-thing-as-correct-probability-in-data-science-950c81629bcf)
 - [Forgot Solutions in Life. It's All About Trade-offs (Here Is How to Master Them)](https://medium.com/@peymankor/forgot-solutions-in-life-its-all-about-trade-offs-here-is-how-to-master-them-4cdbf3a8a395)
-- [The Power of Negative Thinking: Supercharge your Decision-Making Skill](https://medium.com/@peymankor/the-power-of-negative-thinking-supercharge-your-decision-making-skill-c81782177f97) 
+- [The Power of Negative Thinking: Supercharge your Decision-Making Skill](https://medium.com/@peymankor/the-power-of-negative-thinking-supercharge-your-decision-making-skill-c81782177f97)
+
+<style>
+h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-top: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 2em 0;
+}
+
+.skills img {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+</style>

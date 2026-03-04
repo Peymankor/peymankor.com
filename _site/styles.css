@@ -14,7 +14,7 @@
     width: 35px;
     height: 4px;
     margin: 8px auto;
-    background-color: #007bff !important;
+    background-color: #2563eb !important;
     transition: all 0.3s ease-in-out;
     border-radius: 3px;
 }
@@ -46,7 +46,7 @@
         display: block;
         width: 30px;
         height: 3px;
-        background-color: #007bff;
+        background-color: #2563eb;
         margin: 6px 0;
         transition: transform 0.3s ease;
     }
@@ -88,22 +88,23 @@
 /* Navbar styles */
 .navbar {
     background-color: white !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: none;
 }
 
 .navbar-nav .nav-link {
-    font-size: 24px !important;
+    font-size: 1rem !important;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     padding: 0.5rem 1rem !important;
-    color: #007bff !important;
-    transition: all 0.2s ease;
+    color: #1a1a2e !important;
+    transition: color 0.2s ease;
     text-transform: none !important;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #0056b3 !important;
-    transform: translateY(-1px);
+    color: #2563eb !important;
+    transform: none;
 }
 
 .navbar .navbar-nav .nav-item .nav-link {
@@ -127,33 +128,33 @@
     flex-direction: column;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .listing-title {
     order: 1;
     margin-bottom: 0.2rem !important;
-    margin-right: -50px;  /* Space for image */
+    margin-right: -50px;
 }
 
 .listing-title a {
     font-size: 1.4rem !important;
     text-decoration: none;
-    font-weight: 600;  /* Made slightly bolder */
-    color: #2c5282 !important;  /* New rich blue color */
+    font-weight: 600;
+    color: #1a1a2e !important;
     line-height: 1.3;
     transition: color 0.2s ease;
 }
 
 .listing-title a:hover {
-    color: #3182ce !important;  /* Brighter blue on hover */
+    color: #2563eb !important;
     text-decoration: none;
 }
 
 .listing-date {
     order: 2;
     font-size: 0.9rem;
-    color: #718096;
+    color: #6b7280;
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -163,8 +164,8 @@
     font-size: 0.95rem;
     line-height: 1.5;
     margin-top: 0.3rem;
-    margin-right: 120px;  /* Space for image */
-    color: #4a5568;
+    margin-right: 120px;
+    color: #4a4a5a;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -175,7 +176,7 @@
     float: right;
     width: 100px;
     height: 100px;
-    margin-top: -4rem;  /* Pull up to title level */
+    margin-top: -4rem;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -187,16 +188,16 @@
 }
 
 .table-hover tbody tr:hover {
-    background-color: #f8f9fa;
+    background-color: #f8f9fb;
 }
 
 /* Table styles for blog listing */
 .quarto-listing table {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .quarto-listing table td {
-    padding: 1.5rem 0.5rem !important;
+    padding: 1rem 0.5rem !important;
 }
 
 .quarto-listing table tr {
@@ -204,16 +205,16 @@
 }
 
 .quarto-listing table td a {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
     text-decoration: none;
-    color: #007bff !important; /* Vibrant blue */
+    color: #1a1a2e !important;
     display: block;
-    padding: 0rem 0;
+    padding: 0;
 }
 
 /* Keep hover effects */
 .quarto-listing table td a:hover {
-    color: #3182ce !important;
+    color: #2563eb !important;
     text-decoration: none;
 }
 
@@ -225,7 +226,7 @@ body {
 /* Blog post content styles */
 .content {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1.2rem;  /* Base font size for blog content */
+    font-size: 1rem;  /* Base font size for blog content */
     line-height: 1.6;   /* Comfortable line height */
 }
 
@@ -284,13 +285,13 @@ pre, code {
 /* Sidebar Styles */
 .sidebar.sidebar-navigation {
     padding-left: 2rem;
-    border-left: 1px solid #e2e8f0;
+    border-left: 1px solid #e5e7eb;
 }
 
 .sidebar-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2d3748;
+    color: #1a1a2e;
     margin-bottom: 1rem;
 }
 
@@ -301,7 +302,7 @@ pre, code {
 
 .quarto-listing-category .category {
     font-size: 1rem;
-    color: #4a5568;
+    color: #4a4a5a;
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
@@ -309,19 +310,19 @@ pre, code {
 }
 
 .quarto-listing-category .category a {
-    color: #4a5568;
+    color: #4a4a5a;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .quarto-listing-category .category a:hover {
-    color: #2b6cb0;
+    color: #2563eb;
 }
 
 .quarto-listing-category .category-count {
     font-size: 0.9rem;
     color: #718096;
-    background: #f7fafc;
+    background: #f8f9fb;
     padding: 0.2rem 0.6rem;
     border-radius: 9999px;
 }
@@ -351,15 +352,21 @@ pre, code {
 
 /* --- Mobile improvements for main content and about page --- */
 @media (max-width: 600px) {
-  /* Make profile/about images responsive */
+  /* Make profile/about images responsive (not skill badges) */
   .quarto-about-solana .about-image img,
-  .about-image img,
-  img {
+  .about-image img {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     margin: 0 auto !important;
     display: block !important;
+  }
+
+  /* Constrain content images but not badges */
+  .content img:not(.skills img),
+  .award-image {
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   /* Remove negative margins that cause overflow */
@@ -368,7 +375,7 @@ pre, code {
     margin-right: 0 !important;
   }
 
-  /* Add spacing below profile/about images and above the name-title */
+  /* Add spacing below profile/about images */
   .quarto-about-solana .about-image img,
   .about-image img {
     margin-bottom: 1.2em !important;
@@ -385,11 +392,22 @@ pre, code {
     font-size: 1.1em !important;
   }
 
-  /* Stack contact links vertically */
+  /* Compact timeline on mobile */
+  .experience-item,
+  .education-item {
+    padding-left: 0.8em !important;
+  }
+
+  .experience-section h2,
+  .education-section h2 {
+    font-size: 1.3em !important;
+  }
+
+  /* Keep contact icon links in a row on mobile */
   .contact-links {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 0.5em !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 0.8em !important;
   }
 
   /* General: prevent horizontal scrolling */

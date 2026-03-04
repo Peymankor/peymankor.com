@@ -8,9 +8,9 @@ $theme: "sandstone" !default;
 //
 
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #f8f5f0 !default;
-$gray-300: #dfd7ca !default;
+$gray-100: #f8f9fb !default;
+$gray-200: #f8f9fb !default;
+$gray-300: #e5e7eb !default;
 $gray-400: #ced4da !default;
 $gray-500: #98978b !default;
 $gray-600: #8e8c84 !default;
@@ -19,7 +19,7 @@ $gray-800: #3e3f3a !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$blue:    #325d88 !default;
+$blue:    #2563eb !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
@@ -43,7 +43,7 @@ $min-contrast-ratio:   2 !default;
 
 // Body
 
-$body-color:                $gray-800 !default;
+$body-color:                #1a1a2e !default;
 
 // Links
 
@@ -52,9 +52,9 @@ $link-color:                $blue !default;
 // Fonts
 
 // stylelint-disable-next-line value-keyword-case
-$font-family-sans-serif:      Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$headings-font-weight:        400 !default;
-$font-size-root: 20px !default;
+$font-family-sans-serif:      'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
+$headings-font-weight:        600 !default;
+$font-size-root: 18px !default;
 $toc-font-size: 16px !default;
 // Dropdowns
 

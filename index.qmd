@@ -11,54 +11,56 @@ about:
 ---
 
 <style>
+/* Profile image */
 .quarto-about-solana .about-image {
     margin-left: 1em;
-    margin-right: -5em;
+    margin-right: 0;
 }
 .quarto-about-solana .about-image img {
     border-radius: 50% !important;
-    width: 400px !important;
+    width: 280px !important;
     object-fit: cover !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
+
+/* Hero container */
 #hero-heading {
-    font-size: 24px;
-    margin-top: -2em;
+    font-size: 1rem;
+    margin-top: -1em;
     max-width: 900px;
     padding: 0;
 }
+
+/* Name */
 .name-title {
-    font-size: 3.2em;
-    font-weight: 800;
-    background: linear-gradient(45deg, #2c5282, #4299e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.1em;
+    font-size: 2.4em;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.2em;
 }
+
+/* Headline */
 .headline {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 400;
+    color: #4a4a5a;
     margin-bottom: 1.5em;
-    color: #4a5568;
     line-height: 1.4;
-    padding-bottom: 0.8em;
-    border-bottom: 3px solid #e2e8f0;
-    position: relative;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 .headline::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(90deg, #2c5282, #4299e1);
+    display: none;
 }
+
+/* Research areas */
 .research-areas {
-    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    background: #f8f9fb;
     padding: 1.5em;
-    border-radius: 16px;
+    border-radius: 8px;
     margin: 1.5em 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
 }
 .research-areas ol {
     list-style: none;
@@ -77,166 +79,156 @@ about:
     left: 0;
     width: 1.8em;
     height: 1.8em;
-    background: linear-gradient(45deg, #2c5282, #4299e1);
+    background: #2563eb;
     border-radius: 50%;
     color: white;
     text-align: center;
     line-height: 1.8em;
     font-weight: bold;
 }
+
+/* Contact links — icon only */
 .contact-links {
     margin-top: 2em;
     padding-top: 1.5em;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #e5e7eb;
     display: flex;
     align-items: center;
-    gap: 0.8em;
+    justify-content: flex-start;
+    gap: 0.6em;
 }
 .contact-links a {
     text-decoration: none;
-    color: #2d3748;
-    font-weight: 500;
-    padding: 0.6em 0.8em;
-    border-radius: 8px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    color: #4a4a5a;
+    font-size: 1.3em;
+    padding: 0.4em;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
 }
 .contact-links a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    background: white;
-    color: #2c5282;
-    border-color: #4299e1;
+    color: #2563eb;
+    transform: none;
+    box-shadow: none;
+    background: none;
+    border: none;
 }
 .contact-links i {
-    color: #4299e1;
+    color: inherit;
 }
+
+/* Links */
 a {
-    color: #4299e1;
+    color: #2563eb;
     text-decoration: none;
     transition: color 0.2s ease;
     font-weight: 500;
 }
 a:hover {
-    color: #2c5282;
+    color: #1d4ed8;
 }
+
+/* Paragraphs */
 p {
     line-height: 1.7;
     margin-bottom: 1.2em;
 }
-.education-section {
-    margin-top: 3em;
-    padding-top: 2em;
-    border-top: 3px solid #e2e8f0;
-}
 
-.education-section h2 {
-    font-size: 2em;
-    font-weight: 700;
-    margin-bottom: 1em;
-    color: #2d3748;
-}
-
-.education-item {
-    margin-bottom: 2em;
-    padding-left: 1.5em;
-    border-left: 3px solid #4299e1;
-    position: relative;
-}
-
-.education-item h3 {
-    font-size: 1.3em;
-    font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 0.2em;
-}
-
-.education-item .year {
-    color: #718096;
-    font-size: 0.9em;
-    margin-bottom: 0.2em;
-}
-
-.education-item .degree {
-    background: linear-gradient(45deg, #2c5282, #4299e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-bottom: 0.3em;
-}
-
-.education-item::before {
-    content: '';
-    position: absolute;
-    left: -8px;
-    top: 0;
-    width: 13px;
-    height: 13px;
-    background: #4299e1;
-    border-radius: 50%;
-}
-
+/* Experience section */
 .experience-section {
     margin-top: 3em;
     padding-top: 2em;
-    border-top: 3px solid #e2e8f0;
+    border-top: 1px solid #e5e7eb;
 }
-
 .experience-section h2 {
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 1.6em;
+    font-weight: 600;
     margin-bottom: 1em;
-    color: #2d3748;
+    color: #1a1a2e;
 }
-
 .experience-item {
-    margin-bottom: 2em;
-    padding-left: 1.5em;
-    border-left: 3px solid #4299e1;
+    margin-bottom: 1.5em;
+    padding-left: 1.2em;
+    border-left: 2px solid #e5e7eb;
     position: relative;
 }
-
 .experience-item h3 {
-    font-size: 1.3em;
-    font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 0.2em;
-}
-
-.experience-item .year {
-    color: #718096;
-    font-size: 0.9em;
-    margin-bottom: 0.2em;
-}
-
-.experience-item .role {
-    background: linear-gradient(45deg, #2c5282, #4299e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-size: 1.1em;
     font-weight: 600;
-    margin-bottom: 0.3em;
+    color: #1a1a2e;
+    margin-bottom: 0.1em;
 }
-
+.experience-item .year {
+    color: #6b7280;
+    font-size: 0.85em;
+    margin-bottom: 0.1em;
+}
+.experience-item .role {
+    color: #2563eb;
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+    background: none;
+    -webkit-text-fill-color: #2563eb;
+}
 .experience-item .description {
-    color: #4a5568;
-    font-size: 0.95em;
-    margin-top: 0.5em;
+    color: #4a4a5a;
+    font-size: 0.9em;
+    margin-top: 0.3em;
     line-height: 1.5;
 }
-
 .experience-item::before {
-    content: '';
-    position: absolute;
-    left: -8px;
-    top: 0;
-    width: 13px;
-    height: 13px;
-    background: #4299e1;
-    border-radius: 50%;
+    display: none;
+}
+
+/* Education section */
+.education-section {
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 1px solid #e5e7eb;
+}
+.education-section h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    color: #1a1a2e;
+}
+.education-item {
+    margin-bottom: 1.5em;
+    padding-left: 1.2em;
+    border-left: 2px solid #e5e7eb;
+    position: relative;
+}
+.education-item h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 0.1em;
+}
+.education-item .year {
+    color: #6b7280;
+    font-size: 0.85em;
+    margin-bottom: 0.1em;
+}
+.education-item .degree {
+    color: #1a1a2e;
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: #1a1a2e;
+}
+.education-item .description {
+    color: #4a4a5a;
+    font-size: 0.9em;
+}
+.education-item::before {
+    display: none;
 }
 </style>
 
@@ -247,7 +239,6 @@ p {
 <div class="headline">AI & Decision Analytics | GenAI Researcher & Educator | Data Scientist </div>
 
 <div class="summary-section">
-<h2>Summary</h2>
 
 I am Peyman Kor Test- a Data Scientist and Machine Learning/AI Researcher.
 
@@ -332,9 +323,9 @@ I'm actively engaged on [GitHub](https://github.com/peymankor){target="_blank"} 
 </div>
 
 <div class="contact-links">
-<a href="https://www.linkedin.com/in/peyman-kor/" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
-<a href="https://twitter.com/peyman_kor" target="_blank"><i class="bi bi-twitter"></i> Twitter</a>
-<a href="https://medium.com/@peymankor" target="_blank"><i class="bi bi-medium"></i> Medium</a>
-<a href="https://github.com/peymankor" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-<a href="mailto:kor.peyman@gmail.com"><i class="bi bi-envelope"></i> Email</a>
+<a href="https://www.linkedin.com/in/peyman-kor/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+<a href="https://twitter.com/peyman_kor" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+<a href="https://medium.com/@peymankor" target="_blank" title="Medium"><i class="bi bi-medium"></i></a>
+<a href="https://github.com/peymankor" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+<a href="mailto:kor.peyman@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
 </div>
