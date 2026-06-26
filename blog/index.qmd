@@ -6,6 +6,7 @@ listing:
   type: default
   categories: true
   feed: true
+  image-height: "120px"
   fields: [title, date, description, image]
   date-format: "Do MMMM YYYY"
   page-size: 10
