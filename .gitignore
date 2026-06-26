@@ -43,3 +43,18 @@ __pycache__/
 
 
 **/*.quarto_ipynb
+
+# Python virtualenvs (local analysis scripts)
+.venv/
+**/.venv/
+
+# Agent guidance — never publish to the public repo
+CLAUDE.md
+
+# Private build tooling & raw notes for the AI-agent blog post (not for publication)
+blog/ai_agent_in_production/voice_ideas.md
+blog/ai_agent_in_production/analysis.py
+blog/ai_agent_in_production/plot_monthly_questions.py
+blog/ai_agent_in_production/plot_prompt_length.py
+_site/blog/ai_agent_in_production/voice_ideas.html
+.playwright-mcp/

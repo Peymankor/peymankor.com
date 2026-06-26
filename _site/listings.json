@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/ai_agent_in_production/index.html",
       "/blog/rl_for_option/index.html",
       "/blog/4waysgenai/index.html",
       "/blog/simplelanggraph/index.html",

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Peyman Kor">
+<meta name="dcterms.date" content="2026-06-05">
 
-<title>Peyman Kor | Blog – Peyman Kor</title>
+<title>Peyman Kor | 5,000 Analyses Later: Lessons from Building and Running an AI Agent in Production – Peyman Kor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f7ad4873d7c2df376155c2ea122c28f8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f7ad4873d7c2df376155c2ea122c28f8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-description','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5HXVH6767Y"></script>
 
 <script type="text/javascript">
@@ -141,8 +112,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Peyman Kor" href="index.xml" data-external="1"><meta name="twitter:title" content="Peyman Kor | Blog">
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Peyman Kor | 5,000 Analyses Later: Lessons from Building and Running an AI Agent in Production">
+<meta name="twitter:description" content="Some ideas on building value-creative AI">
 <meta name="twitter:image" content="https://peymankor.com/blog/ai_agent_in_production/cover.png">
 <meta name="twitter:creator" content="@peyman_kor">
 <meta name="twitter:image-height" content="1260">
@@ -157,7 +129,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Peyman Kor</span>
     </a>
   </div>
@@ -168,17 +140,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Peyman Kor</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../pages/projects.html"> 
+    <a class="nav-link" href="../../pages/projects.html"> 
 <span class="menu-text">Data &amp; AI Portfolio</span></a>
   </li>  
   <li class="nav-item">
@@ -186,11 +158,11 @@ window.Quarto = {
 <span class="menu-text">Reinforcement Learning Course</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../pages/publications.html"> 
+    <a class="nav-link" href="../../pages/publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../pages/awards.html"> 
+    <a class="nav-link" href="../../pages/awards.html"> 
 <span class="menu-text">Awards</span></a>
   </li>  
 </ul>
@@ -201,25 +173,53 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="YWdlbnRpY3dvcmtmbG93">agenticworkflow <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YWdlbnRz">agents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuYWk=">genai <span class="quarto-category-count">(2)</span></div><div class="category" data-category="b3B0aW9u">option <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmw=">rl <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TL;DR</a></li>
+  <li><a href="#work-backward-from-the-answer-you-want" id="toc-work-backward-from-the-answer-you-want" class="nav-link" data-scroll-target="#work-backward-from-the-answer-you-want">1) Work backward from the answer you want</a></li>
+  <li><a href="#observability-is-what-takes-you-from-1-to-n" id="toc-observability-is-what-takes-you-from-1-to-n" class="nav-link" data-scroll-target="#observability-is-what-takes-you-from-1-to-n">2) Observability is what takes you from 1 to N</a></li>
+  <li><a href="#shrink-the-loop-between-idea-and-product" id="toc-shrink-the-loop-between-idea-and-product" class="nav-link" data-scroll-target="#shrink-the-loop-between-idea-and-product">3) Shrink the loop between idea and product</a></li>
+  <li><a href="#the-better-the-agent-gets-the-harder-the-questions-become" id="toc-the-better-the-agent-gets-the-harder-the-questions-become" class="nav-link" data-scroll-target="#the-better-the-agent-gets-the-harder-the-questions-become">4) The better the agent gets, the harder the questions become</a></li>
+  <li><a href="#a-prompt-is-a-semi-product" id="toc-a-prompt-is-a-semi-product" class="nav-link" data-scroll-target="#a-prompt-is-a-semi-product">5) A prompt is a semi-product</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">5,000 Analyses Later: Lessons from Building and Running an AI Agent in Production</h1>
+<p class="subtitle lead">Some ideas on building value-creative AI</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">genai</div>
+    <div class="quarto-category">agents</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Peyman Kor </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 5, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -229,163 +229,94 @@ window.Quarto = {
 </header>
 
 
+<p>For the past year, I was building a AI Agent and puting it in production: a custom agent for a small business, built to help its employees with the analytical work they do every day. This is not a chatbot demo and not a horizontal product. It is one agent, cover whole organization, in production.</p>
+<p>Five months after launch now it answers roughly 1,000 analytical questions a month, and the number keeps climbing — on the order of 5,000 questions served so far.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/monthly_questions.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Questions answered by the agent each month since the January 2026 launch (LangSmith traces).</figcaption>
+</figure>
+</div>
+<p>Working on this project taught me lessons I keep repeating to other engineers, so I am writing them down. One caveat up front: building an AI agent inside an organization (the B2B case — you are building one deep solution for one business, not a product for a market) has no settled best practices yet. It is mostly engineering in a sense: trial and error until things work. The single biggest accelerant I found is working closely with a subject-matter expert and building a relationship tight enough to iterate fast. When that loop is short, the probability of success rises sharply.</p>
+<p>Below, I am listing 5 lessons that i wish I knew earlier when I started this project, and type of learnings that I will be keeping in my mind for future projects.</p>
+<section id="tldr" class="level2">
+<h2 class="anchored" data-anchor-id="tldr">TL;DR</h2>
+<ol type="1">
+<li><strong>Work backward from the answer.</strong> Start from the questions and ideal answers your experts want, then build toward them.</li>
+<li><strong>Observability is what takes you from 1 to N.</strong> You cannot scale what you cannot see.</li>
+<li><strong>Shrink the loop between idea and product.</strong> Iteration speed is the whole game.</li>
+<li><strong>The better the agent gets, the harder the questions become.</strong> Plan for it.</li>
+<li><strong>A prompt is a semi-product.</strong> Encoding expert workflows is the competitive advantage — and the moat.</li>
+</ol>
+</section>
+<section id="work-backward-from-the-answer-you-want" class="level2">
+<h2 class="anchored" data-anchor-id="work-backward-from-the-answer-you-want">1) Work backward from the answer you want</h2>
+<p>This is where I would start any agent project. Do not begin with the model or the architecture. Begin with the questions.</p>
+<p>Collect five or ten questions that people in the organization actually ask — analytical or insight questions that take real time and that they would genuinely value handing of them to AI agent. Note that this was case when I started the project last year. However, this year, with all progress made in agentic AI, you can replace questiosn with workflow, or any long horizon task, that you belive AI-agent can do that.</p>
+<p>Then build a simple three-column table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>The question</th>
+<th>The context needed to answer it</th>
+<th>The ideal answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A real question someone in the organization asked</td>
+<td>The specific data, external knowledge, or internal documents required to answer it well</td>
+<td>What a complete, correct answer looks like , defined by your expert</td>
+</tr>
+</tbody>
+</table>
+<p>The first column is the demand. The second column is the hard part: the specific data, the external knowledge, the internal PDFs — every source needed to produce a correct answer. The third column, written by your client or expert, is the target.</p>
+<p>Starting from the answer would force clarity to AI-enginners about what the agent is actually for. Once the target exists, you can work backward to the context, get a first response from the model, and iterate against a known goal.</p>
+<p>The whole lesson fits in one line:</p>
+<p><span class="math display">\[
+\text{Ideal Answer} \;=\; \operatorname{Agent}(\text{Question},\; \text{Context})
+\]</span></p>
+<p>Most teams read this left to right: take a question, throw context at the agent, and hope the answer is good. Work backward instead — start from the ideal answer your expert defined, hold the question fixed, and figure out the context that gets you there.</p>
+</section>
+<section id="observability-is-what-takes-you-from-1-to-n" class="level2">
+<h2 class="anchored" data-anchor-id="observability-is-what-takes-you-from-1-to-n">2) Observability is what takes you from 1 to N</h2>
+<p>You can get from zero to one by talking to your client and your subject-matter expert. Getting from one to N — scaling — requires that you see, for every interaction, what was asked, what the agent answered, which tools it called, and how it arrived at the result.</p>
+<p>Observability is not only monitoring. It is also a great tool to help you iterate faster. As soon as I had a view into the questions and the agent’s responses, every subsequent iteration got easier: I could see what was being asked, what context each class of question needed, and where the agent fell short. The trace log is also the best idea generator you have — it tells you what to build next.</p>
+</section>
+<section id="shrink-the-loop-between-idea-and-product" class="level2">
+<h2 class="anchored" data-anchor-id="shrink-the-loop-between-idea-and-product">3) Shrink the loop between idea and product</h2>
+<p>As an engineer, your first job on an agent project is to reduce the time between having an idea and putting it in front of a user. Set things up so you can get feedback from your subject-matter expert quickly and ship the change immediately. This is product development, and the variable that matters most is iteration speed.</p>
+<p>It works best with small teams on both sides: one or two full-stack engineers and one or two domain experts, iterating together. The shorter the team, the shorter the loop.</p>
+<p>In practice, I built tooling so that my Slack conversations with the client feed directly into the agent’s development — the feedback channel and the build channel are the same channel. The question I keep asking is simply: how do I make this loop faster?</p>
+</section>
+<section id="the-better-the-agent-gets-the-harder-the-questions-become" class="level2">
+<h2 class="anchored" data-anchor-id="the-better-the-agent-gets-the-harder-the-questions-become">4) The better the agent gets, the harder the questions become</h2>
+<p>Expect the questions to get harder over time. I was consistently surprised by how much more demanding users became — they kept reaching for longer-horizon tasks.</p>
+<p>There are two reasons. First, once the easy questions are reliably answered, users push for the hard ones; that is where the remaining value is. Second, as model capability improves, genuinely long-horizon tasks — ones that take the agent 30 to 40 minutes to work through — become feasible, so users ask for them. Plan for this from the start: the demand curve shifts toward difficulty, not away from it.</p>
+<p>This is measurable. Tracking the length of incoming questions in LangSmith is a cheap proxy for difficulty, and it climbs as users move to longer-horizon work.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/prompt_length.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Typical (median) length of questions to the agent, all environments — roughly 4× heavier from March to June 2026. The median is robust to a handful of very large pasted-context prompts.</figcaption>
+</figure>
+</div>
+</section>
+<section id="a-prompt-is-a-semi-product" class="level2">
+<h2 class="anchored" data-anchor-id="a-prompt-is-a-semi-product">5) A prompt is a semi-product</h2>
+<p>This is where the moat lives. The obvious objection to building a custom agent is: why bother, when Copilot, Claude Code, and other general tools exist? The answer is that businesses hold two things those tools cannot reach — internal knowledge, and specific prompts.</p>
+<p>I think of a prompt as a semi-product. A good prompt encodes a long, particular workflow that one senior person in the business knows and others do not. Converting those prompts into skills the agent can execute is what turns a generic assistant into a custom solution — and into a competitive advantage that a general-purpose tool cannot replicate, because it never had access to that workflow.</p>
+<p>The flexibility is the point: you control not just the context the agent receives, but how it works and how its interface is shaped, so it fits the business exactly.</p>
+<p>That fit is the differentiator. My view, stated plainly: every company should have its own agent, customized to its workflows — because that customization is the only durable advantage. The model is a commodity. The captured workflow is not.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1782465444325">
-<div class="thumbnail"><a href="../blog/ai_agent_in_production/index.html" class="no-external">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/ai_agent_in_production/index.html" class="no-external"></a>
-</h3>
-<div class="delink listing-description"><a href="../blog/ai_agent_in_production/index.html" class="no-external">
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/ai_agent_in_production/index.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Z2VuYWklMkNhZ2VudHM=" data-listing-date-sort="1780610400000" data-listing-file-modified-sort="1782465442218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1161">
-<div class="thumbnail"><a href="../blog/ai_agent_in_production/index.html" class="no-external">
-
-<img loading="lazy" src="../blog/ai_agent_in_production/cover.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/ai_agent_in_production/index.html" class="no-external">5,000 Analyses Later: Lessons from Building and Running an AI Agent in Production</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/ai_agent_in_production/index.html" class="no-external">
-For the past year, I was building a AI Agent and puting it in production: a custom agent for a small business, built to help its employees with the analytical work they do…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/ai_agent_in_production/index.html" class="no-external">
-<div class="listing-date">
-5th June 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="cmwlMkNvcHRpb24=" data-listing-date-sort="1753048800000" data-listing-file-modified-sort="1772651098072" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3278">
-<div class="thumbnail"><a href="../blog/rl_for_option/index.html" class="no-external">
-
-<img loading="lazy" src="../blog/rl_for_option/cover_image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/rl_for_option/index.html" class="no-external">American Option Pricing with Reinforcement Learning: A Hands-On Python Tutorial</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/rl_for_option/index.html" class="no-external">
-<p>A short hands-on tutorial on option pricing with reinforcement learning</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/rl_for_option/index.html" class="no-external">
-<div class="listing-date">
-21st July 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Z2VuYWk=" data-listing-date-sort="1738278000000" data-listing-file-modified-sort="1772651098062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1743">
-<div class="thumbnail"><a href="../blog/4waysgenai/index.html" class="no-external">
-
-<img loading="lazy" src="../blog/4waysgenai/chartofgpt.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/4waysgenai/index.html" class="no-external">Generative AI: 4 Ways It Can Enhance Human Life</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/4waysgenai/index.html" class="no-external">
-<p>My notes on how generative AI can enhance human life</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/4waysgenai/index.html" class="no-external">
-<div class="listing-date">
-31st January 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="YWdlbnRpY3dvcmtmbG93" data-listing-date-sort="1738018800000" data-listing-file-modified-sort="1772651098081" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1035">
-<div class="thumbnail"><a href="../blog/simplelanggraph/index.html" class="no-external">
-
-<p class="card-img-top"><img src="simplelanggraph/index_files/figure-html/cell-8-1-image.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/simplelanggraph/index.html" class="no-external">Building a Simple LLM Agent Workflow with LangGraph</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/simplelanggraph/index.html" class="no-external">
-These days there is a lot of discussion about AI agents, and it seems to be becoming a hot topic. Essentially, it’s an improvement over the basic LLM agent by adding 1)…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/simplelanggraph/index.html" class="no-external">
-<div class="listing-date">
-28th January 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="YWdlbnRpY3dvcmtmbG93" data-listing-date-sort="1736118000000" data-listing-file-modified-sort="1772651098064" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1174">
-<div class="thumbnail"><a href="../blog/anthropic_effective_agent/index.html" class="no-external">
-
-<img loading="lazy" src="../blog/anthropic_effective_agent/augllm.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/anthropic_effective_agent/index.html" class="no-external">Building Effective Agents: A Short Hands-On Tutorial</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/anthropic_effective_agent/index.html" class="no-external">
-<p>A short hands-on tutorial on building effective agents following the Anthropic report</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/anthropic_effective_agent/index.html" class="no-external">
-<div class="listing-date">
-6th January 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="cmw=" data-listing-date-sort="1731625200000" data-listing-file-modified-sort="1772651098063" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="798">
-<div class="thumbnail"><a href="../blog/RLHF/index.html" class="no-external">
-
-<img loading="lazy" src="../blog/RLHF/rlhf3.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/RLHF/index.html" class="no-external">Learn Reinforcement Learning from Human Feedback (RLHF): Your 9-Hour Study Plan</a>
-</h3>
-<div class="delink listing-description"><a href="../blog/RLHF/index.html" class="no-external">
-<p>A study guide to get into Reinforcement Learning from Human Feedback (RLHF)</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/RLHF/index.html" class="no-external">
-<div class="listing-date">
-15th November 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -1,6 +1,9 @@
 project:
   type: website
 #  output-dir: docs
+  render:
+    - "*"
+    - "!CLAUDE.md"
 
 website:
   title: "Peyman Kor"
